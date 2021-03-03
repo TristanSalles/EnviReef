@@ -2,11 +2,4 @@ sphinx
 pandas
 matplotlib
 numpy>1.10
-cython>0.15.1
-pyproj
-netCDF4
-xarray
-cartopy
-pyproj
-cftime
 jupyter-book>=0.7.0b
