@@ -1,6 +1,6 @@
 name: envireef
 channels:
-  - default
+  - conda-forge
 dependencies:
   - python=3.8
   - sphinx
@@ -10,11 +10,13 @@ dependencies:
   - netCDF4
   - xarray
   - matplotlib
-  - numpy>1.10
-  - cython>0.15.1
+  - numpy
+  - scikit-image
+  - geopandas
+  - shapely
   - cftime
+  - cartopy
   - pip:
     - cmocean
     - jupyter-book
-    - cartopy
     - pyproj

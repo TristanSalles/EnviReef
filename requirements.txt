@@ -1,5 +1,5 @@
 sphinx
 pandas
 matplotlib
-numpy>1.10
+numpy
 jupyter-book>=0.7.0b
