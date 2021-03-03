@@ -1,4 +1,4 @@
-# quantecon-mini-example
+# Environment
 
 A short example showing how to write a lecture series using Jupyter Book 2.0.
 
@@ -23,7 +23,7 @@ If you would like to work with a clean build, you can empty the build folder by 
 jb clean mini_book/
 ```
 
-If jupyter execution is cached, this command will not delete the cached folder. 
+If jupyter execution is cached, this command will not delete the cached folder.
 
 To remove the build folder (including `cached` executables), you can run:
 
@@ -37,5 +37,5 @@ This repository is published automatically to `gh-pages` upon `push` to the `mas
 
 ## Notes
 
-This repository is used as a test case for [jupyter-book](https://github.com/executablebooks/jupyter-book) and 
+This repository is used as a test case for [jupyter-book](https://github.com/executablebooks/jupyter-book) and
 a `requirements.txt` file is provided to support this `CI` application.

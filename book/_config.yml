@@ -25,8 +25,12 @@ notebook_interface            : "notebook"
 #######################################################################################
 # Launch button settings
 repository:
-  url                         : https://github.com/executablebooks/quantecon-mini-example
+  url                         : https://github.com/TristanSalles/EnviReef
   path_to_book                : "book"
+  branch                      : main
+
+launch_buttons:
+  notebook_interface: "jupyterlab"
 
 binder:
   binderhub_url               : "https://mybinder.org"
@@ -36,3 +40,6 @@ latex:
   latex_engine                : "xelatex"
   latex_documents:
     targetname: book.tex
+
+bibtex_bibfiles:
+   - docs/ref.bib
