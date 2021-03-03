@@ -1,7 +1,7 @@
-# Scientific Python QuickStart 
+# Scientific Python QuickStart Environmental 
 
 This is a short sequence of lectures on Python programming for scientific
-work, written by [Thomas J.  Sargent](http://www.tomsargent.com/) and [John
+work, written by [Tristan Salles](http://www.tomsargent.com/) and [John
 Stachurski](https://johnstachurski.net/).
 
 ```{note}
@@ -23,5 +23,3 @@ run.
 Both lecture series are taken from a [more complete set of
 lectures](https://python.quantecon.org) on open source computing hosted by
 [QuantEcon](https://quantecon.org).
-
-
