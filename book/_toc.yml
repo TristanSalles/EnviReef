@@ -9,6 +9,6 @@
 - part: Week 01 - Overview of eReef
   chapters:
     - file: week_01/eReefs_hydro_GBR
-    sections:
-      - file: docs/learn_more
-      - file: docs/notebooks
+      sections:
+        - file: docs/learn_more
+        - file: docs/notebooks
