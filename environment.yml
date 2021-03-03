@@ -10,6 +10,8 @@ dependencies:
   - netCDF4
   - xarray
   - matplotlib
+  - numpy>1.10
+  - cython>0.15.1
   - cartopy
   - pyproj
   - cftime

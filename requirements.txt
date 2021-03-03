@@ -1,6 +1,8 @@
 sphinx
 pandas
 matplotlib
+numpy>1.10
+cython>0.15.1
 pyproj
 netCDF4
 xarray
