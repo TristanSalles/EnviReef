@@ -2,4 +2,4 @@ sphinx
 pandas
 matplotlib
 quantecon
-jupyter-book
+jupyter-book>=0.7.0b
