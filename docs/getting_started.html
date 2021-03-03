@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Setting up Your Python Environment &#8212; Environmental Simulation Modelling</title>
+    <title>Setting up Your Python Environment &#8212; Environmental Simulation Modelling Applied To Reef Monitoring</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -56,8 +56,6 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="An Introductory Example" href="python_by_example.html" />
-    <link rel="prev" title="About Python" href="about_py.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -79,7 +77,7 @@
   <img src="../_static/qe-logo-large.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling Applied To Reef Monitoring</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -87,25 +85,47 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="current nav sidenav_l1">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="index.html">
+   Scientific Python QuickStart Environmental
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="about_py.html">
    About Python
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Setting up Your Python Environment
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Week 01 - Overview of eReef
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html">
+   eReefs hydrodynamics all GBR
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="python_by_example.html">
-   An Introductory Example
+  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html#connect-to-the-opendap-endpoint-for-a-specified-month">
+   Connect to the OpeNDAP endpoint for a specified month.
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html#load-variables">
+   Load variables
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="content.html">
-   Content in Jupyter Book
+  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html#meshing-dataset-for-visualisation">
+   Meshing dataset for visualisation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
@@ -175,6 +195,24 @@
 </div>
 
             <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/EnviReef"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2Fdocs/getting_started.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/docs/getting_started.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
 
 
             <!-- Full screen (wrap in <a> to have style consistency -->
@@ -393,12 +431,12 @@ animation, etc.</p></li>
 </ul>
 <p>Because of these features, Jupyter is now a major player in the
 scientific computing ecosystem.</p>
-<p><a class="reference internal" href="#jp-demo"><span class="std std-numref">Figure 1</span></a> shows the execution of some code (borrowed from
+<p><code class="xref std std-numref docutils literal notranslate"><span class="pre">Figure</span> <span class="pre">%s</span></code> shows the execution of some code (borrowed from
 <a class="reference external" href="http://matplotlib.org/examples/pylab_examples/hexbin_demo.html">here</a>)
 in a Jupyter notebook</p>
 <div class="figure align-default" id="jp-demo">
 <a class="reference internal image-reference" href="../_images/jp_demo.png"><img alt="../_images/jp_demo.png" src="../_images/jp_demo.png" style="width: 403.0px; height: 476.0px;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">A Jupyter notebook viewed in the browser</span><a class="headerlink" href="#jp-demo" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text">A Jupyter notebook viewed in the browser</span><a class="headerlink" href="#jp-demo" title="Permalink to this image">¶</a></p>
 </div>
 <p>While Jupyter isn’t the only way to code in Python, it’s great for
 when you wish to</p>
@@ -636,8 +674,6 @@ run as discussed above.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="about_py.html" title="previous page">About Python</a>
-    <a class='right-next' id="next-link" href="python_by_example.html" title="next page">An Introductory Example</a>
 
         </div>
         
@@ -649,7 +685,18 @@ run as discussed above.</p>
         
           By Tristan Salles<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
       </p>
     </div>
   </footer>
