@@ -1,10 +1,14 @@
 # - file: README
-- file: docs/index
-  sections:
-    - file: docs/about_py
-    - file: docs/getting_started
-    - file: docs/python_by_example
-    - file: docs/content
-      sections:
-        - file: docs/learn_more
-        - file: docs/notebooks
+- file: welcome
+
+- part: Introduction
+  chapters:
+      - file: docs/index
+      - file: docs/about_py
+
+- part: Week 01 - Overview of eReef
+  chapters:
+    - file: week_01/eReefs_hydro_site
+    sections:
+      - file: docs/learn_more
+      - file: docs/notebooks

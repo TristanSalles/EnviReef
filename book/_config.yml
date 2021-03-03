@@ -1,12 +1,17 @@
 #######################################################################################
 # Book settings
-title : Environmental Simulation Modelling
+title : Environmental Simulation Modelling Applied To Reef Monitoring
 author: Tristan Salles
+copyright: "2020-2022"  # Copyright year to be placed in the footer
 logo: 'qe-logo-large.png'
+parse:
+  myst_extended_syntax: true
 
-# Short description about the book
-description: >-
-  A brief introduction to Python programming for scientific applications.
+# Launch button settings
+repository:
+  url                         : https://github.com/TristanSalles/EnviReef
+  path_to_book                : "book"
+  branch                      : main
 
 #######################################################################################
 # Execution settings
@@ -17,17 +22,22 @@ execute:
 # HTML-specific settings
 html:
   home_page_in_navbar         : false
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+  extra_footer: |
+    <p>
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+      <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+    </a>
+    These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+    <br>
+    &copy; Copyright 2020-2022.
+    </p>
 
 # #######################################################################################
 # Interact link settings
 notebook_interface            : "notebook"
-
-#######################################################################################
-# Launch button settings
-repository:
-  url                         : https://github.com/TristanSalles/EnviReef
-  path_to_book                : "book"
-  branch                      : main
 
 launch_buttons:
   notebook_interface: "jupyterlab"
@@ -43,3 +53,7 @@ latex:
 
 bibtex_bibfiles:
    - docs/ref.bib
+
+execute:
+  execute_notebooks: auto
+  allow_errors: true
