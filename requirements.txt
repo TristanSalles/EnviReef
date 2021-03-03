@@ -2,4 +2,13 @@ sphinx
 pandas
 matplotlib
 numpy
+netCDF4
 jupyter-book>=0.7.0b
+cartopy
+notebook
+scikit-image
+geopandas
+shapely
+xarray
+cftime
+cmocean
