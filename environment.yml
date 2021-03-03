@@ -7,6 +7,12 @@ dependencies:
   - pip
   - pandas
   - matplotlib
+  - netCDF4
+  - xarray
+  - matplotlib
+  - cartopy
+  - pyproj
+  - cftime
   - pip:
-    - quantecon
+    - cmocean
     - jupyter-book

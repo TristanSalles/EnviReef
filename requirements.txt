@@ -1,5 +1,10 @@
 sphinx
 pandas
 matplotlib
-quantecon
+pyproj
+netCDF4
+xarray
+cartopy
+pyproj
+cftime
 jupyter-book>=0.7.0b
