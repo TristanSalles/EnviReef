@@ -27,6 +27,7 @@ jobs:
         conda env create -f environment.yml
         # $CONDA is an environment variable pointing to the root of the miniconda directory
         $CONDA/bin/conda env update --file environment.yml
+        
     # Conda info
     - name: Conda info
       shell: bash
