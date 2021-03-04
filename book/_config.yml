@@ -4,8 +4,6 @@ title : Environmental Simulation Modelling Applied To Reef Monitoring
 author: Tristan Salles
 copyright: "2020-2022"  # Copyright year to be placed in the footer
 logo: 'qe-logo-large.png'
-parse:
-  myst_extended_syntax: true
 
 # Launch button settings
 repository:
