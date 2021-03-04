@@ -16,6 +16,7 @@ dependencies:
   - shapely
   - cftime
   - cartopy
+  - jupyter-book>=0.7.0b
   - pip:
     - cmocean
     - jupyter-book
