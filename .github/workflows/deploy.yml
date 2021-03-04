@@ -39,7 +39,7 @@ jobs:
     - name: Build the book
       shell: bash
       run: |
-        conda activate envireef
+        eval "$(conda shell.bash hook)" && conda activate envireef
         jupyter-book build book
 
     # Deploy the book's HTML to gh-pages branch
