@@ -26,18 +26,19 @@ jobs:
       run: |
         conda env create -f environment.yml
         # $CONDA is an environment variable pointing to the root of the miniconda directory
-        $CONDA/bin/conda env update --file environment.yml 
+        $CONDA/bin/conda env update --file environment.yml
     # Conda info
     - name: Conda info
-       shell: bash
-       run: |
-         eval "$(conda shell.bash hook)" && conda activate envireef
-         conda info
-         conda list
-   # Build the book
+      shell: bash
+      run: |
+        eval "$(conda shell.bash hook)" && conda activate envireef
+        conda info
+        conda list
+
+    # Build the book
     - name: Build the book
-       shell: bash
-       run: |
+      shell: bash
+      run: |
         conda activate envireef
         jupyter-book build book
 
