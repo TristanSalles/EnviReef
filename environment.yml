@@ -17,6 +17,7 @@ dependencies:
   - cftime
   - cartopy
   - jupyter-book>=0.7.0b
+  - myst-nb
   - pip:
     - cmocean
     - jupyter-book
