@@ -320,20 +320,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">59</span><span class="n">b7fb2294ed</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">cKDTree</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>In this notebook, we use the <a class="reference external" href="https://extraction.ereefs.aims.gov.au/">AIMS eReefs extraction tool</a> to extract time series data for two locations of interest.</p>
 <div class="section" id="example-problem-how-strong-does-the-wind-need-to-be-to-set-the-direction-of-the-surface-ocean-currents">
@@ -397,16 +383,7 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading extraction data ...
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="n">b8e9f6a67a40</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading extraction data ...&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.ereefs.aims.gov.au/data-extraction/request/2009.c451dc3/files/2009.c451dc3-collected.csv&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extractionfile</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="nb">print</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">else</span><span class="p">:</span>
-
-<span class="ne">NameError</span>: name &#39;urllib&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;temp/2009.c451dc3-collected.csv&#39;, &lt;http.client.HTTPMessage object at 0x7f01add7a280&gt;)
 </pre></div>
 </div>
 </div>
@@ -423,65 +400,117 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mf">28e579935917</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">extractionfile</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, squeeze, prefix, mangle_dupe_cols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, dialect, error_bad_lines, warn_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span>     <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">609</span> 
-<span class="ne">--&gt; </span><span class="mi">610</span>     <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">611</span> 
-<span class="g g-Whitespace">    </span><span class="mi">612</span> 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">460</span> 
-<span class="g g-Whitespace">    </span><span class="mi">461</span>     <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">462</span>     <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">463</span> 
-<span class="g g-Whitespace">    </span><span class="mi">464</span>     <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">817</span>             <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span> 
-<span class="ne">--&gt; </span><span class="mi">819</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span> 
-<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_make_engine</span><span class="nt">(self, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>         <span class="c1"># error: Too many arguments for &quot;ParserBase&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="k">def</span> <span class="nf">_failover_to_python</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1865</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1866</span>         <span class="c1"># open handles</span>
-<span class="ne">-&gt; </span><span class="mi">1867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_open_handles</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1868</span>         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1869</span>         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="s2">&quot;compression&quot;</span><span class="p">):</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/parsers.py</span> in <span class="ni">_open_handles</span><span class="nt">(self, src, kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1360</span>         <span class="n">Let</span> <span class="n">the</span> <span class="n">readers</span> <span class="nb">open</span> <span class="n">IOHanldes</span> <span class="n">after</span> <span class="n">they</span> <span class="n">are</span> <span class="n">done</span> <span class="k">with</span> <span class="n">their</span> <span class="n">potential</span> <span class="n">raises</span><span class="o">.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1361</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1362</span><span class="s2">         self.handles = get_handle(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1363</span><span class="s2">             src,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1364</span><span class="s2">             &quot;r&quot;,</span>
-
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/pandas/io/common.py</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">                 errors = &quot;replace&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="s2">             # Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">642</span><span class="s2">             handle = open(</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">                 handle,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">                 ioargs.mode,</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;temp/2009.c451dc3-collected.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aggregated Date/Time</th>
+      <th>Variable</th>
+      <th>Depth</th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>p5</th>
+      <th>p95</th>
+      <th>lowest</th>
+      <th>highest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>99999.90</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>99999.90</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>99999.90</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>99999.90</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-01T00:00</td>
+      <td>v</td>
+      <td>-2.35</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Here we can see that data is in <a class="reference external" href="https://towardsdatascience.com/whats-tidy-data-how-to-organize-messy-datasets-in-python-with-melt-and-pivotable-functions-5d52daa996c9">tidy format</a>. That is each observation is in one row per time step, variable, depth and site. For each of these combinations there are summary statistics corresponding to the aggregation process that was applied. Somewhat confusingly we extracted hourly data from the hourly eReefs hydrodynamic model and so there was no aggregation applied. As a result all the stats values are the same and the mean corresponds to the actual extracted data values. Let’s clean this up a little by removing the redundant columns. Here we also drop the depth variable as the depth of the wind doesn’t match the depth of the surface current and so makes it difficult to align the wind and the current together. Since we are only processing a single depth this is an OK simplification. If we were processing the current at multiple depths then we would need a more complex set of data wraggling.</p>
 <div class="cell docutils container">
@@ -492,16 +521,136 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">2</span><span class="n">f135e944f8e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;p5&#39;</span><span class="p">,</span> <span class="s1">&#39;p95&#39;</span><span class="p">,</span> <span class="s1">&#39;lowest&#39;</span><span class="p">,</span><span class="s1">&#39;highest&#39;</span><span class="p">,</span><span class="s1">&#39;Depth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">})</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df2</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aggregated Date/Time</th>
+      <th>Variable</th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>-9.568488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-8.880175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>3.260430</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2.756750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-01T00:00</td>
+      <td>v</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>0.047311</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70075</th>
+      <td>2019-12-31T23:00</td>
+      <td>wspeed_v</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-0.438245</td>
+    </tr>
+    <tr>
+      <th>70076</th>
+      <td>2019-12-31T23:00</td>
+      <td>v</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>-0.182262</td>
+    </tr>
+    <tr>
+      <th>70077</th>
+      <td>2019-12-31T23:00</td>
+      <td>v</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-0.132238</td>
+    </tr>
+    <tr>
+      <th>70078</th>
+      <td>2019-12-31T23:00</td>
+      <td>u</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>0.109877</td>
+    </tr>
+    <tr>
+      <th>70079</th>
+      <td>2019-12-31T23:00</td>
+      <td>u</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-0.036996</td>
+    </tr>
+  </tbody>
+</table>
+<p>70080 rows × 6 columns</p>
+</div></div></div>
 </div>
 <p>Next we need to align the wind and current values for a given time step and site on to the same rows of data. Here we are converting the data from tall format to wide format.</p>
 <div class="cell docutils container">
@@ -515,19 +664,160 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">ff377d178bde</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df3</span> <span class="o">=</span> <span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Site Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;Aggregated Date/Time&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Variable&quot;</span><span class="p">)[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">df3</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;df2&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Aggregated Date/Time</th>
+      <th>u</th>
+      <th>v</th>
+      <th>wspeed_u</th>
+      <th>wspeed_v</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T00:00</td>
+      <td>-0.048835</td>
+      <td>0.100391</td>
+      <td>-8.880175</td>
+      <td>2.756750</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T01:00</td>
+      <td>-0.090807</td>
+      <td>-0.036129</td>
+      <td>-8.749271</td>
+      <td>2.753487</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T02:00</td>
+      <td>-0.118289</td>
+      <td>-0.180480</td>
+      <td>-8.463824</td>
+      <td>2.587230</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T03:00</td>
+      <td>-0.110750</td>
+      <td>-0.278911</td>
+      <td>-8.223801</td>
+      <td>2.112059</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T04:00</td>
+      <td>-0.079472</td>
+      <td>-0.312360</td>
+      <td>-8.565171</td>
+      <td>2.711215</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>17515</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T19:00</td>
+      <td>0.122626</td>
+      <td>-0.135253</td>
+      <td>-3.541733</td>
+      <td>-1.553717</td>
+    </tr>
+    <tr>
+      <th>17516</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T20:00</td>
+      <td>0.109952</td>
+      <td>-0.159535</td>
+      <td>-4.599430</td>
+      <td>-2.777445</td>
+    </tr>
+    <tr>
+      <th>17517</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T21:00</td>
+      <td>0.093136</td>
+      <td>-0.191407</td>
+      <td>-5.076771</td>
+      <td>-2.509114</td>
+    </tr>
+    <tr>
+      <th>17518</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T22:00</td>
+      <td>0.097422</td>
+      <td>-0.195158</td>
+      <td>-4.684705</td>
+      <td>-1.118275</td>
+    </tr>
+    <tr>
+      <th>17519</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T23:00</td>
+      <td>0.109877</td>
+      <td>-0.182262</td>
+      <td>-4.291664</td>
+      <td>-0.946930</td>
+    </tr>
+  </tbody>
+</table>
+<p>17520 rows × 8 columns</p>
+</div></div></div>
 </div>
 </div>
 <div class="section" id="correlation">
@@ -550,18 +840,111 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">32</span><span class="n">a962aa7b57</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;currentmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;windmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_u&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_v&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;windcurrentcorr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_u&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_v&#39;</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;currentmag&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;windmag&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;df3&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Aggregated Date/Time</th>
+      <th>u</th>
+      <th>v</th>
+      <th>wspeed_u</th>
+      <th>wspeed_v</th>
+      <th>currentmag</th>
+      <th>windmag</th>
+      <th>windcurrentcorr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T00:00</td>
+      <td>-0.048835</td>
+      <td>0.100391</td>
+      <td>-8.880175</td>
+      <td>2.756750</td>
+      <td>0.111638</td>
+      <td>9.298236</td>
+      <td>0.684380</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T01:00</td>
+      <td>-0.090807</td>
+      <td>-0.036129</td>
+      <td>-8.749271</td>
+      <td>2.753487</td>
+      <td>0.097730</td>
+      <td>9.172319</td>
+      <td>0.775325</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T02:00</td>
+      <td>-0.118289</td>
+      <td>-0.180480</td>
+      <td>-8.463824</td>
+      <td>2.587230</td>
+      <td>0.215790</td>
+      <td>8.850428</td>
+      <td>0.279727</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T03:00</td>
+      <td>-0.110750</td>
+      <td>-0.278911</td>
+      <td>-8.223801</td>
+      <td>2.112059</td>
+      <td>0.300094</td>
+      <td>8.490683</td>
+      <td>0.126259</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T04:00</td>
+      <td>-0.079472</td>
+      <td>-0.312360</td>
+      <td>-8.565171</td>
+      <td>2.711215</td>
+      <td>0.322311</td>
+      <td>8.984033</td>
+      <td>-0.057391</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Let’s look at the relationship between the wind and current as a function of the wind speed.</p>
 <p>Here we are considering each hourly sample as an independent estimate of the relationship. In reality this is not the case as the longer the wind blows the more effect it will have on the current. This is a limitation of the analysis.</p>
@@ -574,17 +957,111 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">eeeb29fbd9a1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">davies</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`Site Name` == &quot;Davies Reef&quot;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">myrmidon</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`Site Name` == &quot;Myrmidon Reef&quot;&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">myrmidon</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="ne">NameError</span>: name &#39;df3&#39; is not defined
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Aggregated Date/Time</th>
+      <th>u</th>
+      <th>v</th>
+      <th>wspeed_u</th>
+      <th>wspeed_v</th>
+      <th>currentmag</th>
+      <th>windmag</th>
+      <th>windcurrentcorr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8760</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T00:00</td>
+      <td>0.012498</td>
+      <td>0.047311</td>
+      <td>-9.568488</td>
+      <td>3.260430</td>
+      <td>0.048934</td>
+      <td>10.108727</td>
+      <td>0.070078</td>
+    </tr>
+    <tr>
+      <th>8761</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T01:00</td>
+      <td>-0.029212</td>
+      <td>-0.013297</td>
+      <td>-9.420339</td>
+      <td>3.528335</td>
+      <td>0.032096</td>
+      <td>10.059420</td>
+      <td>0.707019</td>
+    </tr>
+    <tr>
+      <th>8762</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T02:00</td>
+      <td>-0.060520</td>
+      <td>-0.066542</td>
+      <td>-9.333500</td>
+      <td>3.765564</td>
+      <td>0.089947</td>
+      <td>10.064477</td>
+      <td>0.347188</td>
+    </tr>
+    <tr>
+      <th>8763</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T03:00</td>
+      <td>-0.078321</td>
+      <td>-0.111699</td>
+      <td>-9.281394</td>
+      <td>3.784521</td>
+      <td>0.136421</td>
+      <td>10.023316</td>
+      <td>0.222466</td>
+    </tr>
+    <tr>
+      <th>8764</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T04:00</td>
+      <td>-0.076759</td>
+      <td>-0.132760</td>
+      <td>-8.527690</td>
+      <td>3.885759</td>
+      <td>0.153353</td>
+      <td>9.371266</td>
+      <td>0.096513</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Let’s create a scatter plot to see if there is a relationship between the wind and currents.</p>
 <div class="cell docutils container">
@@ -610,16 +1087,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">277681</span><span class="n">ec0f7b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wind speed (m/s)&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Wind-current correlation&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<img alt="../_images/eReefs_hydro_site_comparison_17_0.svg" src="../_images/eReefs_hydro_site_comparison_17_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -659,16 +1127,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">5</span><span class="n">bc0082967b0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wind speed (m/s)&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Wind-current correlation&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<img alt="../_images/eReefs_hydro_site_comparison_19_0.svg" src="../_images/eReefs_hydro_site_comparison_19_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>

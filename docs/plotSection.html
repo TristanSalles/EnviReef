@@ -295,13 +295,13 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e9dc8186a9db</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">netCDF4</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">scipy.ndimage.filters</span> <span class="kn">import</span> <span class="n">gaussian_filter</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> 
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">scripts</span> <span class="kn">import</span> <span class="n">hydroData</span> <span class="k">as</span> <span class="n">model</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">import</span> <span class="nn">cmocean</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;netCDF4&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;scripts&#39;
 </pre></div>
 </div>
 </div>
@@ -318,14 +318,18 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">5</span><span class="n">fd11b1d76b6</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">outsimple</span> <span class="o">=</span> <span class="s2">&quot;378/outputs/out_simple.nc&quot;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">fdata</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">outsimple</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;NETCDF4&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ncdata</span> <span class="o">=</span> <span class="n">fdata</span><span class="o">.</span><span class="n">variables</span>
 
-<span class="ne">NameError</span>: name &#39;Dataset&#39; is not defined
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">src/netCDF4/_netCDF4.pyx</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: b&#39;378/outputs/out_simple.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -1129,7 +1133,7 @@
 <span class="g g-Whitespace">      </span><span class="mi">4</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">secData</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="ne">NameError</span>: name &#39;RectBivariateSpline&#39; is not defined
+<span class="ne">NameError</span>: name &#39;zi&#39; is not defined
 </pre></div>
 </div>
 </div>

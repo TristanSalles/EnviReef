@@ -332,20 +332,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mf">491e992</span><span class="n">ad694</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">netCDF4</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">num2date</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;netCDF4&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="define-which-data-to-be-plotted">
 <h2>Define which data to be plotted.<a class="headerlink" href="#define-which-data-to-be-plotted" title="Permalink to this headline">¶</a></h2>
@@ -399,16 +385,8 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">873</span><span class="n">ca367fa4f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">nc_data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Get the list of variable in the file:&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;Dataset&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get the list of variable in the file:
+[&#39;mean_cur&#39;, &#39;salt&#39;, &#39;temp&#39;, &#39;u&#39;, &#39;v&#39;, &#39;zc&#39;, &#39;time&#39;, &#39;latitude&#39;, &#39;longitude&#39;, &#39;mean_wspeed&#39;, &#39;eta&#39;, &#39;wspeed_u&#39;, &#39;wspeed_v&#39;]
 </pre></div>
 </div>
 </div>
@@ -421,12 +399,21 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">63</span><span class="n">a38e72d1d3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+float32 mean_cur(time, k, latitude, longitude)
+    coordinates: time zc latitude longitude
+    substanceOrTaxon_id: http://environment.data.gov.au/def/feature/ocean_current
+    units: ms-1
+    medium_id: http://environment.data.gov.au/def/feature/ocean
+    unit_id: http://qudt.org/vocab/unit#MeterPerSecond
+    short_name: mean_cur
+    aggregation: mean_speed
+    standard_name: mean_current_speed
+    long_name: mean_current_speed
+    _ChunkSizes: [  1   1 133 491]
+unlimited dimensions: time
+current shape = (31, 17, 723, 491)
+filling off
 </pre></div>
 </div>
 </div>
@@ -438,12 +425,7 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">06</span><span class="n">acd66143f0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">standard_name</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;mean_current_speed&#39;
 </pre></div>
 </div>
 </div>
@@ -455,12 +437,7 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">9e2</span><span class="n">f470824d5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ms-1&#39;
 </pre></div>
 </div>
 </div>
@@ -482,16 +459,10 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="n">faf0ef1445c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Starting with the spatial domain</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eReefs model spatial extent:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eReefs model spatial extent:
 
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+ - Longitudinal extent: 142.168788 156.868788
+ - Latitudinal extent: -28.696022 -7.036022
 </pre></div>
 </div>
 </div>
@@ -518,16 +489,11 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">7</span><span class="n">f287e5efc48</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Get time span of the dataset</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">time_var</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Starting time</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> - start time:  2020-Feb-29 14:00 
 
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+ - end time:  2020-Mar-30 14:00 
+
+ - Number of time steps 31 
 </pre></div>
 </div>
 </div>
@@ -546,16 +512,24 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">6</span><span class="n">f35f9daba34</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Number of vetical points along the z-coordinate model</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">zc</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;zc&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">nlay</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zc</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of vertical layers&#39;</span><span class="p">,</span><span class="n">nlay</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of vertical layers 17
+  + vertical layer 0 is at -145.0 m
+  + vertical layer 1 is at -120.0 m
+  + vertical layer 2 is at -103.0 m
+  + vertical layer 3 is at -88.0 m
+  + vertical layer 4 is at -73.0 m
+  + vertical layer 5 is at -60.0 m
+  + vertical layer 6 is at -49.0 m
+  + vertical layer 7 is at -39.5 m
+  + vertical layer 8 is at -31.0 m
+  + vertical layer 9 is at -23.75 m
+  + vertical layer 10 is at -17.75 m
+  + vertical layer 11 is at -12.75 m
+  + vertical layer 12 is at -8.8 m
+  + vertical layer 13 is at -5.55 m
+  + vertical layer 14 is at -3.0 m
+  + vertical layer 15 is at -1.5 m
+  + vertical layer 16 is at -0.5 m
 </pre></div>
 </div>
 </div>
@@ -573,20 +547,6 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
     <span class="n">loni</span><span class="p">,</span> <span class="n">lati</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
     <span class="n">lonlati</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">loni</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">lati</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">meshtri</span> <span class="o">=</span> <span class="n">triangle</span><span class="o">.</span><span class="n">Triangulation</span><span class="p">(</span><span class="n">loni</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">lati</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="n">e46d51baf7df</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lat</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">lon</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">meshtri</span> <span class="o">=</span> <span class="n">triangle</span><span class="o">.</span><span class="n">Triangulation</span><span class="p">(</span><span class="n">lon</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">lat</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">loni</span><span class="p">,</span> <span class="n">lati</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">lonlati</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dstack</span><span class="p">([</span><span class="n">loni</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">lati</span><span class="o">.</span><span class="n">flatten</span><span class="p">()])[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;lat&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -766,16 +726,21 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="n">d558bfbd66a0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">selectedDepthIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">lonIDmin</span> <span class="o">=</span> <span class="n">find_nearest</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lonExtent</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">lonIDmax</span> <span class="o">=</span> <span class="n">find_nearest</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lonExtent</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;lon&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset array indices for longitude and latitude containing the region:
+  - indices for longitude:  274 348
+  - indices for latitude:   153 187
+ 
+Mean current range: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0049330755 0.99896616
+ 
+Temperature range: 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.5527043 31.84241
+ 
+Salinity range: 
 </pre></div>
 </div>
 </div>
@@ -810,20 +775,6 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="n">ca40b53c2b71</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> 
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># Used color</span>
-<span class="ne">---&gt; </span><span class="mi">13</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">speed</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1"># Variable range for the colorscale</span>
-
-<span class="ne">NameError</span>: name &#39;cmocean&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can use a loop to plot changes over time like this:</p>
 <div class="cell docutils container">
@@ -843,20 +794,6 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">7390</span><span class="n">ed046283</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Here we loop over the days with a 2 day increment</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">for</span> <span class="n">tstep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ntime</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># Get time interval</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="n">tstep</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ntime&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can then use the following line to create an animated <code class="docutils literal notranslate"><span class="pre">gif</span></code></p>
 <div class="cell docutils container">
@@ -865,27 +802,11 @@ The depth slice in the netCDF file. Note the index starts with 0.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>convert-im6.q16: unable to open image `CapricornCurrent_time*_zc-001.png&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
-convert-im6.q16: no images defined `CapricornCurrent.gif&#39; @ error/convert.c/ConvertImageCommand/3258.
-</pre></div>
-</div>
-</div>
 </div>
 <p>It can then be displayed as:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;CapricornCurrent.gif&#39; /&gt;&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">fde1aad32ec7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;CapricornCurrent.gif&#39; /&gt;&quot;</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;HTML&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -917,20 +838,6 @@ convert-im6.q16: no images defined `CapricornCurrent.gif&#39; @ error/convert.c/
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="mi">6</span><span class="n">f0c4742eee2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Used color</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">thermal</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Variable range for the colorscale</span>
-
-<span class="ne">NameError</span>: name &#39;cmocean&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,20 +856,6 @@ convert-im6.q16: no images defined `CapricornCurrent.gif&#39; @ error/convert.c/
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">0662089597</span><span class="n">b2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Here we loop over the days with a 2 day increment</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">for</span> <span class="n">tstep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ntime</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># Get time interval</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="n">tstep</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ntime&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -970,26 +863,10 @@ convert-im6.q16: no images defined `CapricornCurrent.gif&#39; @ error/convert.c/
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>convert-im6.q16: unable to open image `CapricornTemp_time*_zc-001.png&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
-convert-im6.q16: no images defined `CapricornTemp.gif&#39; @ error/convert.c/ConvertImageCommand/3258.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;CapricornTemp.gif&#39; /&gt;&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">21</span><span class="o">-</span><span class="n">bcf8ba8430e9</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;CapricornTemp.gif&#39; /&gt;&quot;</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;HTML&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1021,20 +898,6 @@ convert-im6.q16: no images defined `CapricornTemp.gif&#39; @ error/convert.c/Con
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">22</span><span class="o">-</span><span class="mi">141</span><span class="n">b7dcffae1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Used color</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">haline</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Variable range for the colorscale</span>
-
-<span class="ne">NameError</span>: name &#39;cmocean&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1053,20 +916,6 @@ convert-im6.q16: no images defined `CapricornTemp.gif&#39; @ error/convert.c/Con
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mi">8</span><span class="n">bb80a14a316</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Here we loop over the days with a 2 day increment</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">for</span> <span class="n">tstep</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ntime</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># Get time interval</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="n">tstep</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ntime&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1074,26 +923,10 @@ convert-im6.q16: no images defined `CapricornTemp.gif&#39; @ error/convert.c/Con
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>convert-im6.q16: unable to open image `CapricornSalt_time*_zc-001.png&#39;: No such file or directory @ error/blob.c/OpenBlob/2874.
-convert-im6.q16: no images defined `CapricornSalt.gif&#39; @ error/convert.c/ConvertImageCommand/3258.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;CapricornSalt.gif&#39; /&gt;&quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="mi">24</span><span class="n">c66632562c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;img src=&#39;CapricornSalt.gif&#39; /&gt;&quot;</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;HTML&#39; is not defined
 </pre></div>
 </div>
 </div>

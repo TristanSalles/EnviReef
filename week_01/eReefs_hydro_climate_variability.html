@@ -360,13 +360,13 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">729</span><span class="n">ef14e72ac</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">scipy</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">cmocean</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> 
+<span class="ne">---&gt; </span><span class="mi">18</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="kn">import</span> <span class="nn">pymannkendall</span> <span class="k">as</span> <span class="nn">mk</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> 
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;scipy&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
 </pre></div>
 </div>
 </div>
@@ -490,16 +490,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">7921951</span><span class="n">f98f5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Define starting and ending date of the netcdf file we want to load</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">start_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="mi">2021</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">delta</span> <span class="o">=</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=+</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;dt&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Processing time interval: 2010-09
 </pre></div>
 </div>
 </div>
@@ -519,35 +510,11 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="n">da85d1e626a4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>         <span class="s2">&quot;DaviesReef_timeseries.csv&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="n">sep</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-
-<span class="ne">NameError</span>: name &#39;pd&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can visualise the file content in the Jupyter environment by simply calling the dataframe <code class="docutils literal notranslate"><span class="pre">df</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">00</span><span class="n">cf07b74dcd</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -603,20 +570,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">039</span><span class="n">c884c7af1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Compute the rolling window for the mean</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">rolling</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">days</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">current_roll</span> <span class="o">=</span> <span class="n">rolling</span><span class="p">[</span><span class="s2">&quot;current&quot;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;df&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can now plot the time series based on the above dataset.</p>
 <div class="section" id="mean-current-time-series-at-site-location">
@@ -652,20 +605,6 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;eReefs surficial mean current at Davies Reef&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="c1">#fig.savefig(&quot;DaviesReefcurrentVariability&quot;, dpi=100)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">7</span><span class="n">c748fd62d75</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeseries</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">current</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean current&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">timeseries</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">timeseries</span><span class="o">.</span><span class="n">current_roll</span><span class="p">,</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -759,20 +698,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">4</span><span class="n">bd86d6a1df4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">### WIND</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">timeseries</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">wind</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;lightgrey&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Mean wind&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">timeseries</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -817,27 +742,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">a1432df3297d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> 
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># Let&#39;s call the function</span>
-<span class="ne">---&gt; </span><span class="mi">29</span> <span class="n">Current_season</span> <span class="o">=</span> <span class="n">getSeason</span><span class="p">(</span><span class="s1">&#39;current&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">Wind_season</span> <span class="o">=</span> <span class="n">getSeason</span><span class="p">(</span><span class="s1">&#39;wind&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="n">Temp_season</span> <span class="o">=</span> <span class="n">getSeason</span><span class="p">(</span><span class="s1">&#39;temperature&#39;</span><span class="p">)</span>
-
-<span class="nn">&lt;ipython-input-11-a1432df3297d&gt;</span> in <span class="ni">getSeason</span><span class="nt">(param)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">getSeason</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">tdf</span> <span class="o">=</span> <span class="p">(</span><span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;month&quot;</span><span class="p">])[[</span><span class="n">param</span><span class="p">]]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>                     <span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;timeseries&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="heatmaps">
 <h3>Heatmaps<a class="headerlink" href="#heatmaps" title="Permalink to this headline">¶</a></h3>
@@ -873,20 +777,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">e28b333b8ebc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Current</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">color</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">speed</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">Current_season</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span>
-
-<span class="ne">NameError</span>: name &#39;cmocean&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="monthly-distributions">
@@ -917,20 +807,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">531</span><span class="n">aa4bd7e03</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Wind</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">Current_season</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Spectral&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Monthly distributions for chosen time interval&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Wind (m/s)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="standard-deviation-to-the-mean-by-months">
@@ -958,20 +834,6 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1">#loc=&#39;upper right&#39;, bbox_to_anchor=(0.91, 0.91))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mf">2e7</span><span class="n">bf2038c0b</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">curr_sd</span> <span class="o">=</span> <span class="n">Current_season</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">wind_sd</span> <span class="o">=</span> <span class="n">Wind_season</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">temp_sd</span> <span class="o">=</span> <span class="n">Temp_season</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">salt_sd</span> <span class="o">=</span> <span class="n">Salt_season</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;Current_season&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1006,20 +868,6 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Change in yearly salinity trend accounting for seasonality:&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    +           trend: &quot;</span><span class="p">,</span> <span class="n">salt_trend</span><span class="o">.</span><span class="n">trend</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    +    slope (PSU /y): &quot;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">salt_trend</span><span class="o">.</span><span class="n">slope</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="n">c001890be212</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">curr_stack</span> <span class="o">=</span> <span class="n">Current_season</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">curr_trend</span> <span class="o">=</span> <span class="n">mk</span><span class="o">.</span><span class="n">seasonal_test</span><span class="p">(</span><span class="n">curr_stack</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Change in yearly current trend accounting for seasonality:&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    +           trend: &quot;</span><span class="p">,</span> <span class="n">curr_trend</span><span class="o">.</span><span class="n">trend</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;Current_season&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -1079,20 +927,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="n">c2a9961b6870</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Using Pandas to load the file content</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">soi</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">soi_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">soi</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)),</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> 
-
-<span class="ne">NameError</span>: name &#39;requests&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>eReefs outputs anomalies:</p>
 <div class="cell docutils container">
@@ -1127,20 +961,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">18</span><span class="o">-</span><span class="n">a35423bfbfae</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Get monthly mean eReefs parameters</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">curr_data</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])[[</span><span class="s1">&#39;current&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">wind_data</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])[[</span><span class="s1">&#39;wind&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">temp_data</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])[[</span><span class="s1">&#39;temperature&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">salt_data</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">])[[</span><span class="s1">&#39;salinity&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;timeseries&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="correlations">
@@ -1168,20 +988,6 @@
 <span class="c1"># Pearson correlation between salinity and SOI</span>
 <span class="n">monthly_soi</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">soi_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">],</span><span class="n">salt_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span> 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;+ Pearson correlation between salinity and SOI:&#39;</span><span class="p">,</span><span class="n">monthly_soi</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">99383</span><span class="n">fd71c85</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Pearson correlation between current and SOI</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">monthly_soi</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">pearsonr</span><span class="p">(</span><span class="n">soi_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">],</span><span class="n">curr_df</span><span class="p">[</span><span class="s1">&#39;anomaly&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;+ Pearson correlation between current and SOI:&#39;</span><span class="p">,</span><span class="n">monthly_soi</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Pearson correlation between wind and SOI</span>
-
-<span class="ne">NameError</span>: name &#39;scipy&#39; is not defined
 </pre></div>
 </div>
 </div>

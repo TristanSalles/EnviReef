@@ -317,20 +317,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">1328</span><span class="n">ca5587d1</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">netCDF4</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">num2date</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;netCDF4&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>In this notebook, we use OpeNDAP to extract time series data at a single location of interest, then plot this data. This extraction process can also be done with the AIMS eReefs data extraction tool (https://extraction.ereefs.aims.gov.au/).</p>
 <p><em>Note</em>: This script has no error checking and so changing the date ranges or locations might result in out of bounds errors.</p>
@@ -372,16 +358,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">873</span><span class="n">ca367fa4f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">nc_data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Get the list of variable in the file:&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> 
-
-<span class="ne">NameError</span>: name &#39;Dataset&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get the list of variable in the file:
+[&#39;mean_cur&#39;, &#39;salt&#39;, &#39;temp&#39;, &#39;u&#39;, &#39;v&#39;, &#39;zc&#39;, &#39;time&#39;, &#39;latitude&#39;, &#39;longitude&#39;, &#39;mean_wspeed&#39;, &#39;eta&#39;, &#39;wspeed_u&#39;, &#39;wspeed_v&#39;]
 </pre></div>
 </div>
 </div>
@@ -394,12 +372,21 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">63</span><span class="n">a38e72d1d3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;netCDF4._netCDF4.Variable&#39;&gt;
+float32 mean_cur(time, k, latitude, longitude)
+    coordinates: time zc latitude longitude
+    substanceOrTaxon_id: http://environment.data.gov.au/def/feature/ocean_current
+    units: ms-1
+    medium_id: http://environment.data.gov.au/def/feature/ocean
+    unit_id: http://qudt.org/vocab/unit#MeterPerSecond
+    short_name: mean_cur
+    aggregation: mean_speed
+    standard_name: mean_current_speed
+    long_name: mean_current_speed
+    _ChunkSizes: [  1   1 133 491]
+unlimited dimensions: time
+current shape = (31, 17, 723, 491)
+filling off
 </pre></div>
 </div>
 </div>
@@ -411,12 +398,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">06</span><span class="n">acd66143f0</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">standard_name</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;mean_current_speed&#39;
 </pre></div>
 </div>
 </div>
@@ -428,12 +410,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mf">9e2</span><span class="n">f470824d5</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ms-1&#39;
 </pre></div>
 </div>
 </div>
@@ -455,16 +432,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">1</span><span class="n">faf0ef1445c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Starting with the spatial domain</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">lon</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;eReefs model spatial extent:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>eReefs model spatial extent:
 
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+ - Longitudinal extent: 142.168788 156.868788
+ - Latitudinal extent: -28.696022 -7.036022
 </pre></div>
 </div>
 </div>
@@ -491,16 +462,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">7</span><span class="n">f287e5efc48</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Get time span of the dataset</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">time_var</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Starting time</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> - start time:  2020-Feb-29 14:00 
 
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+ - end time:  2020-Mar-30 14:00 
+
+ - Number of time steps 31 
 </pre></div>
 </div>
 </div>
@@ -519,16 +485,24 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="mi">6</span><span class="n">f35f9daba34</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Number of vetical points along the z-coordinate model</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">zc</span> <span class="o">=</span> <span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;zc&#39;</span><span class="p">][:]</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">fill_value</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">nlay</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">zc</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of vertical layers&#39;</span><span class="p">,</span><span class="n">nlay</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;ncdata&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number of vertical layers 17
+  + vertical layer 0 is at -145.0 m
+  + vertical layer 1 is at -120.0 m
+  + vertical layer 2 is at -103.0 m
+  + vertical layer 3 is at -88.0 m
+  + vertical layer 4 is at -73.0 m
+  + vertical layer 5 is at -60.0 m
+  + vertical layer 6 is at -49.0 m
+  + vertical layer 7 is at -39.5 m
+  + vertical layer 8 is at -31.0 m
+  + vertical layer 9 is at -23.75 m
+  + vertical layer 10 is at -17.75 m
+  + vertical layer 11 is at -12.75 m
+  + vertical layer 12 is at -8.8 m
+  + vertical layer 13 is at -5.55 m
+  + vertical layer 14 is at -3.0 m
+  + vertical layer 15 is at -1.5 m
+  + vertical layer 16 is at -0.5 m
 </pre></div>
 </div>
 </div>
@@ -565,16 +539,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">40</span><span class="n">ce59972026</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> 
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">selectedLatIndex</span> <span class="o">=</span> <span class="n">find_nearest</span><span class="p">(</span><span class="n">lat</span><span class="p">,</span><span class="n">site_lat</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">selectedLonIndex</span> <span class="o">=</span> <span class="n">find_nearest</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span><span class="n">site_lon</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> 
-
-<span class="ne">NameError</span>: name &#39;lat&#39; is not defined
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Grid position of location: 329, 182
 </pre></div>
 </div>
 </div>
@@ -606,13 +571,13 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="n">f2082bca23ab</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Current</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Time, Depth, Lat, Lon</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">dailyCurr</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">][:,[</span><span class="n">selectedDepthIndex</span><span class="p">,</span><span class="n">selectedDepthIndex2</span><span class="p">],</span> <span class="n">selectedLatIndex</span><span class="p">,</span> <span class="n">selectedLonIndex</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dailyTemp1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">dailyCurr</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">][:,[</span><span class="n">selectedDepthIndex</span><span class="p">,</span><span class="n">selectedDepthIndex2</span><span class="p">],</span> <span class="n">selectedLatIndex</span><span class="p">,</span> <span class="n">selectedLonIndex</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Current: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">dailyTemp1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Temperature</span>
 
-<span class="ne">NameError</span>: name &#39;nc_data&#39; is not defined
+<span class="ne">NameError</span>: name &#39;dailyTemp1&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -625,17 +590,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="n">bf61bddf5c44</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wspeed_v</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;wspeed_v&#39;</span><span class="p">][:,</span> <span class="n">selectedLatIndex</span><span class="p">,</span> <span class="n">selectedLonIndex</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">wspeed_u</span> <span class="o">=</span> <span class="n">nc_data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s1">&#39;wspeed_u&#39;</span><span class="p">][:,</span> <span class="n">selectedLatIndex</span><span class="p">,</span> <span class="n">selectedLonIndex</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;nc_data&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>To get the wind speed we need to calculate the magnitude of this vector.</p>
 <div class="cell docutils container">
@@ -644,31 +598,11 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">13</span><span class="o">-</span><span class="mi">506</span><span class="n">a44bfe11d</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">wspeed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">wspeed_v</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">wspeed_u</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;wspeed_v&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <p>Get the time series. Note that the time values are stored as the number of days since 1990-01-01 00:00:00 +10.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">time_var</span><span class="p">[:],</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;1990-01-01&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="n">bed402a31143</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">time_var</span><span class="p">[:],</span><span class="n">unit</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span><span class="n">origin</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;1990-01-01&#39;</span><span class="p">))</span>
-
-<span class="ne">NameError</span>: name &#39;time_var&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -705,16 +639,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">15</span><span class="o">-</span><span class="mi">0</span><span class="n">f0852f9ef01</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Recorded Time Interval&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Mean current (m/s)&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<img alt="../_images/eReefs_hydro_site_26_0.svg" src="../_images/eReefs_hydro_site_26_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -756,16 +681,16 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">16</span><span class="o">-</span><span class="mf">72e4</span><span class="n">d91dd906</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Recorded Time Interval&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Temperature (deg C)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dailyTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Depth (-1.5 m)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dailyTemp</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Depth (-17.75 m)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
 
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<span class="ne">NameError</span>: name &#39;dailyTemp&#39; is not defined
 </pre></div>
 </div>
-</div>
+<img alt="../_images/eReefs_hydro_site_28_1.svg" src="../_images/eReefs_hydro_site_28_1.svg" /></div>
 </div>
 <p>From this graph we can see that the surface water at Davies Reef was very warm during March 2020.</p>
 <p>There was a strong stratification of the temperature profile with cool water at -18 m. Around the 10th March the wind picked up for a few days, mixing the water, cooling the surface down rapidly.</p>
@@ -807,16 +732,16 @@
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
 <span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">17</span><span class="o">-</span><span class="mi">0</span><span class="n">a01f277a253</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Recorded Time Interval&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Salinity (PSU)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dailySalt</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Depth (-1.5 m)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">dailySalt</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Depth (-17.75 m)&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> 
 
-<span class="ne">NameError</span>: name &#39;plt&#39; is not defined
+<span class="ne">NameError</span>: name &#39;dailySalt&#39; is not defined
 </pre></div>
 </div>
-</div>
+<img alt="../_images/eReefs_hydro_site_30_1.svg" src="../_images/eReefs_hydro_site_30_1.svg" /></div>
 </div>
 </div>
 </div>
