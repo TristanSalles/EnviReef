@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome &#8212; Environmental Simulation Modelling Applied To Reef Monitoring</title>
+    <title>Welcome &#8212; Environmental Simulation Modelling</title>
     
   <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -76,7 +76,7 @@
   <img src="_static/qe-logo-large.png" class="logo" alt="logo">
   
   
-  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling Applied To Reef Monitoring</h1>
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
   
 </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
@@ -247,6 +247,11 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-we-will-use-and-why-we-care">
+   What we will use and why we care
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#learning-outcomes">
    Learning outcomes
   </a>
@@ -267,8 +272,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#authors">
-   Authors
+  <a class="reference internal nav-link" href="#author">
+   Author
   </a>
   <ul class="nav section-nav flex-column">
   </ul>
@@ -287,10 +292,41 @@
                 
   <div class="section" id="welcome">
 <h1>Welcome<a class="headerlink" href="#welcome" title="Permalink to this headline">¶</a></h1>
-<p>Lecture notes of the master lecture <a class="reference external" href="https://orawww.uibk.ac.at/public/lfuonline_lv.details?sem_id_in=20W&amp;lvnr_id_in=707716">707716 - Scientific Programming</a>, taught to 1st semester students following a <a class="reference external" href="https://www.uibk.ac.at/acinn/studies/master-in-atmospheric-sciences.html.en">Master in Atmospheric Sciences</a> curriculum from the Department of Atmospheric and Cryospheric Sciences (<a class="reference external" href="https://www.uibk.ac.at/acinn">ACINN</a>) at the University of Innsbruck.</p>
-<p>This lecture is tailored for a 15 weeks-long class, but these notes might also be of interest to other (geo-)scientists wanting to learn the fundamentals of scientific programming. <strong>Welcome to you all!</strong></p>
+<p>Lecture notes of the master lecture <a class="reference external" href="https://www.sydney.edu.au/courses/units-of-study/2021/envi/envi5809.html">ENVI5809 - Environmental Simulation Modelling</a>, taught to 2nd semester students at the University of Sydney.</p>
+<p>This lecture is tailored for a 12 weeks-long class, but these notes might also be of interest to other (geo-)scientists wanting to learn how to query, analyse and visualise dataset from webserver. <strong>Welcome to you all!</strong></p>
 <div class="margin figure align-default" id="margin-figure">
 <img alt="_images/USydney-logo.jpg" src="_images/USydney-logo.jpg" />
+</div>
+<div class="section" id="what-we-will-use-and-why-we-care">
+<h2>What we will use and why we care<a class="headerlink" href="#what-we-will-use-and-why-we-care" title="Permalink to this headline">¶</a></h2>
+<p>This unit of study introduces approaches to  simulation modelling in understanding and predicting behaviour of natural systems. It covers fundamental concepts, logic, and techniques (including sensitivity analysis), and develops skills in application to environmental problems such as catchment management and population dynamics.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Today, numerical modelling and ocean data query techniques are routinely applied by governmental agencies, companies and research organisations to tackle complex coastal problems. It is based on advanced physical models and engineering approaches designed to describe and observe the connections between ocean dynamics and coastal evolution.</p>
+</div>
+<ul class="simple">
+<li><p>How to query and analyse numerical and ocean data?</p></li>
+<li><p>What can we learn from ocean and wave models on coastal evolution?</p></li>
+</ul>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span><span class="p">,</span><span class="n">Image</span><span class="p">,</span> <span class="n">YouTubeVideo</span>
+<span class="nb">id</span><span class="o">=</span><span class="s1">&#39;mnRssHJ4zHE&#39;</span>
+<span class="n">YouTubeVideo</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="nb">id</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span><span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="700"
+    height="450"
+    src="https://www.youtube.com/embed/mnRssHJ4zHE"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 <div class="section" id="learning-outcomes">
 <h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Permalink to this headline">¶</a></h2>
@@ -363,13 +399,11 @@
 <li><p>If you think you discovered a bug, than report it to the library directly. Almost all the scientific python packages are hosted on GitHub: the “issues” tab is where to report bugs. Read the excellent <a class="reference external" href="http://matthewrocklin.com/blog/work/2018/02/28/minimal-bug-reports">Craft Minimal Bug Reports</a> article from Matt Rocklin before doing so.</p></li>
 </ul>
 </div>
-<div class="section" id="authors">
-<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="author">
+<h2>Author<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="http://fabienmaussion.info/">Fabien Maussion</a> wrote these notes (unless specified otherwise, e.g. for some tutorials)</p></li>
-<li><p><a class="reference external" href="https://www.uibk.ac.at/acinn/people/matthias-goebel.html.en">Matthias Göbel</a> and <a class="reference external" href="https://www.uibk.ac.at/acinn/people/lilian-schuster.html.en">Lilian Schuster</a> (student assistants in ss2018 and WS2018/19) reviewed and proof read them</p></li>
+<li><p><a class="reference external" href="https://www.sydney.edu.au/science/about/our-people/academic-staff/tristan-salles.html">Tristan Salles</a> wrote these notes (unless specified otherwise, e.g. for some tutorials)</p></li>
 </ul>
-<p><font color="red">To access last year’s course (winter semester 2019), visit:</font> <a class="reference external" href="https://fabienmaussion.info/scipro_ws2019">https://fabienmaussion.info/scipro_ws2019</a></p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
