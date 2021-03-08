@@ -56,8 +56,6 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Content with notebooks" href="notebooks.html" />
-    <link rel="prev" title="eReefs hydrodynamics all GBR" href="../week_01/eReefs_hydro_GBR.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -89,60 +87,24 @@
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
  <span class="caption-text">
-  Introduction
+  Learning enviroment
  </span>
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="index.html">
-   Scientific Python QuickStart Environmental
+  <a class="reference internal" href="../week_01/notebooks_how_to.html">
+   Introduction to interactive notebooks
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="about_py.html">
-   About Python
-  </a>
- </li>
-</ul>
-<p class="caption collapsible-parent">
- <span class="caption-text">
-  Week 01 - Overview of eReef
- </span>
-</p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html">
-   eReefs hydrodynamics all GBR
+  <a class="reference internal" href="../week_01/environment.html">
+   Managing Python Environments
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html#connect-to-the-opendap-endpoint-for-a-specified-month">
-   Connect to the OpeNDAP endpoint for a specified month.
+  <a class="reference internal" href="../week_01/getting_started_with_notebooks.html">
+   Getting started with the Jupyter Notebook
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html#load-variables">
-   Load variables
-  </a>
- </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="../week_01/eReefs_hydro_GBR.html#meshing-dataset-for-visualisation">
-   Meshing dataset for visualisation
-  </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Learn More
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="notebooks.html">
-     Content with notebooks
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
@@ -277,11 +239,6 @@
    Pandas
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
 </ul>
 
         </nav>
@@ -317,6 +274,18 @@ excellent <a class="reference external" href="http://www.numpy.org/">NumPy</a> l
 </div>
 </div>
 <p>Now let’s take the inner product</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.04891256782214e-16
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">@</span> <span class="n">c</span>
@@ -415,17 +384,8 @@ from within the Python shell.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">4</span><span class="o">-</span><span class="mi">12</span><span class="n">f35fcc6d97</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">Symbol</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">),</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>  <span class="c1"># Treat &#39;x&#39; and &#39;y&#39; as algebraic symbols</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 3 x + y\]</div>
 </div>
 </div>
 <p>We can manipulate expressions</p>
@@ -437,15 +397,8 @@ from within the Python shell.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">de9ff9d6f1bf</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">expression</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">expression</span><span class="o">.</span><span class="n">expand</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;x&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle x^{2} + 2 x y + y^{2}\]</div>
 </div>
 </div>
 <p>solve polynomials</p>
@@ -458,14 +411,7 @@ from within the Python shell.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">6</span><span class="o">-</span><span class="mi">60</span><span class="n">b9ad1071a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">solve</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">solve</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1/2 - sqrt(7)*I/2, -1/2 + sqrt(7)*I/2]
 </pre></div>
 </div>
 </div>
@@ -480,16 +426,8 @@ from within the Python shell.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="mi">346</span><span class="n">a9e7fe3cb</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="n">limit</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">diff</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">limit</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;sympy&#39;
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \infty\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -499,14 +437,8 @@ from within the Python shell.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="mi">89922</span><span class="n">de1b575</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">limit</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;limit&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -516,14 +448,8 @@ from within the Python shell.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">9</span><span class="o">-</span><span class="n">e86d0d32f096</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">diff</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;diff&#39; is not defined
-</pre></div>
-</div>
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \cos{\left(x \right)}\]</div>
 </div>
 </div>
 <p>The beauty of importing this functionality into Python is that we are
@@ -577,13 +503,6 @@ dtype: float64
 </div>
 </div>
 </div>
-<div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
-<p>These lectures were originally taken from a longer and more complete lecture
-series on Python programming hosted by <a class="reference external" href="https://quantecon.org">QuantEcon</a>.</p>
-<p>The <a class="reference external" href="https://python-programming.quantecon.org/">full set of lectures</a> might be
-useful as the next step of your study.</p>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -611,8 +530,6 @@ useful as the next step of your study.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../week_01/eReefs_hydro_GBR.html" title="previous page">eReefs hydrodynamics all GBR</a>
-    <a class='right-next' id="next-link" href="notebooks.html" title="next page">Content with notebooks</a>
 
         </div>
         

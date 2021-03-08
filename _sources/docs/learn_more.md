@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.12
+    jupytext_version: 1.8.2
 kernelspec:
   display_name: Python 3
   language: python
@@ -34,6 +36,10 @@ c = np.sin(a)                          # Apply sin to each element of a
 ```
 
 Now let\'s take the inner product
+
+```{code-cell} ipython3
+np.dot(b, c)
+```
 
 ```{code-cell} ipython3
 b @ c
@@ -191,12 +197,3 @@ print(df)
 ```{code-cell} ipython3
 df.mean()
 ```
-
-## Further Reading
-
-
-These lectures were originally taken from a longer and more complete lecture
-series on Python programming hosted by [QuantEcon](https://quantecon.org).
-
-The [full set of lectures](https://python-programming.quantecon.org/) might be
-useful as the next step of your study.
