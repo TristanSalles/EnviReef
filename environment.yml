@@ -1,24 +1,45 @@
 name: envireef
 channels:
   - conda-forge
+  - pyviz
+  - defaults
 dependencies:
-  - python=3.8
+  - python=3.8    # Python version 3.8
   - sphinx
-  - pip
-  - pandas
-  - matplotlib
-  - netCDF4
-  - xarray
-  - matplotlib
-  - numpy
-  - scikit-image
-  - geopandas
-  - shapely
-  - cftime
-  - cartopy
-  - jupyter-book>=0.7.0b
+  - pip           # Python package
+  - pandas        # Labeled array library
+  - netCDF4       # Wrapper for netcdf4
+  - xarray        # N-d labeled array library
+  - matplotlib    # 2D plotting library
+  - numpy         # N-d array and numerics
+  - scipy         # Common math/stats/science functions
+  - scikit-learn  # Machine learning library
+  - scikit-image  # Image processing routines
+  - geopandas     # Labeled array library for geosciences
+  - shapely       # Geometric library
+  - cftime        # Time units decoder
+  - cartopy       # Geographic plotting toolkit
   - myst-nb
+  - sympy         # Symbolic expression
+  - dask          # Parallel processing library
+  - hvplot        # Interactive plotting
+  - cmocean       # Colormaps for oceanography
+  - jupyterlab    # Jupyter Lab environment
+  - jupyter-book  # Jupyter book environment
+  - basemap       # Mapping package
+  - h5py          # Wrapper for HDF5
+  - seaborn       # Statistical visualizations
+  - pyresample    # Geographic resampling tools
+  - statsmodels   # Regression/modeling toolkit
+  - zarr          # Array storage library
+  - numcodecs     # Compression library used by zarr
   - pip:
-    - cmocean
-    - jupyter-book
-    - pyproj
+    - pyproj      # Geographic projections
+
+# - proj4
+
+
+# - zarr          # Array storage library
+# - numcodecs     # Compression library used by zarr
+# - gcsfs         # Access data from Google Cloud Storage
+# - s3fs          # Access data from Amazon S3

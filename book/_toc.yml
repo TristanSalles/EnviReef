@@ -1,14 +1,11 @@
 # - file: README
 - file: welcome
 
-- part: Introduction
+- part: Learning enviroment
   chapters:
-      - file: docs/index
-      - file: docs/about_py
-
-- part: Week 01 - Overview of eReef
-  chapters:
-    - file: week_01/eReefs_hydro_GBR
+    - file: week_01/notebooks_how_to
+    - file: week_01/environment
+    - file: week_01/getting_started_with_notebooks
+    - file: week_01/notebooks
       sections:
         - file: docs/learn_more
-        - file: docs/notebooks
