@@ -263,8 +263,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-class-to-represent-a-hurricane">
-     A class to represent a hurricane
+    <a class="reference internal nav-link" href="#a-class-to-represent-a-cyclone">
+     A class to represent a cyclone
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -288,15 +288,20 @@
                 
   <div class="section" id="python-functions-and-classes">
 <h1>Python Functions and Classes<a class="headerlink" href="#python-functions-and-classes" title="Permalink to this headline">¶</a></h1>
-<p>For longer and more complex tasks, it is important to organize your code into reuseable elements.
-For example, if you find yourself cutting and pasting the same or similar lines of code over and over,
-you probably need to define a <em>function</em> to encapsulate that code and make it reusable.
-An important principle in programming in <strong>DRY</strong>: “don’t repeat yourself”.
+<blockquote>
+<div><p>For longer and more complex tasks, it is important to organize your code into reuseable elements.</p>
+</div></blockquote>
+<p>For example, if you find yourself cutting and pasting the same or similar lines of code over and over,
+you probably need to define a <em>function</em> to encapsulate that code and make it reusable.</p>
+<div class="tip admonition">
+<p class="admonition-title">Dry programming</p>
+<p>An important principle is programming in <strong>DRY</strong>: “don’t repeat yourself”.
 Repetition is tedious and opens you up to errors. Strive for elegance and simplicity in your programs.</p>
+</div>
 <div class="section" id="functions">
 <h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
-<p>Functions are a central part of advanced python programming. Functions take some inputs (“arguments”) and do something in response.
-Usually functions return something, but not always.</p>
+<p>Functions are a <strong>central part of advanced python programming</strong>. Functions take some inputs (<code class="docutils literal notranslate"><span class="pre">arguments</span></code>) and do something in response.</p>
+<p>Usually functions return something, but not always.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a function</span>
@@ -461,21 +466,21 @@ Hola Juan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_to_everyone</span><span class="p">(</span><span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomeng&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">say_hello_to_everyone</span><span class="p">(</span><span class="s1">&#39;Ana&#39;</span><span class="p">,</span> <span class="s1">&#39;Jody&#39;</span><span class="p">,</span> <span class="s1">&#39;Tristan&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello Ryan&#39;, &#39;hello Juan&#39;, &#39;hello Xiaomeng&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;hello Ana&#39;, &#39;hello Jody&#39;, &#39;hello Tristan&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="pure-vs-impure-functions">
 <h3>Pure vs. Impure Functions<a class="headerlink" href="#pure-vs-impure-functions" title="Permalink to this headline">¶</a></h3>
-<p>Functions that don’t modify their arguments or produce any other side-effects are called <a class="reference external" href="https://en.wikipedia.org/wiki/Pure_function"><em>pure</em></a>.</p>
-<p>Functions that modify their arguments or cause other actions to occur are called <em>impure</em>.</p>
-<p>Below is an impure function.</p>
+<p>Functions that don’t modify their arguments or produce any other side-effects are called <strong><a class="reference external" href="https://en.wikipedia.org/wiki/Pure_function"><em>pure</em></a></strong>.</p>
+<p>Functions that modify their arguments or cause other actions to occur are called <strong><em>impure</em></strong>.</p>
+<p>Below is an <strong>impure function</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_last_from_list</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
@@ -486,7 +491,7 @@ Hola Juan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomeng&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ana&#39;</span><span class="p">,</span> <span class="s1">&#39;Jody&#39;</span><span class="p">,</span> <span class="s1">&#39;Tristan&#39;</span><span class="p">]</span>
 <span class="n">remove_last_from_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 <span class="n">remove_last_from_list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
@@ -495,14 +500,17 @@ Hola Juan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ryan&#39;, &#39;Juan&#39;]
-[&#39;Ryan&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ana&#39;, &#39;Jody&#39;]
+[&#39;Ana&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can do something similar with a pure function.</p>
-<p>In general, pure functions are safer and more reliable.</p>
+<p>We can do something similar with a <strong>pure</strong> function.</p>
+<div class="note admonition">
+<p class="admonition-title">Note!</p>
+<p>In general, pure functions are <strong>safer</strong> and <strong>more reliable</strong>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_last_from_list_pure</span><span class="p">(</span><span class="n">input_list</span><span class="p">):</span>
@@ -515,7 +523,7 @@ Hola Juan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;Xiaomeng&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Ana&#39;</span><span class="p">,</span> <span class="s1">&#39;Jody&#39;</span><span class="p">,</span> <span class="s1">&#39;Tristan&#39;</span><span class="p">]</span>
 <span class="n">new_names</span> <span class="o">=</span> <span class="n">remove_last_from_list_pure</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">new_names</span><span class="p">)</span>
@@ -523,8 +531,8 @@ Hola Juan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ryan&#39;, &#39;Juan&#39;, &#39;Xiaomeng&#39;]
-[&#39;Ryan&#39;, &#39;Juan&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ana&#39;, &#39;Jody&#39;, &#39;Tristan&#39;]
+[&#39;Ana&#39;, &#39;Jody&#39;]
 </pre></div>
 </div>
 </div>
@@ -533,17 +541,17 @@ Hola Juan
 </div>
 <div class="section" id="namespaces">
 <h3>Namespaces<a class="headerlink" href="#namespaces" title="Permalink to this headline">¶</a></h3>
-<p>In python, a <a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">namespace</a> is a mapping between variable names and python object. You can think of it like a dictionary.</p>
+<p>In python, a <strong><a class="reference external" href="https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces">namespace</a></strong> is a mapping between variable names and python object. You can think of it like a dictionary.</p>
 <p>The namespace can change depending on where you are in your program. Functions can “see” the variables in the parent namespace, but they can also redefine them in a private scope.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Ryan&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Ana&#39;</span>
 
 <span class="k">def</span> <span class="nf">print_name</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">print_name_v2</span><span class="p">():</span>
-    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Kerry&#39;</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Jody&#39;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     
 <span class="n">print_name</span><span class="p">()</span>
@@ -553,9 +561,9 @@ Hola Juan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ryan
-Kerry
-Ryan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ana
+Jody
+Ana
 </pre></div>
 </div>
 </div>
@@ -592,12 +600,15 @@ Ryan
 <div class="section" id="classes">
 <h2>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
 <p>We have worked with many different types of python objects so far: strings, lists, dictionaries, etc. These objects have different attributes and respond in different ways to the built-in functions (<code class="docutils literal notranslate"><span class="pre">len</span></code>, etc.)</p>
-<p><em>How can we make our own, custom objects?</em> Answer: by defining classes.</p>
-<div class="section" id="a-class-to-represent-a-hurricane">
-<h3>A class to represent a hurricane<a class="headerlink" href="#a-class-to-represent-a-hurricane" title="Permalink to this headline">¶</a></h3>
+<div class="note dropdown admonition">
+<p class="admonition-title">How can we make our own, custom objects?</p>
+<p><em>Answer:</em> by defining classes.</p>
+</div>
+<div class="section" id="a-class-to-represent-a-cyclone">
+<h3>A class to represent a cyclone<a class="headerlink" href="#a-class-to-represent-a-cyclone" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hurricane</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cyclone</span><span class="p">:</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
@@ -607,13 +618,13 @@ Ryan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Hurricane</span><span class="p">(</span><span class="s1">&#39;florence&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Cyclone</span><span class="p">(</span><span class="s1">&#39;Yasi&#39;</span><span class="p">)</span>
 <span class="n">h</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Hurricane at 0x7f3cccc624f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cyclone at 0x7f8538481c70&gt;
 </pre></div>
 </div>
 </div>
@@ -626,7 +637,7 @@ Ryan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;florence&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Yasi&#39;
 </pre></div>
 </div>
 </div>
@@ -634,7 +645,7 @@ Ryan
 <p>Let’s add more, along with some input validation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hurricane</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cyclone</span><span class="p">:</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
@@ -650,13 +661,13 @@ Ryan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Hurricane</span><span class="p">(</span><span class="s1">&#39;florence&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">46</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Cyclone</span><span class="p">(</span><span class="s1">&#39;Yasi&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">143</span><span class="p">)</span>
 <span class="n">h</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Hurricane at 0x7f3cced11dc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;__main__.Cyclone at 0x7f8538481c10&gt;
 </pre></div>
 </div>
 </div>
@@ -668,24 +679,24 @@ Ryan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;FLORENCE&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;YASI&#39;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Hurricane</span><span class="p">(</span><span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">Cyclone</span><span class="p">(</span><span class="s1">&#39;Debbie&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="mi">557</span><span class="n">a0b6fea29</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">h</span> <span class="o">=</span> <span class="n">Hurricane</span><span class="p">(</span><span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">28</span><span class="o">-</span><span class="n">cb744dab3e2e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">h</span> <span class="o">=</span> <span class="n">Cyclone</span><span class="p">(</span><span class="s1">&#39;Debbie&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-25-3c86fe28c0b4&gt;</span> in <span class="ni">__init__</span><span class="nt">(self, name, category, lon)</span>
+<span class="nn">&lt;ipython-input-25-8485b09b060f&gt;</span> in <span class="ni">__init__</span><span class="nt">(self, name, category, lon)</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> 
 <span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="k">if</span> <span class="n">lon</span> <span class="o">&gt;</span> <span class="mi">180</span> <span class="ow">or</span> <span class="n">lon</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span>
 <span class="ne">----&gt; </span><span class="mi">8</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid lon </span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -700,7 +711,7 @@ Ryan
 <p>Now let’s add a custom method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hurricane</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cyclone</span><span class="p">:</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
@@ -718,7 +729,7 @@ Ryan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Hurricane</span><span class="p">(</span><span class="s1">&#39;florence&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">46</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Cyclone</span><span class="p">(</span><span class="s1">&#39;Yasi&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">143</span><span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">is_dangerous</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -735,7 +746,7 @@ Ryan
 <p>We can implement special methods that begin with double-underscores (i.e. “dunder” methods), which allow us to customize the behavior of our classes. (<a class="reference external" href="https://www.python-course.eu/python3_magic_methods.php">Read more here</a>). We have already learned one: <code class="docutils literal notranslate"><span class="pre">__init__</span></code>. Let’s implement the <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> method to make our class display something pretty.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Hurricane</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Cyclone</span><span class="p">:</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">lon</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
@@ -746,7 +757,7 @@ Ryan
         <span class="bp">self</span><span class="o">.</span><span class="n">lon</span> <span class="o">=</span> <span class="n">lon</span>
         
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Hurricane </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (cat </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="si">}</span><span class="s2">)&gt;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;Cyclone </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> (cat </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">category</span><span class="si">}</span><span class="s2">)&gt;&quot;</span>
     
     <span class="k">def</span> <span class="nf">is_dangerous</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">&gt;</span> <span class="mi">1</span>
@@ -756,13 +767,13 @@ Ryan
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Hurricane</span><span class="p">(</span><span class="s1">&#39;florence&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">46</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">Cyclone</span><span class="p">(</span><span class="s1">&#39;Yasi&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">143</span><span class="p">)</span>
 <span class="n">f</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Hurricane FLORENCE (cat 4)&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Cyclone YASI (cat 5)&gt;
 </pre></div>
 </div>
 </div>

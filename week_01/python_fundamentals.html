@@ -241,11 +241,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-versions">
-   Python Versions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-variables-numbers-and-string">
    Basic Variables: Numbers and String
   </a>
@@ -299,7 +294,7 @@
                 
   <div class="section" id="python-fundamentals">
 <h1>Python Fundamentals<a class="headerlink" href="#python-fundamentals" title="Permalink to this headline">¶</a></h1>
-<p>This material is mostly adapted from the <a class="reference external" href="https://docs.python.org/3/tutorial/">official python tutorial</a>, Copyright 2001-2019, Python Software Foundation. It is used here under the terms of the <a class="reference external" href="https://docs.python.org/3/license.html">Python License</a>.</p>
+<p>This material is mostly adapted from the <a class="reference external" href="https://docs.python.org/3/tutorial/">official python tutorial</a>, Copyright 2001-2021, Python Software Foundation. It is used here under the terms of the <a class="reference external" href="https://docs.python.org/3/license.html">Python License</a>.</p>
 <div class="section" id="invoking-python">
 <h2>Invoking Python<a class="headerlink" href="#invoking-python" title="Permalink to this headline">¶</a></h2>
 <p>There are three main ways to use Python.</p>
@@ -308,30 +303,30 @@
 <li><p>Through an interactive console (Python interpreter or iPython shell)</p></li>
 <li><p>In an interactive notebook (e.g. Jupyter)</p></li>
 </ol>
-<p>In this course, we will mostly be interacting with Python via Jupyter notebooks.</p>
-</div>
-<div class="section" id="python-versions">
-<h2>Python Versions<a class="headerlink" href="#python-versions" title="Permalink to this headline">¶</a></h2>
-<p>There are two versions of the Python language out there: Python 2 and Python 3. In 2019, the vast majority of the scientific community now uses Python 3. As new Python learners, you should definitely learn Python 3. But it is important to be aware that Python 2 exists, since you might encounter it in the wild.</p>
-<p>Some of the main changes introduced in Python 3 are:</p>
+<p>As previously mentioned, we will mostly be interacting with Python via <strong>Jupyter notebooks</strong> in this course.</p>
+<div class="note admonition">
+<p class="admonition-title">Python Versions</p>
+<p>There are two versions of the Python language out there: <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code>. In 2021, the vast majority of the scientific community now uses <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code>. As new Python learners, you should definitely learn <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code>. But it is important to be aware that <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">2</span></code> exists, since you might encounter it in the wild.</p>
+<p>Some of the main changes introduced in <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3</span></code> are:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">print</span></code> is a function</p></li>
 <li><p>Integer division returns a float</p></li>
-<li><p>Iterators behave differently</p></li>
-<li><p>Unicode is used for encoding code</p></li>
 </ul>
+</div>
 </div>
 <div class="section" id="basic-variables-numbers-and-string">
 <h2>Basic Variables: Numbers and String<a class="headerlink" href="#basic-variables-numbers-and-string" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># comments are anything that comes after the &quot;#&quot; symbol</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comments are anything that comes after the &quot;#&quot; symbol</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c1"># assign 1 to variable a</span>
 <span class="n">b</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span> <span class="c1"># assign &quot;hello&quot; to variable b</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Identifiers</p>
 <p>The following identifiers are used as reserved words, or keywords of the language, and cannot be used as ordinary identifiers. They must be spelled exactly as written here:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>False      class      finally    is         return
 None       continue   for        lambda     try
@@ -342,7 +337,10 @@ assert     else       import     pass
 break      except     in         raise
 </pre></div>
 </div>
-<p>Additionally, the following a built in functions which are always available in your namespace once you open a Python interpreter</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Built in functions</p>
+<p>Additionally, the following are built in functions which are always available in your namespace once you open a Python interpreter</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>abs() dict() help() min() setattr() all() dir() hex() next() slice() any()
 divmod() id() object() sorted() ascii() enumerate() input() oct() staticmethod()
 bin() eval() int() open() str() bool() exec() isinstance() ord() sum() bytearray()
@@ -352,6 +350,7 @@ vars() classmethod() getattr() locals() repr() zip() compile() globals() map()
 reversed() __import__() complex() hasattr() max() round() delattr() hash()
 memoryview() set()
 </pre></div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -799,21 +798,40 @@ r: []
 </div>
 </div>
 </div>
-<p>There are many different ways to interact with lists. Exploring them is part of the fun of Python.</p>
-<p><strong>list.append(x)</strong> Add an item to the end of the list. Equivalent to a[len(a):] = [x].</p>
-<p><strong>list.extend(L)</strong>
-Extend the list by appending all the items in the given list. Equivalent to a[len(a):] = L.</p>
-<p><strong>list.insert(i, x)</strong> Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).</p>
-<p><strong>list.remove(x)</strong> Remove the first item from the list whose value is x. It is an error if there is no such item.</p>
-<p><strong>list.pop([i])</strong> Remove the item at the given position in the list, and return it. If no index is specified, a.pop() removes and returns the last item in the list. (The square brackets around the i in the method signature denote that the parameter is optional, not that you should type square brackets at that position. You will see this notation frequently in the Python Library Reference.)</p>
-<p><strong>list.clear()</strong> Remove all items from the list. Equivalent to del a[:].</p>
-<p><strong>list.index(x)</strong> Return the index in the list of the first item whose value is x. It is an error if there is no such item.</p>
-<p><strong>list.count(x)</strong> Return the number of times x appears in the list.</p>
-<p><strong>list.sort()</strong> Sort the items of the list in place.</p>
-<p><strong>list.reverse()</strong> Reverse the elements of the list in place.</p>
-<p><strong>list.copy()</strong> Return a shallow copy of the list. Equivalent to a[:].</p>
-<p>Don’t assume you know how list operations work!</p>
-<div class="cell docutils container">
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+There are many different ways to interact with lists. Exploring them is part of the fun of Python.<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<dl class="simple myst">
+<dt><strong>list.append(x)</strong></dt><dd><p class="card-text">Add an item to the end of the list. Equivalent to a[len(a):] = [x].</p>
+</dd>
+<dt><strong>list.extend(L)</strong></dt><dd><p class="card-text">Extend the list by appending all the items in the given list. Equivalent to a[len(a):] = L.</p>
+</dd>
+<dt><strong>list.insert(i, x)</strong></dt><dd><p class="card-text">Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).</p>
+</dd>
+<dt><strong>list.remove(x)</strong></dt><dd><p class="card-text">Remove the first item from the list whose value is x. It is an error if there is no such item.</p>
+</dd>
+<dt><strong>list.pop([i])</strong></dt><dd><p class="card-text">Remove the item at the given position in the list, and return it. If no index is specified, a.pop() removes and returns the last item in the list. (The square brackets around the i in the method signature denote that the parameter is optional, not that you should type square brackets at that position. You will see this notation frequently in the Python Library Reference.)</p>
+</dd>
+<dt><strong>list.clear()</strong></dt><dd><p class="card-text">Remove all items from the list. Equivalent to del a[:].</p>
+</dd>
+<dt><strong>list.index(x)</strong></dt><dd><p class="card-text">Return the index in the list of the first item whose value is x. It is an error if there is no such item.</p>
+</dd>
+<dt><strong>list.count(x)</strong></dt><dd><p class="card-text">Return the number of times x appears in the list.</p>
+</dd>
+<dt><strong>list.sort()</strong></dt><dd><p class="card-text">Sort the items of the list in place.</p>
+</dd>
+<dt><strong>list.reverse()</strong></dt><dd><p class="card-text">Reverse the elements of the list in place.</p>
+</dd>
+<dt><strong>list.copy()</strong></dt><dd><p class="card-text">Return a shallow copy of the list. Equivalent to a[:].</p>
+</dd>
+</dl>
+<p class="card-text">Don’t assume you know how list operations work!</p>
+</div>
+</details><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;add&quot; two lists</span>
 <span class="n">x</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
@@ -850,8 +868,11 @@ middle, skipping every other item [10, 12, 14]
 </div>
 </div>
 </div>
-<p><strong>MEMORIZE THIS SYNTAX!</strong> It is central to so much of Python and often proves confusing for users coming from other languages.</p>
-<p>In terms of set notation, Python indexing is <em>left inclusive</em>, <em>right exclusive</em>. If you remember this, you will never go wrong.</p>
+<div class="warning admonition">
+<p class="admonition-title">Memorize this syntax!</p>
+<p>It is central to so much of <code class="docutils literal notranslate"><span class="pre">Python</span></code> and often proves confusing for users coming from other languages.</p>
+<p>In terms of set notation, <code class="docutils literal notranslate"><span class="pre">Python</span></code> indexing is <em>left inclusive</em>, <em>right exclusive</em>. If you remember this, you will never go wrong.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># that means we get an error from the following</span>
@@ -876,13 +897,13 @@ middle, skipping every other item [10, 12, 14]
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this index notation also applies to strings</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Ryan Abernathey&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Mickey Mouse&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ryan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mickey
 </pre></div>
 </div>
 </div>
@@ -955,12 +976,15 @@ first: 4 second: 14
 <div class="section" id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this headline">¶</a></h2>
 <p>Tuples are similar to lists, but they are <em>immutable</em>—they can’t be extended or modified. What is the point of this? Generally speaking: to pack together inhomogeneous data. Tuples can then be unpacked and distributed by other parts of your code.</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Note</p>
 <p>Tuples may seem confusing at first, but with time you will come to appreciate them.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tuples are created with parentheses, or just commas</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;Takaya&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="kc">False</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Mickey&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;Mouse&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="kc">False</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1000,14 +1024,14 @@ first: 4 second: 14
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># different ways to create dictionaries</span>
-<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">}</span>
-<span class="n">e</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Takaya&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Mickey&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">33</span><span class="p">}</span>
+<span class="n">e</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Mouse&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
 <span class="n">e</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Takaya&#39;, &#39;age&#39;: 25}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Mouse&#39;, &#39;age&#39;: 25}
 </pre></div>
 </div>
 </div>
@@ -1020,7 +1044,7 @@ first: 4 second: 14
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Ryan&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Mickey&#39;
 </pre></div>
 </div>
 </div>
@@ -1069,7 +1093,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Ryan&#39;, &#39;age&#39;: 33, &#39;height&#39;: (5, 11)}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Mickey&#39;, &#39;age&#39;: 33, &#39;height&#39;: (5, 11)}
 </pre></div>
 </div>
 </div>
@@ -1083,7 +1107,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Ryan&#39;, &#39;age&#39;: 33, &#39;height&#39;: (5, 11), 99: &#39;ninety nine&#39;}
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Mickey&#39;, &#39;age&#39;: 33, &#39;height&#39;: (5, 11), 99: &#39;ninety nine&#39;}
 </pre></div>
 </div>
 </div>
@@ -1097,10 +1121,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ryan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name Mickey
 age 33
 height (5, 11)
 99 ninety nine
@@ -1119,10 +1140,7 @@ height (5, 11)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ryan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name Mickey
 age 33
 height (5, 11)
 99 ninety nine
