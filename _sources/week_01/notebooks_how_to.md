@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# Introduction to interactive notebooks
+# Interactive notebooks
 
 ## Jupyter notebooks
 

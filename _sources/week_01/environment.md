@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# Managing Python Environments
+# Managing environments
 
 _Note: many elements in this guide are adapted from
 [Daniel Rothenberg](http://danielrothenberg.com/)'s excellent
