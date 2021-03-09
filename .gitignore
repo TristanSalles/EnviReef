@@ -1,2 +1,4 @@
 .DS_Store
 book/_build
+book/.ipynb_checkpoints/*
+*-checkpoint.ipynb
