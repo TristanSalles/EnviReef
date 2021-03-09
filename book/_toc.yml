@@ -6,6 +6,8 @@
     - file: week_01/notebooks_how_to
     - file: week_01/environment
     - file: week_01/getting_started_with_notebooks
-    - file: week_01/notebooks
+    - file: week_01/python_fundamentals
+    - file: week_01/functions_classes
+    - file: docs/notebooks
       sections:
         - file: docs/learn_more

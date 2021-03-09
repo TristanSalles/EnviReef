@@ -36,10 +36,5 @@ dependencies:
   - pip:
     - pyproj      # Geographic projections
 
-# - proj4
-
-
-# - zarr          # Array storage library
-# - numcodecs     # Compression library used by zarr
 # - gcsfs         # Access data from Google Cloud Storage
 # - s3fs          # Access data from Amazon S3
