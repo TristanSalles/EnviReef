@@ -3,12 +3,12 @@
 
 - part: Get started
   chapters:
-    - file: week_01/notebooks_how_to
-    - file: week_01/environment
-    - file: week_01/getting_started_with_notebooks
+    - file: start/notebooks_how_to
+    - file: start/environment
+    - file: start/getting_started_with_notebooks
       sections:
-        - file: week_01/python_fundamentals
-        - file: week_01/functions_classes
+        - file: start/python_fundamentals
+        - file: start/functions_classes
 
 - part: Model & dataset
   chapters:
