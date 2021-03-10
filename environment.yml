@@ -33,6 +33,10 @@ dependencies:
   - statsmodels   # Regression/modeling toolkit
   - zarr          # Array storage library
   - numcodecs     # Compression library used by zarr
+  - siphon        # Remote geoscience data
+  - Pillow        # Python Imaging Library
+  - dask          # Parallel computing in Python
+  - geoviews      # Geo-datasets
   - pip:
     - pyproj      # Geographic projections
 
