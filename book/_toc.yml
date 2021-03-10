@@ -12,4 +12,5 @@
 
 - part: Model & dataset
   chapters:
+    - file: eReefs/model
     - file: eReefs/dataformat
