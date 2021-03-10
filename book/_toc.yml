@@ -1,10 +1,15 @@
 # - file: README
 - file: welcome
 
-- part: Introduction
+- part: Get started
   chapters:
     - file: week_01/notebooks_how_to
     - file: week_01/environment
     - file: week_01/getting_started_with_notebooks
-    - file: week_01/python_fundamentals
-    - file: week_01/functions_classes
+      sections:
+        - file: week_01/python_fundamentals
+        - file: week_01/functions_classes
+
+- part: Model & dataset
+  chapters:
+    - file: eReefs/dataformat
