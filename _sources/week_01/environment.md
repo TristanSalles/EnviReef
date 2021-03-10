@@ -37,16 +37,18 @@ and / or a Python _package manager_ (described in detail below).
 
 The only hard-and-fast rule about scientific computing in Python is this:
 
-**Do not use your system Python installation!**
-
+:::{admonition}  Do not use your system Python installation!
+:class: tip
 The version of Python that ships with operating systems such as Red Hat Linux and
 macOS is usually outdated and configured to support system functions. Although it
 is entirely possible to install and use the necessary packages using the system
 Python, it's much more practical on both
 your local machine and any other computers you work with to use a specialised Python
 installation.
+:::
 
-**Should I use Python 2 or Python 3?**
+:::{admonition}  Should I use Python 2 or Python 3?
+:class: tip
 
 You should use Python 3. The majority of the scientific Python packages are
 [now support only Python 3](http://www.python3statement.org/) in the
@@ -55,6 +57,7 @@ Python 2 and Python 3 are mostly superficial, but large enough that it is
 cumbersome to maintain large codebases that are compatible with both. With the
 exception of a handful of packages you may encounter which do not support
 Python 3, there is no compelling reason to use Python 2 today.
+:::
 
 ## Recommended Installation Method: Use Anaconda Python
 

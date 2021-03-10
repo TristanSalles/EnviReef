@@ -1,0 +1,494 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eReefs model description &#8212; Environmental Simulation Modelling</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data formats and access" href="dataformat.html" />
+    <link rel="prev" title="Python Functions and Classes" href="../week_01/functions_classes.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/qe-logo-large.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01/notebooks_how_to.html">
+   Interactive notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../week_01/environment.html">
+   Managing environments
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../week_01/getting_started_with_notebooks.html">
+   Jupyter notebook
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/python_fundamentals.html">
+     Python Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../week_01/functions_classes.html">
+     Python Functions and Classes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Model &amp; dataset
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   eReefs model description
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dataformat.html">
+   Data formats and access
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/eReefs/model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/EnviReef"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2FeReefs/model.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/eReefs/model.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/eReefs/model.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ereefs-csiro-hydrodynamic-model">
+   eReefs CSIRO Hydrodynamic model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regional-hydrodynamics">
+     Regional hydrodynamics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shoc-model">
+     SHOC model
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ereefs-csiro-biogeochemical-model-4-km">
+   eReefs CSIRO BioGeoChemical model (4 km)
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="ereefs-model-description">
+<span id="model-desc"></span><h1>eReefs model description<a class="headerlink" href="#ereefs-model-description" title="Permalink to this headline">¶</a></h1>
+<p>This material is from the <a class="reference external" href="https://ereefs.org.au/ereefs/about">eReefs.org.au</a> website and the <a class="reference external" href="https://research.csiro.au/ereefs/">eReefs Research</a> from CSIRO.</p>
+<p><strong>eReefs Hydrodynamic</strong> and <strong>BioGeoChemical</strong> models of the Great Barrier Reef are like weather models, but for the marine environment, providing a picture of the current and historical environmental conditions on the Great Barrier Reef. For example you can use these models to investigate past extreme weather events such as:</p>
+<ul class="simple">
+<li><p>Cyclones: Yasi (Feb 2011), Ita (April 2014), Nathan (March 2015), Debbi (March 2017),</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;middle&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">controls</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://aims-ereefs-public-prod.s3.amazonaws.com/ncanimate/products/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly_video_monthly_2011-02_queensland-1_-1.5.mp4?t=1599128595287&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div align="middle">
+<video width="100%" controls>
+      <source src="https://aims-ereefs-public-prod.s3.amazonaws.com/ncanimate/products/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly_video_monthly_2011-02_queensland-1_-1.5.mp4?t=1599128595287" type="video/mp4">
+</video></div>
+</div></div>
+</div>
+<ul class="simple">
+<li><p>Coral bleaching from high temperature (March 2016, March 2017),</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;middle&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">controls</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://aims-ereefs-public-prod.s3.amazonaws.com/ncanimate/products/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly_video_monthly_2017-03_queensland-1_-1.5.mp4?t=1599549818184&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div align="middle">
+<video width="100%" controls>
+      <source src="https://aims-ereefs-public-prod.s3.amazonaws.com/ncanimate/products/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly/products__ncanimate__ereefs__gbr4_v2__temp-wind-salt-current_hourly_video_monthly_2017-03_queensland-1_-1.5.mp4?t=1599549818184" type="video/mp4">
+</video></div>
+</div></div>
+</div>
+<ul class="simple">
+<li><p>Flood plumes with low salinity (North Queensland Flooding 2019, Burdekin Jan 2011)</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%HTML</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;middle&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">video</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span> <span class="na">controls</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">source</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://aims-ereefs-public-prod.s3.amazonaws.com/ncanimate/products/products__ncanimate__ereefs__gbr1_2-0__salt-multi-depth_hourly/products__ncanimate__ereefs__gbr1_2-0__salt-multi-depth_hourly_video_monthly_2019-02_townsville-3_0.mp4?t=1599405869920&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;video/mp4&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">video</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div align="middle">
+<video width="100%" controls>
+      <source src="https://aims-ereefs-public-prod.s3.amazonaws.com/ncanimate/products/products__ncanimate__ereefs__gbr1_2-0__salt-multi-depth_hourly/products__ncanimate__ereefs__gbr1_2-0__salt-multi-depth_hourly_video_monthly_2019-02_townsville-3_0.mp4?t=1599405869920" type="video/mp4">
+</video></div>
+</div></div>
+</div>
+<div class="section" id="ereefs-csiro-hydrodynamic-model">
+<h2>eReefs CSIRO Hydrodynamic model<a class="headerlink" href="#ereefs-csiro-hydrodynamic-model" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://research.csiro.au/ereefs/models/models-about/models-hydrodynamics/">eReefs hydrodynamic model</a> predicts the movement of water and key environmental conditions (temperature, salinity, currents, tides). This model allows us to better understand how cyclones mix the water, the location of potentially damaging heat waves, the ocean currents that disperse larvae of corals and Crown-of-Thorns starfish, and fresh water plumes from flooded rivers that can damage inshore reefs.</p>
+<p>This model is run with a <strong>4 km</strong> and <strong>1 km</strong> grid size. The 4 km grid has a longer hindcast going back to <strong>September 2010</strong>, while the 1 km model starts in <strong>December 2014</strong>. The 1 km model also only extends out to the edge of the Great Barrier Reef, whereas the 4 km model covers much of the Coral Sea. The hydrodynamic model and visualisations are normally updated in near-real time, within 1 week of the current date.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The eReefs models are currently not being run in near-real time by CSIRO and most of the available dataset are available up to mid 2020. Near realtime results are expected to be back in operation this year.</p>
+</div>
+<div class="section" id="regional-hydrodynamics">
+<h3>Regional hydrodynamics<a class="headerlink" href="#regional-hydrodynamics" title="Permalink to this headline">¶</a></h3>
+<p>The general circulation of the Great Barrier Reef region is summarized in Figure 1.</p>
+<p>The <strong>South Equatorial Current</strong> flows westwards through the Coral Sea as a number of narrow current jets controlled by the complex plateaux, seamounts and ridge topography of this ocean basin, with the most significant of these jets occurring immediately north and south of the Queensland Plateau.</p>
+<p>On approaching the western boundary of the Coral Sea, these multiple jets are steered by the Australian continental shelf to form the southward flowing <strong>East Australian Current</strong> (EAC) and the northward flowing <strong>Hiri Current</strong>. The <strong>Hiri Current</strong> flows along the shelf edge of the northern GBR into the Gulf of Papua where it forms a semi-closed cyclonic eddy.</p>
+<div class="myclass figure align-default" id="fig-target1">
+<a class="reference internal image-reference" href="../_images/currents.png"><img alt="currents" src="../_images/currents.png" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Bathymetry and key currents in the Great Barrier Reef region <strong>NGCC</strong>: New Guinea Coastal Current, mirroring the deeper New Guinea Coastal Undercurrent; <strong>NQC</strong>: NorthQueensland Current which is part of the Gulf of Papua Current (GPC); <strong>SECC</strong>: South Equatorial Countercurrent; Jets of the South Equatorial Current (SEC): NVJ: North Vanuatu Jet; NCJ: North Caledonia Jet; SVJ: South Vanuatu Jet; SFJ: South Fiji Jet; SCJ: South Caledonia Jet; <strong>EAC</strong>: East Australian Current; STCC: Subtropical Counter current; A wind-driven coastal current is shown running parallel to the coast along the inner shelf (bathymetry data courtesy of <a class="footnote-reference brackets" href="#id3" id="id1">1</a>) <a class="footnote-reference brackets" href="#id4" id="id2">2</a>.</span><a class="headerlink" href="#fig-target1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="seealso dropdown admonition">
+<p class="admonition-title">More information about GBR hydrodynamics</p>
+<p>For a detailed description of the circulation in the Great Barrier Reef and its regional consequences, you need to go through the <a class="reference external" href="https://research.csiro.au/ereefs/models/models-about/models-hydrodynamics/">CSIRO eReefs Research page on the subject</a>.</p>
+</div>
+</div>
+<div class="section" id="shoc-model">
+<h3>SHOC model<a class="headerlink" href="#shoc-model" title="Permalink to this headline">¶</a></h3>
+<p>The eReefs project relies on the hydrodynamic model <strong>SHOC</strong> (<a class="reference external" href="https://research.csiro.au/cem/software/ems/hydro/">Sparse Hydrodynamic Ocean Code; Herzfeld et al., 2006</a>) for both the regional and shelf model applications.</p>
+<p><strong>SHOC</strong> is a general purpose model (Herzfeld, 2006) applicable on spatial scales ranging from <strong>estuaries</strong> to <strong>regional ocean domains</strong>. It is a <strong>three-dimensional</strong> finite-difference hydrodynamic model based on the equations of momentum, continuity and conservation of heat and salt, employing the hydrostatic and Boussinesq assumptions.</p>
+<div class="note admonition">
+<p class="admonition-title">Model inputs</p>
+<p>Inputs required by the model include forcing due to:</p>
+<ul class="simple">
+<li><p>wind,</p></li>
+<li><p>atmospheric pressure gradients,</p></li>
+<li><p>surface heat and water fluxes and</p></li>
+<li><p>open-boundary conditions such as tides and low frequency ocean currents.</p></li>
+</ul>
+</div>
+<div class="myclass figure align-default" id="fig-target">
+<a class="reference internal image-reference" href="../_images/hydropcitforcinginputs.jpg"><img alt="forcings" src="../_images/hydropcitforcinginputs.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Schematic representation of major forcing inputs for the SHOC hydrodynamic model.</span><a class="headerlink" href="#fig-target" title="Permalink to this image">¶</a></p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Model inputs</p>
+<p>Outputs from the model include three-dimensional distributions of:</p>
+<ul class="simple">
+<li><p>velocity,</p></li>
+<li><p>temperature,</p></li>
+<li><p>salinity,</p></li>
+<li><p>density,</p></li>
+<li><p>passive tracers,</p></li>
+<li><p>mixing coefficients and</p></li>
+<li><p>sea-level.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="ereefs-csiro-biogeochemical-model-4-km">
+<h2>eReefs CSIRO BioGeoChemical model (4 km)<a class="headerlink" href="#ereefs-csiro-biogeochemical-model-4-km" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference external" href="https://research.csiro.au/ereefs/models/models-about/models-biogeochemistry/">GBR4 BioGeoChemical (GBR) model</a> builds on the GBR4 hydrodynamic model by modelling the water quality (nutrients and <a class="reference external" href="https://research.csiro.au/ereefs/models/models-about/models-sediment-transport/">suspended sediment</a>) and key ecological processes (coral, seagrass, plankton) that drive the water chemistry. This model allows us to better understand how water quality is affected by land runoff. Detailed information about the model can be found in the paper: <a class="reference external" href="https://doi.org/10.5194/gmd-2019-115">CSIRO Environmental Modelling Suite (EMS): Scientific description of the optical and biogeochemical models (vB3p0)</a>.</p>
+<p>In this course, we will be using the version 3.1 of the BioGeoChemical (BGC) model. Version 3.1 of the BGC was developed to compare the effects of land practice improvements on water quality changes in the Great Barrier Reef. It was run with three scenarios of river sediment and nutrient loads to simulate the differences between:</p>
+<ul class="simple">
+<li><p><strong>baseline</strong> conditions (based on current land use practices in 2019),</p></li>
+<li><p><strong>pre-industrial catchment</strong> conditions, and</p></li>
+<li><p><strong>target catchment</strong> conditions (anthropogenic loads reduced according to the percentage reductions of DIN, PN, PP and TSS specified in the <a class="reference external" href="https://www.reefplan.qld.gov.au/__data/assets/pdf_file/0017/46115/reef-2050-water-quality-improvement-plan-2017-22.pdf">Reef 2050 Water Quality Improvement Plan 2017-2022</a>).</p></li>
+</ul>
+<p>A <a class="reference external" href="https://research.csiro.au/ereefs/wp-content/uploads/sites/34/2020/08/Reanalysis_v1_August2020.pdf">technical assessment of the skill level of the BGC version 3.1 model</a> shows that the absolute accuracy of the BGC model varies significantly with variable and location. An older analysis on the BGC version 2.0 (<a class="reference external" href="https://doi.org/10.1016/j.jmarsys.2018.12.006">Skerratt et al., 2018</a>) provides additional background on the skill of the BGC model. As a result care should be taken to ensure the model is fit-for-purpose and in general BGC results should used in combination with second sources of information for making recommendations.</p>
+<div class="myclass figure align-default" id="fig-target2">
+<a class="reference internal image-reference" href="../_images/Slide1.jpg"><img alt="bio" src="../_images/Slide1.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Schematic diagram of the ecological model compartments, links and vertical layers.</span><a class="headerlink" href="#fig-target2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="seealso dropdown admonition">
+<p class="admonition-title">More information about biogeochemistry and ecology</p>
+<p>For a detailed description of the ecological processes represented in the biogeochemical model, you need to go through the <a class="reference external" href="https://research.csiro.au/ereefs/models/models-about/models-biogeochemistry/">CSIRO eReefs Research page on the subject</a>.</p>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Beaman, R.J., 2010: Project 3DGBR: A high-resolution depth model for the Great Barrier Reef and Coral Sea. Marine and Tropical Sciences Research Facility (MTSRF), Project 2.5i.1a, Final Report, MTSRF, Cairns, Australia, pp. 13 plus Appendix 1.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Schiller et al., 2015: Cross-shelf exchanges between the Coral Sea and the Great Barrier Reef lagoon determined from a regional-scale numerical model, Continental Shelf Research, 109, 150-163, <a class="reference external" href="https://doi.org/10.1016/j.csr.2015.09.011">DOI</a></p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./eReefs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../week_01/functions_classes.html" title="previous page">Python Functions and Classes</a>
+    <a class='right-next' id="next-link" href="dataformat.html" title="next page">Data formats and access</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
