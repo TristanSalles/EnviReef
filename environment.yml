@@ -19,7 +19,7 @@ dependencies:
   - shapely       # Geometric library
   - cftime        # Time units decoder
   - cartopy       # Geographic plotting toolkit
-  - myst-nb
+  - myst-nb       # Notebook syntax
   - sympy         # Symbolic expression
   - dask          # Parallel processing library
   - hvplot        # Interactive plotting
