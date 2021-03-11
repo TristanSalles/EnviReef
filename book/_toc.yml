@@ -14,3 +14,10 @@
   chapters:
     - file: eReefs/model
     - file: eReefs/dataformat
+
+
+- part: Scientific Python Fundamentals
+  chapters:
+    - file: scientific/pythonstack
+    - file: scientific/numpy
+    - file: scientific/matplotlib
