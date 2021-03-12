@@ -111,7 +111,7 @@ def eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size,
     # Title
     dtime = netCDF4.num2date(ncdata['time'][tstep],ncdata['time'].units)
     daystr = dtime.strftime('%Y-%b-%d %H:%M')
-    plt.title(ncdata[dataname].short_name+', %s UTC+10' % (daystr), 
+    plt.title(ncdata[dataname].long_name+', %s UTC+10' % (daystr), 
               fontsize=11);
 
     # Plot lat/lon grid 

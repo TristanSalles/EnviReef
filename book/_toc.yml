@@ -15,7 +15,6 @@
     - file: eReefs/model
     - file: eReefs/dataformat
 
-
 - part: Scientific Python Fundamentals
   chapters:
     - file: scientific/pythonstack
@@ -23,5 +22,17 @@
     - file: scientific/matplotlib
     - file: scientific/cartopy
       sections:
-        - file: examples/1-eReefs_hydro_GBR
+        - file: examples/hydro_maps
+        - file: examples/cross_section
         - file: examples/loadfct
+
+# - part: Data analysis
+  # chapters:
+  #   - file: scientific/pandas
+  #     sections:
+  #       - file: examples/site
+  #       - file: examples/climvar
+  #   - file: scientific/xarray
+  #   - file: scientific/dask
+  #   - file: scientific/geoviews
+  #   - file: scientific/tracers
