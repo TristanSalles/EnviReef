@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eReefs Hydrodynamic plot cleaner &#8212; Environmental Simulation Modelling</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="eReefs hydrodynamics plot" href="1-eReefs_hydro_GBR.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo2.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/notebooks_how_to.html">
+   Interactive notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/environment.html">
+   Managing environments
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../start/getting_started_with_notebooks.html">
+   Jupyter notebook
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../start/python_fundamentals.html">
+     Python Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../start/functions_classes.html">
+     Python Functions and Classes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Model &amp; dataset
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eReefs/model.html">
+   eReefs model description
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eReefs/dataformat.html">
+   Data formats and access
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/pythonstack.html">
+   The scientific Python stack
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/numpy.html">
+   Introduction to numpy
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../scientific/matplotlib.html">
+   Introduction to matplotlib
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="1-eReefs_hydro_GBR.html">
+     eReefs hydrodynamics plot
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     eReefs Hydrodynamic plot cleaner
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/examples/loadfct.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/EnviReef"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2Fexamples/loadfct.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/examples/loadfct.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/examples/loadfct.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="ereefs-hydrodynamic-plot-cleaner">
+<h1>eReefs Hydrodynamic plot cleaner<a class="headerlink" href="#ereefs-hydrodynamic-plot-cleaner" title="Permalink to this headline">¶</a></h1>
+<p>We will reuse what we did in the previous notebook but this time by putting the
+<code class="docutils literal notranslate"><span class="pre">eReefs_GBR_Model</span></code> function in a Python file and calling it from the notebook.</p>
+<p>You will see a file in the <code class="docutils literal notranslate"><span class="pre">Jupyterlab</span></code> environment under the examples folder called <code class="docutils literal notranslate"><span class="pre">functions.py</span></code> which contains our function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># To create gifs</span>
+
+<span class="kn">from</span> <span class="nn">functions</span> <span class="kn">import</span> <span class="o">*</span>   <span class="c1"># Here is where we call the function.</span>
+
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>  <span class="c1"># To trigger the interactive inline mode</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s first have a look to see if we have access to our function… we use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function which provides the informations about our function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">eReefs_GBR_Model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function eReefs_GBR_Model in module functions:
+
+eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, vecsample, veclenght, vecscale, zoom=None, show=False, vecPlot=False, save=False)
+    This function plots for a specified time index and depth the value of a variable from the eReefs netCDF file available on the AIMS OpenDAP server.
+    
+    args:
+    
+    - ncdata: netcdf dataset
+    - tstep: specified time index
+    - depth: specified depth layer
+    - dataname: specified variable name 
+    - datalvl: range of the variable values specified as a list [min,max] 
+    - color: colormap to use for the plot (here one can use the cmocean library)
+    - size: figure size  
+    - fname: figure name when saved on disk, specified time and depth layer index added
+    - vecsample: sampling on velocity arrows to plot on the maps when velocity verctor are used
+    - veclenght: lenght of the reference vector (in m/s)
+    - vecscale: vector scaling
+    - zoom: study site to plot lower left and upper right corner [lon0,lat0, lon1, lat1]
+    - show: set to True when the map is shown in the jupyter environment directly 
+    - vecPlot: set to True when the current flow vector are plotted
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similar to what we have done before, we first open the desired netcdf file from the OPenDAP server:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span>
+<span class="n">netCDF_datestr</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;File chosen time interval:&#39;</span><span class="p">,</span><span class="n">netCDF_datestr</span><span class="p">)</span>
+<span class="c1"># GBR4</span>
+<span class="n">inputFile</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.ereefs.aims.gov.au/thredds/dodsC/s3://aims-ereefs-public-prod/derived/ncaggregate/ereefs/gbr4_v2/daily-monthly/EREEFS_AIMS-CSIRO_gbr4_v2_hydro_daily-monthly-&quot;</span><span class="o">+</span><span class="n">netCDF_datestr</span><span class="o">+</span><span class="s2">&quot;.nc&quot;</span>
+<span class="n">nc_data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File chosen time interval: 2020-03
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then defined the variables that needs to be set for the <code class="docutils literal notranslate"><span class="pre">eReefs_GBR_Model</span></code> function:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectedVariable</span> <span class="o">=</span> <span class="s1">&#39;mean_cur&#39;</span> 
+<span class="n">selectedTimeIndex</span> <span class="o">=</span> <span class="mi">29</span>        
+<span class="n">selectedDepthIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>       
+
+<span class="c1"># Vector field mapping information</span>
+<span class="n">veclenght</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">vecsample</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">vecscale</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="c1"># Figure size</span>
+<span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+
+<span class="c1"># Used color</span>
+<span class="n">color</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">speed</span>
+
+<span class="c1"># Variable range for the colorscale</span>
+<span class="n">curlvl</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">1.75</span><span class="p">]</span>
+
+<span class="c1"># Saved file name</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;GBRcurrent&#39;</span>
+
+<span class="c1"># Region to plot</span>
+<span class="n">zoom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">144</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span>
+
+<span class="c1"># We now call the function</span>
+<span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+                 <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+                 <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+                 <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/loadfct_7_0.png" src="../_images/loadfct_7_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will loop over time for our monthly record and save the successive daily images in a folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Name of the folder where images will be saved</span>
+<span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;fig-currents&#39;</span>      
+
+<span class="c1"># We check if the folder exists, in this case if it does we remove it and </span>
+<span class="c1"># create a new one</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="c1"># We will then put each daily figure in this new folder</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;/curr&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and for each iteration we will call the <code class="docutils literal notranslate"><span class="pre">eReefs_GBR_Model</span></code> function with a new time step. To speed up the process we will not plot each individual image in our notebook (set <code class="docutils literal notranslate"><span class="pre">show=False</span></code>) and will save the figures by setting <code class="docutils literal notranslate"><span class="pre">save=True</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># For running over the entire time period remove the next line </span>
+<span class="c1"># and uncomment the following one </span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> 
+<span class="c1"># for k in range(nc_data[&#39;time&#39;].shape[0]):</span>
+    
+    <span class="n">selectedTimeIndex</span> <span class="o">=</span> <span class="n">k</span>
+    
+    <span class="c1"># We now call the function. To save time we will not plot the data </span>
+    <span class="c1"># but save the file</span>
+    <span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+                     <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+                     <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+                     <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">_time</span><span class="si">{</span><span class="n">selectedTimeIndex</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">_zc</span><span class="si">{</span><span class="n">selectedDepthIndex</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can use the <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">pillow</a> imaging library to create an animated gif from our png figures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the frames</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">:</span>
+    <span class="n">new_frame</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
+
+<span class="c1"># Save into a GIF file that loops forever</span>
+<span class="n">frames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;/mycurrents.gif&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;GIF&#39;</span><span class="p">,</span>
+               <span class="n">append_images</span><span class="o">=</span><span class="n">frames</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+               <span class="n">save_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">duration</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have just made a cleaner version of the previous notebook where the core function is defined in a Python function that we called and imported like other libraries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function is flexible enough that it can be used to visualise either the entire GBR or part of it as well as the different variables available in the netCDF files.</p>
+</div>
+<div class="myclass figure align-default" id="fig-target-ex1">
+<a class="reference internal image-reference" href="../_images/currents.gif"><img alt="currents" src="../_images/currents.gif" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Animated gif showing the mean current evolution for a specific region .</span><a class="headerlink" href="#fig-target-ex1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./examples"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="1-eReefs_hydro_GBR.html" title="previous page">eReefs hydrodynamics plot</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

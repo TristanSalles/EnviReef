@@ -15,7 +15,8 @@ kernelspec:
 
 _Note: many elements in this guide are adapted from
 [Daniel Rothenberg](http://danielrothenberg.com/)'s excellent
-[getting started guide](http://danielrothenberg.com/gcpy/getting_started.html)._
+[getting started guide](http://danielrothenberg.com/gcpy/getting_started.html) and from the [Earth and Environmental Data Science](https://earth-env-data-science.github.io/intro.html) course._
+
 
 ## Python
 

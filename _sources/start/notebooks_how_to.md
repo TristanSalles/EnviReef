@@ -13,6 +13,8 @@ kernelspec:
 
 # Interactive notebooks
 
+*This material is adapted from the [OGGM-Edu’s educational notebooks](https://edu.oggm.org/en/latest/notebooks_howto.html).*
+
 ## Jupyter notebooks
 
 The [Jupyter Notebook](<https://jupyter.org>) is an **open-source web application**

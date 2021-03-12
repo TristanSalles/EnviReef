@@ -154,10 +154,24 @@
    Introduction to numpy
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="matplotlib.html">
    Introduction to matplotlib
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-eReefs_hydro_GBR.html">
+     eReefs hydrodynamics plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/loadfct.html">
+     eReefs Hydrodynamic plot cleaner
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -401,6 +415,7 @@
                 
   <div class="section" id="introduction-to-numpy">
 <h1>Introduction to numpy<a class="headerlink" href="#introduction-to-numpy" title="Permalink to this headline">¶</a></h1>
+<p><em>This material is adapted from the <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">Earth and Environmental Data Science</a> and the <a class="reference external" href="https://fabienmaussion.info/scientific_programming/welcome.html">Scientific Programming</a> course from Fabien Maussion.</em></p>
 <p>You might have read somewhere that <code class="docutils literal notranslate"><span class="pre">Python</span></code> is “slow” in comparison to some other languages. While generally true, this statement has only little meaning without context. As a scripting language (<em>e.g.</em> simplify tasks such as file renaming, data download, etc.), python is fast enough. For <em>numerical computations</em> (like the computations done by a regional wave model like SHOC or by a machine learning algorithm), “pure” Python is very slow indeed. Fortunately, there is a way to overcome this problem!</p>
 <p>In this notebook, we are going to explain why the <a class="reference external" href="http://numpy.org">numpy</a> library was created.</p>
 <div class="admonition note">
@@ -737,7 +752,7 @@ The same is true for the “delete” function in your operating system by the w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>775 ns ± 9.1 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>691 ns ± 16.4 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 </pre></div>
 </div>
 </div>
@@ -749,7 +764,7 @@ The same is true for the “delete” function in your operating system by the w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.46 µs ± 53.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.17 µs ± 52.2 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -941,10 +956,10 @@ The same is true for the “delete” function in your operating system by the w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.8 µs ± 83.1 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.56 µs ± 21.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12.7 µs ± 178 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.49 µs ± 20.7 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1180,7 +1195,7 @@ The same is true for the “delete” function in your operating system by the w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>197 ns ± 1.62 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 ns ± 4.52 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 </pre></div>
 </div>
 </div>
@@ -1192,7 +1207,7 @@ The same is true for the “delete” function in your operating system by the w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>186 ns ± 2.06 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>178 ns ± 1.17 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 </pre></div>
 </div>
 </div>

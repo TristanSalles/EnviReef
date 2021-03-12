@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="eReefs hydrodynamics plot" href="../examples/1-eReefs_hydro_GBR.html" />
     <link rel="prev" title="Introduction to numpy" href="numpy.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -153,10 +154,24 @@
    Introduction to numpy
   </a>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active collapsible-parent">
   <a class="current reference internal" href="#">
    Introduction to matplotlib
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/1-eReefs_hydro_GBR.html">
+     eReefs hydrodynamics plot
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/loadfct.html">
+     eReefs Hydrodynamic plot cleaner
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -382,6 +397,7 @@
                 
   <div class="section" id="introduction-to-matplotlib">
 <h1>Introduction to matplotlib<a class="headerlink" href="#introduction-to-matplotlib" title="Permalink to this headline">¶</a></h1>
+<p><em>This material is adapted from the <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">Earth and Environmental Data Science</a>, from Ryan Abernathey (Columbia University)</em></p>
 <p>We saw <code class="docutils literal notranslate"><span class="pre">numpy</span></code> library in the previous notebook. <code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> is possibly the second fundamental pillar of the scientific python stack. You will find numerous tutorials for both libraries online.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Matplotlib</span></code> is the dominant plotting / visualization package in python. It is important to learn to use it well.</p>
 <p>I am asking you to learn the basics of both tools by yourself, at the pace that suits you. I can recommend these two tutorials:</p>
@@ -532,7 +548,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae95af880&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f25625973a0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_17_1.png" src="../_images/matplotlib_17_1.png" />
@@ -546,7 +562,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae9755a90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f256250e670&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_19_1.png" src="../_images/matplotlib_19_1.png" />
@@ -563,7 +579,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae9982880&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f25627afbb0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_21_1.png" src="../_images/matplotlib_21_1.png" />
@@ -607,8 +623,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae97d37c0&gt;,
- &lt;matplotlib.lines.Line2D at 0x7f4ae9770040&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2562b827c0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x7f2562b82610&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_25_1.png" src="../_images/matplotlib_25_1.png" />
@@ -623,8 +639,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae99b20a0&gt;,
- &lt;matplotlib.lines.Line2D at 0x7f4ae99b20d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2562877be0&gt;,
+ &lt;matplotlib.lines.Line2D at 0x7f2562877c10&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_27_1.png" src="../_images/matplotlib_27_1.png" />
@@ -648,7 +664,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae97fbac0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2562786790&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_29_1.png" src="../_images/matplotlib_29_1.png" />
@@ -677,7 +693,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae9621dc0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2562828be0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_31_1.png" src="../_images/matplotlib_31_1.png" />
@@ -703,7 +719,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae84943d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2560c781f0&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_33_1.png" src="../_images/matplotlib_33_1.png" />
@@ -749,7 +765,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f4ae968be50&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f2560b96400&gt;]
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_38_1.png" src="../_images/matplotlib_38_1.png" />
@@ -837,7 +853,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f4ae81c5220&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f25609b1460&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_46_1.png" src="../_images/matplotlib_46_1.png" />
@@ -895,7 +911,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f4ae81381c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f25608443d0&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_51_1.png" src="../_images/matplotlib_51_1.png" />
@@ -924,7 +940,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f4ae814b8b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f25606e0910&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_54_1.png" src="../_images/matplotlib_54_1.png" />
@@ -945,7 +961,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f4ae95afdc0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f2560627d60&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_55_1.png" src="../_images/matplotlib_55_1.png" />
@@ -962,7 +978,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4ae84148e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f256098d8e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_56_1.png" src="../_images/matplotlib_56_1.png" />
@@ -982,7 +998,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f4acfed5be0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.contour.QuadContourSet at 0x7f256098d910&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_58_1.png" src="../_images/matplotlib_58_1.png" />
@@ -1001,7 +1017,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f4acfd13250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f25604d52e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_59_1.png" src="../_images/matplotlib_59_1.png" />
@@ -1022,7 +1038,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f4acfba7c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f2560368c70&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_60_1.png" src="../_images/matplotlib_60_1.png" />
@@ -1044,7 +1060,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x7f4acfb1bbe0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.quiver.Quiver at 0x7f25602f1250&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_62_1.png" src="../_images/matplotlib_62_1.png" />
@@ -1061,11 +1077,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.streamplot.StreamplotSet at 0x7f4acf6050a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.streamplot.StreamplotSet at 0x7f2547dedee0&gt;
 </pre></div>
 </div>
 <img alt="../_images/matplotlib_64_1.png" src="../_images/matplotlib_64_1.png" />
 </div>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 </div>
@@ -1097,6 +1115,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="numpy.html" title="previous page">Introduction to numpy</a>
+    <a class='right-next' id="next-link" href="../examples/1-eReefs_hydro_GBR.html" title="next page">eReefs hydrodynamics plot</a>
 
         </div>
         
