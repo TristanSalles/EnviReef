@@ -301,7 +301,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#connect-to-the-opendap-endpoint-for-a-specified-month">
-   Connect to the OpeNDAP endpoint for a specified month.
+   Connect to the OPeNDAP endpoint for a specified month.
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -499,10 +499,10 @@ The depth slice in the netCDF file. Note the index starts with 0. See the follow
 </div>
 </div>
 <div class="section" id="connect-to-the-opendap-endpoint-for-a-specified-month">
-<h2>Connect to the OpeNDAP endpoint for a specified month.<a class="headerlink" href="#connect-to-the-opendap-endpoint-for-a-specified-month" title="Permalink to this headline">¶</a></h2>
-<p>We query the server based on the OPeNDAP URL for a specific file “EREEFS_AIMS-CSIRO_gbr4_v2_hydro_daily-monthly-YYYY-MM.nc”.</p>
+<h2>Connect to the OPeNDAP endpoint for a specified month.<a class="headerlink" href="#connect-to-the-opendap-endpoint-for-a-specified-month" title="Permalink to this headline">¶</a></h2>
+<p>We query the server based on the OPeNDAP URL for a specific file. We will use the data from the <a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/catalog.html">AIMS server</a>.</p>
 <ul class="simple">
-<li><p><strong>gbr4</strong>: we use the Hydrodynamic 4km model and daily data for the month specified</p></li>
+<li><p><strong>gbr4</strong>: we use the 4km model and daily data for a month specified</p></li>
 </ul>
 <div class="section" id="netcdf-main-functions">
 <h3>NetCDF main functions<a class="headerlink" href="#netcdf-main-functions" title="Permalink to this headline">¶</a></h3>
@@ -941,10 +941,9 @@ filling off
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eReefs_GBR_Model</span><span class="p">(</span><span class="n">ncdata</span><span class="p">,</span> <span class="n">tstep</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">dataname</span><span class="p">,</span> <span class="n">datalvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> 
-                     <span class="n">fname</span><span class="p">,</span> <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
-                     <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">eReefs_map</span><span class="p">(</span><span class="n">ncdata</span><span class="p">,</span> <span class="n">tstep</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">dataname</span><span class="p">,</span> <span class="n">datalvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> 
+               <span class="n">fname</span><span class="p">,</span> <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+               <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This function plots for a specified time index and depth the value of a variable from the eReefs netCDF</span>
 <span class="sd">    file available on the AIMS OpenDAP server.</span>
@@ -965,6 +964,7 @@ filling off
 <span class="sd">    - zoom: study site to plot lower left and upper right corner [lon0,lat0, lon1, lat1]</span>
 <span class="sd">    - show: set to True when the map is shown in the jupyter environment directly </span>
 <span class="sd">    - vecPlot: set to True when the current flow vector are plotted</span>
+<span class="sd">    - save: set to True to save figure on disk</span>
 <span class="sd">    &#39;&#39;&#39;</span>
     
     <span class="c1"># Get data</span>
@@ -1130,10 +1130,10 @@ Salinity range:
 <span class="n">zoom</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="c1"># We now call the function</span>
-<span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
-                 <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
-                 <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
-                 <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">eReefs_map</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+           <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+           <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+           <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1172,15 +1172,15 @@ Salinity range:
 <span class="n">zoom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">144</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span>
 
 <span class="c1"># We now call the function</span>
-<span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
-                 <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
-                 <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
-                 <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">eReefs_map</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+           <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+           <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+           <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-8931a4828f3d&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-3400d0661677&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
   plt.tight_layout()
 </pre></div>
 </div>
@@ -1205,15 +1205,15 @@ Salinity range:
 <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;GBRsalinity&#39;</span>
 
 <span class="c1"># We now call the function</span>
-<span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
-                 <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">saltlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
-                 <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
-                 <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">eReefs_map</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+           <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">saltlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+           <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+           <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-8931a4828f3d&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-3400d0661677&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
   plt.tight_layout()
 </pre></div>
 </div>
@@ -1238,15 +1238,15 @@ Salinity range:
 <span class="n">fname</span> <span class="o">=</span> <span class="s1">&#39;GBRtemperature&#39;</span>
 
 <span class="c1"># We now call the function</span>
-<span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
-                 <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">templvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
-                 <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
-                 <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">eReefs_map</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+           <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">templvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+           <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+           <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-8931a4828f3d&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-3400d0661677&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
   plt.tight_layout()
 </pre></div>
 </div>

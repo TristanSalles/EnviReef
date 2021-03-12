@@ -282,6 +282,26 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#map-plotting">
+   Map plotting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cross-section-plotting">
+   Cross-section plotting
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -292,7 +312,7 @@
                 
   <div class="section" id="ereefs-plotting-functions">
 <h1>eReefs plotting functions<a class="headerlink" href="#ereefs-plotting-functions" title="Permalink to this headline">¶</a></h1>
-<p>We will reuse what we did in the previous notebook but this time by putting the <code class="docutils literal notranslate"><span class="pre">eReefs_GBR_Model</span></code> function in a Python file and calling it from the notebook.</p>
+<p>We will reuse what we did in the previous notebooks but this time by putting the <code class="docutils literal notranslate"><span class="pre">eReefs_map</span></code> and <code class="docutils literal notranslate"><span class="pre">eReefs_cross</span></code> functions in a Python file and calling it from the notebook.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p>Some examples of plotted maps from eReefs dataset can be found on the
@@ -305,7 +325,8 @@
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>  <span class="c1"># To create gifs</span>
 
-<span class="kn">from</span> <span class="nn">functions</span> <span class="kn">import</span> <span class="o">*</span>   <span class="c1"># Here is where we call the function.</span>
+<span class="kn">from</span> <span class="nn">Mapfct</span> <span class="kn">import</span> <span class="o">*</span>     <span class="c1"># Here is where we call the function.</span>
+<span class="kn">from</span> <span class="nn">Crossfct</span> <span class="kn">import</span> <span class="o">*</span>   <span class="c1"># Here is where we call the function.</span>
 
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
 <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>  <span class="c1"># To trigger the interactive inline mode</span>
@@ -313,35 +334,12 @@
 </div>
 </div>
 </div>
+<div class="section" id="map-plotting">
+<h2>Map plotting<a class="headerlink" href="#map-plotting" title="Permalink to this headline">¶</a></h2>
 <p>Let’s first have a look to see if we have access to our function… we use the <code class="docutils literal notranslate"><span class="pre">help()</span></code> function which provides the informations about our function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">eReefs_GBR_Model</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function eReefs_GBR_Model in module functions:
-
-eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, vecsample, veclenght, vecscale, zoom=None, show=False, vecPlot=False, save=False)
-    This function plots for a specified time index and depth the value of a variable from the eReefs netCDF file available on the AIMS OpenDAP server.
-    
-    args:
-    
-    - ncdata: netcdf dataset
-    - tstep: specified time index
-    - depth: specified depth layer
-    - dataname: specified variable name 
-    - datalvl: range of the variable values specified as a list [min,max] 
-    - color: colormap to use for the plot (here one can use the cmocean library)
-    - size: figure size  
-    - fname: figure name when saved on disk, specified time and depth layer index added
-    - vecsample: sampling on velocity arrows to plot on the maps when velocity verctor are used
-    - veclenght: lenght of the reference vector (in m/s)
-    - vecscale: vector scaling
-    - zoom: study site to plot lower left and upper right corner [lon0,lat0, lon1, lat1]
-    - show: set to True when the map is shown in the jupyter environment directly 
-    - vecPlot: set to True when the current flow vector are plotted
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(eReefs_map)</span>
 </pre></div>
 </div>
 </div>
@@ -365,7 +363,7 @@ eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, ve
 </div>
 </div>
 </div>
-<p>We then defined the variables that needs to be set for the <code class="docutils literal notranslate"><span class="pre">eReefs_GBR_Model</span></code> function:</p>
+<p>We then defined the variables that needs to be set for the <code class="docutils literal notranslate"><span class="pre">eReefs_map</span></code> function:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectedVariable</span> <span class="o">=</span> <span class="s1">&#39;mean_cur&#39;</span> 
@@ -393,15 +391,15 @@ eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, ve
 <span class="n">zoom</span> <span class="o">=</span> <span class="p">[</span><span class="mi">144</span><span class="p">,</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">148</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">]</span>
 
 <span class="c1"># We now call the function</span>
-<span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
-                 <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
-                 <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
-                 <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">eReefs_map</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+           <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+           <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+           <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/loadfct_7_0.png" src="../_images/loadfct_7_0.png" />
+<img alt="../_images/loadfct_8_0.png" src="../_images/loadfct_8_0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -425,7 +423,7 @@ eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, ve
 </div>
 </div>
 </div>
-<p>We will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and for each iteration we will call the <code class="docutils literal notranslate"><span class="pre">eReefs_GBR_Model</span></code> function with a new time step. To speed up the process we will not plot each individual image in our notebook (set <code class="docutils literal notranslate"><span class="pre">show=False</span></code>) and will save the figures by setting <code class="docutils literal notranslate"><span class="pre">save=True</span></code>:</p>
+<p>We will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and for each iteration we will call the <code class="docutils literal notranslate"><span class="pre">eReefs_map</span></code> function with a new time step. To speed up the process we will not plot each individual image in our notebook (set <code class="docutils literal notranslate"><span class="pre">show=False</span></code>) and will save the figures by setting <code class="docutils literal notranslate"><span class="pre">save=True</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
@@ -438,10 +436,10 @@ eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, ve
     
     <span class="c1"># We now call the function. To save time we will not plot the data </span>
     <span class="c1"># but save the file</span>
-    <span class="n">eReefs_GBR_Model</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
-                     <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
-                     <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
-                     <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">eReefs_map</span><span class="p">(</span><span class="n">nc_data</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedDepthIndex</span><span class="p">,</span> 
+               <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">curlvl</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> 
+               <span class="n">vecsample</span><span class="p">,</span> <span class="n">veclenght</span><span class="p">,</span> <span class="n">vecscale</span><span class="p">,</span> <span class="n">zoom</span><span class="p">,</span> 
+               <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">vecPlot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
     <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">_time</span><span class="si">{</span><span class="n">selectedTimeIndex</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">_zc</span><span class="si">{</span><span class="n">selectedDepthIndex</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
 </pre></div>
@@ -479,6 +477,131 @@ eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, fname, ve
 <div class="myclass figure align-default" id="fig-target-ex1">
 <a class="reference internal image-reference" href="../_images/currents.gif"><img alt="currents" src="../_images/currents.gif" style="width: 600px;" /></a>
 <p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Animated gif showing the mean current evolution for a specific region .</span><a class="headerlink" href="#fig-target-ex1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="cross-section-plotting">
+<h2>Cross-section plotting<a class="headerlink" href="#cross-section-plotting" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#help(eReefs_cross)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We start by calling the desired eReefs dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">month</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">year</span> <span class="o">=</span> <span class="mi">2019</span>
+<span class="n">netCDF_datestr</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;File chosen time interval:&#39;</span><span class="p">,</span><span class="n">netCDF_datestr</span><span class="p">)</span>
+<span class="c1"># GBR4</span>
+<span class="n">inputFile</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.ereefs.aims.gov.au/thredds/dodsC/s3://aims-ereefs-public-prod/derived/ncaggregate/ereefs/GBR4_H2p0_B3p1_Cq3b_Dhnd/daily-monthly/EREEFS_AIMS-CSIRO_GBR4_H2p0_B3p1_Cq3b_Dhnd_bgc_daily-monthly-&quot;</span><span class="o">+</span><span class="n">netCDF_datestr</span><span class="o">+</span><span class="s2">&quot;.nc&quot;</span>
+<span class="n">nc_bio</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">inputFile</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File chosen time interval: 2019-04
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then defined the variables that needs to be set for the <code class="docutils literal notranslate"><span class="pre">eReefs_cross</span></code> function:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selectedTimeIndex</span> <span class="o">=</span> <span class="mi">0</span>  
+<span class="n">selectedVariable</span> <span class="o">=</span> <span class="s1">&#39;alk&#39;</span> 
+<span class="n">color</span> <span class="o">=</span> <span class="n">cmocean</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">matter</span>
+
+<span class="n">latVal</span> <span class="o">=</span> <span class="o">-</span><span class="mf">11.</span> 
+<span class="n">xLon</span> <span class="o">=</span> <span class="p">[</span><span class="mf">142.5</span><span class="p">,</span><span class="mf">150.25</span><span class="p">]</span>
+<span class="n">dext</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2190.</span><span class="p">,</span><span class="mf">2270.</span><span class="p">]</span>
+
+<span class="n">fLat</span> <span class="o">=</span> <span class="s1">&#39;lat11&#39;</span>
+<span class="n">sizeLat</span> <span class="o">=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">eReefs_cross</span><span class="p">(</span><span class="n">nc_bio</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> 
+             <span class="n">latVal</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sizeLat</span><span class="p">,</span> <span class="n">fLat</span><span class="p">,</span> <span class="n">xLon</span><span class="p">,</span> <span class="n">dext</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+             <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/loadfct_22_0.png" src="../_images/loadfct_22_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we will loop over time for our monthly record and save the successive daily images in a folder.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Name of the folder where images will be saved</span>
+<span class="nb">dir</span> <span class="o">=</span> <span class="s1">&#39;fig-alk&#39;</span>      
+
+<span class="c1"># We check if the folder exists, in this case if it does we remove it and </span>
+<span class="c1"># create a new one</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+
+<span class="c1"># We will then put each daily figure in this new folder</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;/lat11&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, we will use again a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop and for each iteration we will call the <code class="docutils literal notranslate"><span class="pre">eReefs_cross</span></code> function with a new time step. To speed up the process we will not plot each individual image in our notebook (set <code class="docutils literal notranslate"><span class="pre">show=False</span></code>) and will save the figures by setting <code class="docutils literal notranslate"><span class="pre">save=True</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># For running over the entire time period remove the next line </span>
+<span class="c1"># and uncomment the following one </span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">):</span> 
+<span class="c1">#for k in range(nc_bio[&#39;time&#39;].shape[0]):</span>
+    
+    <span class="n">selectedTimeIndex</span> <span class="o">=</span> <span class="n">k</span>
+    
+    <span class="c1"># We now call the function. To save time we will not plot the data </span>
+    <span class="c1"># but save the file</span>
+    <span class="n">eReefs_cross</span><span class="p">(</span><span class="n">nc_bio</span><span class="p">,</span> <span class="n">selectedTimeIndex</span><span class="p">,</span> <span class="n">selectedVariable</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> 
+             <span class="n">latVal</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">sizeLat</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">xLon</span><span class="p">,</span> <span class="n">dext</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+             <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2">_cross_time</span><span class="si">{</span><span class="n">selectedTimeIndex</span><span class="si">:</span><span class="s2">04</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the <a class="reference external" href="https://pillow.readthedocs.io/en/stable/">pillow</a> imaging library we create an animated gif from our png figures.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the frames</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">imgs</span><span class="p">:</span>
+    <span class="n">new_frame</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_frame</span><span class="p">)</span>
+
+<span class="c1"># Save into a GIF file that loops forever</span>
+<span class="n">frames</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">dir</span><span class="o">+</span><span class="s1">&#39;/myalk.gif&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;GIF&#39;</span><span class="p">,</span>
+               <span class="n">append_images</span><span class="o">=</span><span class="n">frames</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span>
+               <span class="n">save_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">duration</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here is the result:</p>
+<div class="myclass figure align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/myalk.gif"><img alt="currents" src="../_images/myalk.gif" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Animated gif showing the total alkalinity evolution for a cross-section at 11S.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 
