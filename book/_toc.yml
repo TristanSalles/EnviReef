@@ -21,3 +21,6 @@
     - file: scientific/pythonstack
     - file: scientific/numpy
     - file: scientific/matplotlib
+      sections:
+        - file: examples/1-eReefs_hydro_GBR
+        - file: examples/loadfct

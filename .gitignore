@@ -2,4 +2,9 @@
 book/_build
 book/.ipynb_checkpoints/*
 *-checkpoint.ipynb
+*-checkpoint.py
+*-checkpoint.png
 book/.ipynb_checkpoints/welcome-checkpoint.ipynb
+book/examples/__pycache__/*
+book/start/.ipynb_checkpoints/*
+book/start/.ipynb_checkpoints/*.md
