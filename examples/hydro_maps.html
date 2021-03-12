@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>eReefs hydrodynamics plot &#8212; Environmental Simulation Modelling</title>
+    <title>eReefs dataset maps &#8212; Environmental Simulation Modelling</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,7 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="eReefs Hydrodynamic plot cleaner" href="loadfct.html" />
+    <link rel="next" title="eReefs dataset cross section" href="cross_section.html" />
     <link rel="prev" title="Maps in Scientific Python" href="../scientific/cartopy.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -166,12 +166,17 @@
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     eReefs hydrodynamics plot
+     eReefs dataset maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cross_section.html">
+     eReefs dataset cross section
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="loadfct.html">
-     eReefs Hydrodynamic plot cleaner
+     eReefs plotting functions
     </a>
    </li>
   </ul>
@@ -218,7 +223,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/examples/1-eReefs_hydro_GBR.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/examples/hydro_maps.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -238,10 +243,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2Fexamples/1-eReefs_hydro_GBR.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2Fexamples/hydro_maps.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/examples/1-eReefs_hydro_GBR.ipynb"><button
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/examples/hydro_maps.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -261,7 +266,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/examples/1-eReefs_hydro_GBR.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/examples/hydro_maps.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -352,9 +357,14 @@
         
               <div>
                 
-  <div class="section" id="ereefs-hydrodynamics-plot">
-<h1>eReefs hydrodynamics plot<a class="headerlink" href="#ereefs-hydrodynamics-plot" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ereefs-dataset-maps">
+<h1>eReefs dataset maps<a class="headerlink" href="#ereefs-dataset-maps" title="Permalink to this headline">¶</a></h1>
 <p>We will now apply what we’ve learned to our eReefs dataset.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Some examples of plotted maps from eReefs dataset can be found on the
+<a class="reference external" href="https://ereefs.aims.gov.au/ereefs-aims#ereefs-bgc-model">AIMS website</a>.</p>
+</div>
 <div class="section" id="load-the-required-python-libraries">
 <h2>Load the required Python libraries<a class="headerlink" href="#load-the-required-python-libraries" title="Permalink to this headline">¶</a></h2>
 <p>First of all, load the necessary libraries. These are the ones we discussed previously:</p>
@@ -504,8 +514,11 @@ The depth slice in the netCDF file. Note the index starts with 0. See the follow
 <span class="n">netCDF_datestr</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="o">+</span><span class="nb">format</span><span class="p">(</span><span class="n">month</span><span class="p">,</span> <span class="s1">&#39;02&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;File chosen time interval:&#39;</span><span class="p">,</span><span class="n">netCDF_datestr</span><span class="p">)</span>
 
-<span class="c1"># GBR4</span>
+<span class="c1"># GBR4 HYDRO</span>
 <span class="n">inputFile</span> <span class="o">=</span> <span class="s2">&quot;http://thredds.ereefs.aims.gov.au/thredds/dodsC/s3://aims-ereefs-public-prod/derived/ncaggregate/ereefs/gbr4_v2/daily-monthly/EREEFS_AIMS-CSIRO_gbr4_v2_hydro_daily-monthly-&quot;</span><span class="o">+</span><span class="n">netCDF_datestr</span><span class="o">+</span><span class="s2">&quot;.nc&quot;</span>
+
+<span class="c1"># GBR4 BIO</span>
+<span class="c1">#inputFile = &quot;http://thredds.ereefs.aims.gov.au/thredds/dodsC/s3://aims-ereefs-public-prod/derived/ncaggregate/ereefs/GBR4_H2p0_B3p1_Cq3b_Dhnd/daily-monthly/EREEFS_AIMS-CSIRO_GBR4_H2p0_B3p1_Cq3b_Dhnd_bgc_daily-monthly-&quot;+netCDF_datestr+&quot;.nc&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -563,7 +576,7 @@ filling off
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">standard_name</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;mean_cur&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">long_name</span>
 </pre></div>
 </div>
 </div>
@@ -765,7 +778,7 @@ filling off
 <span class="c1"># Title</span>
 <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="n">selectedTimeIndex</span><span class="p">],</span><span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
 <span class="n">daystr</span> <span class="o">=</span> <span class="n">dtime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="n">selectedVariable</span><span class="p">]</span><span class="o">.</span><span class="n">short_name</span><span class="o">+</span><span class="s1">&#39;, </span><span class="si">%s</span><span class="s1"> UTC+10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">daystr</span><span class="p">),</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="n">selectedVariable</span><span class="p">]</span><span class="o">.</span><span class="n">long_name</span><span class="o">+</span><span class="s1">&#39;, </span><span class="si">%s</span><span class="s1"> UTC+10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">daystr</span><span class="p">),</span> 
           <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">);</span>
 
 <span class="c1"># Plot lat/lon grid </span>
@@ -802,7 +815,7 @@ filling off
   warnings.warn(&#39;Downloading: {}&#39;.format(url), DownloadWarning)
 </pre></div>
 </div>
-<img alt="../_images/1-eReefs_hydro_GBR_26_2.png" src="../_images/1-eReefs_hydro_GBR_26_2.png" />
+<img alt="../_images/hydro_maps_26_2.png" src="../_images/hydro_maps_26_2.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -877,7 +890,7 @@ filling off
 <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">time_var</span><span class="p">[</span><span class="n">selectedTimeIndex</span><span class="p">],</span>
                          <span class="n">time_var</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
 <span class="n">daystr</span> <span class="o">=</span> <span class="n">dtime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="n">selectedVariable</span><span class="p">]</span><span class="o">.</span><span class="n">short_name</span><span class="o">+</span><span class="s1">&#39;, </span><span class="si">%s</span><span class="s1"> UTC+10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">daystr</span><span class="p">),</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="n">selectedVariable</span><span class="p">]</span><span class="o">.</span><span class="n">long_name</span><span class="o">+</span><span class="s1">&#39;, </span><span class="si">%s</span><span class="s1"> UTC+10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">daystr</span><span class="p">),</span> 
           <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">);</span>
 
 <span class="c1"># Plot lat/lon grid </span>
@@ -906,7 +919,7 @@ filling off
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1-eReefs_hydro_GBR_28_0.png" src="../_images/1-eReefs_hydro_GBR_28_0.png" />
+<img alt="../_images/hydro_maps_28_0.png" src="../_images/hydro_maps_28_0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -1017,7 +1030,7 @@ filling off
     <span class="c1"># Title</span>
     <span class="n">dtime</span> <span class="o">=</span> <span class="n">netCDF4</span><span class="o">.</span><span class="n">num2date</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">][</span><span class="n">tstep</span><span class="p">],</span><span class="n">ncdata</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
     <span class="n">daystr</span> <span class="o">=</span> <span class="n">dtime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="n">dataname</span><span class="p">]</span><span class="o">.</span><span class="n">short_name</span><span class="o">+</span><span class="s1">&#39;, </span><span class="si">%s</span><span class="s1"> UTC+10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">daystr</span><span class="p">),</span> 
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">ncdata</span><span class="p">[</span><span class="n">dataname</span><span class="p">]</span><span class="o">.</span><span class="n">long_name</span><span class="o">+</span><span class="s1">&#39;, </span><span class="si">%s</span><span class="s1"> UTC+10&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">daystr</span><span class="p">),</span> 
               <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">);</span>
 
     <span class="c1"># Plot lat/lon grid </span>
@@ -1125,7 +1138,7 @@ Salinity range:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1-eReefs_hydro_GBR_35_0.png" src="../_images/1-eReefs_hydro_GBR_35_0.png" />
+<img alt="../_images/hydro_maps_35_0.png" src="../_images/hydro_maps_35_0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -1167,11 +1180,11 @@ Salinity range:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-5bef17315fd3&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-8931a4828f3d&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
   plt.tight_layout()
 </pre></div>
 </div>
-<img alt="../_images/1-eReefs_hydro_GBR_37_1.png" src="../_images/1-eReefs_hydro_GBR_37_1.png" />
+<img alt="../_images/hydro_maps_37_1.png" src="../_images/hydro_maps_37_1.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -1200,11 +1213,11 @@ Salinity range:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-5bef17315fd3&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-8931a4828f3d&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
   plt.tight_layout()
 </pre></div>
 </div>
-<img alt="../_images/1-eReefs_hydro_GBR_39_1.png" src="../_images/1-eReefs_hydro_GBR_39_1.png" />
+<img alt="../_images/hydro_maps_39_1.png" src="../_images/hydro_maps_39_1.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -1233,11 +1246,11 @@ Salinity range:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-5bef17315fd3&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-15-8931a4828f3d&gt;:118: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
   plt.tight_layout()
 </pre></div>
 </div>
-<img alt="../_images/1-eReefs_hydro_GBR_41_1.png" src="../_images/1-eReefs_hydro_GBR_41_1.png" />
+<img alt="../_images/hydro_maps_41_1.png" src="../_images/hydro_maps_41_1.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -1273,7 +1286,7 @@ Salinity range:
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../scientific/cartopy.html" title="previous page">Maps in Scientific Python</a>
-    <a class='right-next' id="next-link" href="loadfct.html" title="next page">eReefs Hydrodynamic plot cleaner</a>
+    <a class='right-next' id="next-link" href="cross_section.html" title="next page">eReefs dataset cross section</a>
 
         </div>
         
