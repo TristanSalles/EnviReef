@@ -2,7 +2,6 @@
 # Simple example of python file containing our plotting functions
 ##################################################################
 
-
 # Import of required libraries
 import os
 import numpy as np
@@ -21,12 +20,11 @@ cartopy.config['data_dir'] = os.getenv('CARTOPY_DIR', cartopy.config.get('data_d
 import cmocean
 from matplotlib import pyplot as plt
 
-
 # Functions definitions
 
-def eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size, 
-                     fname, vecsample, veclenght, vecscale, zoom=None, 
-                     show=False, vecPlot=False, save=False):
+def eReefs_map(ncdata, tstep, depth, dataname, datalvl, color, size, 
+               fname, vecsample, veclenght, vecscale, zoom=None, 
+               show=False, vecPlot=False, save=False):
     '''
     This function plots for a specified time index and depth the value of a variable from the eReefs netCDF file available on the AIMS OpenDAP server.
     
@@ -46,6 +44,7 @@ def eReefs_GBR_Model(ncdata, tstep, depth, dataname, datalvl, color, size,
     - zoom: study site to plot lower left and upper right corner [lon0,lat0, lon1, lat1]
     - show: set to True when the map is shown in the jupyter environment directly 
     - vecPlot: set to True when the current flow vector are plotted
+    - save: set to True to save figure on disk
     '''
     
     # Get data
