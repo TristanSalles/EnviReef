@@ -28,6 +28,7 @@ dependencies:
   - jupyter-book  # Jupyter book environment
   - basemap       # Mapping package
   - h5py          # Wrapper for HDF5
+  - pymannkendall # Mann-Kendall trend analysis
   - seaborn       # Statistical visualizations
   - pyresample    # Geographic resampling tools
   - statsmodels   # Regression/modeling toolkit

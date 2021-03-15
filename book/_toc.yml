@@ -26,13 +26,23 @@
         - file: examples/cross_section
         - file: examples/loadfct
 
-# - part: Data analysis
-  # chapters:
-  #   - file: scientific/pandas
-  #     sections:
-  #       - file: examples/site
-  #       - file: examples/climvar
-  #   - file: scientific/xarray
-  #   - file: scientific/dask
-  #   - file: scientific/geoviews
-  #   - file: scientific/tracers
+- part: Data analysis
+  chapters:
+    - file: pandas/pandas_intro
+    - file: pandas/basic_pandas
+    - file: pandas/pandas_groupby
+      sections:
+        - file: pandas/site
+        - file: pandas/climvar
+
+# - part: Multi-dimensional data
+#   chapters:
+#     - file: xarray/xarray_intro
+#       sections:
+#         - file: xarray/xarray
+#         - file: xarray/xarray_tips_and_tricks
+#         - file: xarray/xarray-part2
+
+#   - file: scientific/dask
+#   - file: scientific/geoviews
+#   - file: scientific/tracers

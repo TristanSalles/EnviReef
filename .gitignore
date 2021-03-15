@@ -6,4 +6,5 @@ book/.ipynb_checkpoints/*
 *-checkpoint.png
 book/examples/__pycache__/*
 book/start/.ipynb_checkpoints/*
+book/pandas/.ipynb_checkpoints/*
 book/examples/fig-currents/mycurrents.gif
