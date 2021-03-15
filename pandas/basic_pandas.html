@@ -220,6 +220,32 @@
   </i>
  </li>
 </ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Multi-dimensional data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../xarray/xarray_intro.html">
+   Xarray for multidimensional gridded data
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/xarray.html">
+     Xarray Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/xarray-part2.html">
+     Advanced Xarray
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
 
 </nav> <!-- To handle the deprecated key -->
 
@@ -400,14 +426,14 @@
                 
   <div class="section" id="pandas-fundamentals">
 <h1>Pandas Fundamentals<a class="headerlink" href="#pandas-fundamentals" title="Permalink to this headline">¶</a></h1>
-<p><em>This material is adapted from the <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">Earth and Environmental Data Science</a>, from Ryan Abernathey (Columbia University)</em></p>
+<p><em>This material is adapted from the <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">Earth and Environmental Data Science</a>, from Ryan Abernathey (Columbia University)</em>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="c1"># %config InlineBackend.figure_format = &#39;retina&#39;</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>  <span class="c1"># To trigger the interactive inline mode</span>
 </pre></div>
 </div>
@@ -2138,7 +2164,7 @@ Name: 2014-08-07 00:00:00, dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f03356bec40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.resample.DatetimeIndexResampler object at 0x7f587fa2daf0&gt;
 </pre></div>
 </div>
 </div>
