@@ -38,10 +38,9 @@
 - part: Multi-dimensional data
   chapters:
     - file: xarray/xarray_intro
-      sections:
-        - file: xarray/xarray
-        - file: xarray/xarray-part2
-        - file: xarray/xarray_tips_and_tricks
+    - file: xarray/xarray
+    - file: xarray/xarray-part2
+    - file: xarray/xarray_tips_and_tricks
 
 #   - file: scientific/dask
 #   - file: scientific/geoviews
