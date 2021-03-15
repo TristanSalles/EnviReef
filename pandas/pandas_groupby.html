@@ -1,0 +1,2051 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandas: Groupby &#8212; Environmental Simulation Modelling</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Comparisons between Reefs" href="site.html" />
+    <link rel="prev" title="Pandas Fundamentals" href="basic_pandas.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo2.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/notebooks_how_to.html">
+   Interactive notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/environment.html">
+   Managing environments
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../start/getting_started_with_notebooks.html">
+   Jupyter notebook
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../start/python_fundamentals.html">
+     Python Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../start/functions_classes.html">
+     Python Functions and Classes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Model &amp; dataset
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eReefs/model.html">
+   eReefs model description
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eReefs/dataformat.html">
+   Data formats and access
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/pythonstack.html">
+   The scientific Python stack
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/numpy.html">
+   Introduction to numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/matplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../scientific/cartopy.html">
+   Maps in Scientific Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/hydro_maps.html">
+     eReefs dataset maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/cross_section.html">
+     eReefs dataset cross section
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/loadfct.html">
+     eReefs plotting functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data analysis
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_intro.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basic_pandas.html">
+   Pandas Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
+   Pandas: Groupby
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="site.html">
+     Comparisons between Reefs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climvar.html">
+     Climate variability Davies Reef
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/pandas/pandas_groupby.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/EnviReef"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2Fpandas/pandas_groupby.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/pandas/pandas_groupby.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/pandas/pandas_groupby.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#an-example">
+   An Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-happened">
+   What Happened?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-groupby-method">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       groupby
+      </span>
+     </code>
+     method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-groubby-object">
+     The
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       GroubBy
+      </span>
+     </code>
+     object
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#iterating-and-selecting-groups">
+     Iterating and selecting groups
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aggregation">
+   Aggregation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transformation">
+   Transformation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-grouping">
+   Time Grouping
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculating-anomalies">
+     Calculating anomalies
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#resampling">
+     Resampling
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rolling-operations">
+     Rolling Operations
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="pandas-groupby">
+<h1>Pandas: Groupby<a class="headerlink" href="#pandas-groupby" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">groupby</span></code> is an amazingly powerful function in pandas. But it is also complicated to use and understand.
+The point of this notebook is to make you feel confident in using <code class="docutils literal notranslate"><span class="pre">groupby</span></code> and its cousins, <code class="docutils literal notranslate"><span class="pre">resample</span></code> and <code class="docutils literal notranslate"><span class="pre">rolling</span></code>.</p>
+<p>These notes are loosely based on the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/groupby.html">Pandas GroupBy Documentation</a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The “split/apply/combine” concept was first introduced in a paper by Hadley Wickham: <a class="reference external" href="https://www.jstatsoft.org/article/view/v040i01">https://www.jstatsoft.org/article/view/v040i01</a>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>  <span class="c1"># To trigger the interactive inline mode</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the following code to load a CSV file of the <a class="reference external" href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data">NOAA IBTrACS cyclones</a> dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#url = &#39;https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r00/access/csv/ibtracs.ALL.list.v04r00.csv&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;ibtracs.last3years.list.v04r00.csv&#39;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ISO_TIME&#39;</span><span class="p">],</span> <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;SID&#39;</span><span class="p">,</span>
+                 <span class="n">skiprows</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;NOT_NAMED&#39;</span><span class="p">],</span>
+                 <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SEASON</th>
+      <th>NUMBER</th>
+      <th>BASIN</th>
+      <th>SUBBASIN</th>
+      <th>NAME</th>
+      <th>ISO_TIME</th>
+      <th>NATURE</th>
+      <th>LAT</th>
+      <th>LON</th>
+      <th>WMO_WIND</th>
+      <th>WMO_PRES</th>
+    </tr>
+    <tr>
+      <th>SID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018004S08095</th>
+      <td>2018</td>
+      <td>1</td>
+      <td>SI</td>
+      <td>WA</td>
+      <td>IRVING</td>
+      <td>2018-01-03 18:00:00</td>
+      <td>NR</td>
+      <td>-8.27000</td>
+      <td>95.3300</td>
+      <td>25.0</td>
+      <td>1004.0</td>
+    </tr>
+    <tr>
+      <th>2018004S08095</th>
+      <td>2018</td>
+      <td>1</td>
+      <td>SI</td>
+      <td>WA</td>
+      <td>IRVING</td>
+      <td>2018-01-03 21:00:00</td>
+      <td>NR</td>
+      <td>-8.36815</td>
+      <td>95.7494</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018004S08095</th>
+      <td>2018</td>
+      <td>1</td>
+      <td>SI</td>
+      <td>WA</td>
+      <td>IRVING</td>
+      <td>2018-01-04 00:00:00</td>
+      <td>NR</td>
+      <td>-8.60000</td>
+      <td>96.0000</td>
+      <td>25.0</td>
+      <td>1004.0</td>
+    </tr>
+    <tr>
+      <th>2018004S08095</th>
+      <td>2018</td>
+      <td>1</td>
+      <td>SI</td>
+      <td>WA</td>
+      <td>IRVING</td>
+      <td>2018-01-04 03:00:00</td>
+      <td>NR</td>
+      <td>-9.03721</td>
+      <td>95.9729</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018004S08095</th>
+      <td>2018</td>
+      <td>1</td>
+      <td>SI</td>
+      <td>WA</td>
+      <td>IRVING</td>
+      <td>2018-01-04 06:00:00</td>
+      <td>NR</td>
+      <td>-9.50000</td>
+      <td>95.8000</td>
+      <td>25.0</td>
+      <td>1004.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><strong>Basin Key:</strong></p>
+<ul class="simple">
+<li><p>NA - North Atlantic</p></li>
+<li><p>EP - Eastern North Pacific</p></li>
+<li><p>WP - Western North Pacific</p></li>
+<li><p>NI - North Indian</p></li>
+<li><p>SI - South Indian</p></li>
+<li><p>SP - Southern Pacific</p></li>
+<li><p>SA - South Atlantic</p></li>
+</ul>
+<div class="section" id="an-example">
+<h2>An Example<a class="headerlink" href="#an-example" title="Permalink to this headline">¶</a></h2>
+<p>This is an example of a “one-liner” that you can accomplish with groupby.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;BASIN&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;BASIN&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_6_1.png" src="../_images/pandas_groupby_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="what-happened">
+<h2>What Happened?<a class="headerlink" href="#what-happened" title="Permalink to this headline">¶</a></h2>
+<p>Let’s break apart this operation a bit. The workflow with <code class="docutils literal notranslate"><span class="pre">groubpy</span></code> can be divided into three general steps:</p>
+<ol class="simple">
+<li><p><strong>Split</strong>: Partition the data into different groups based on some criterion.</p></li>
+<li><p><strong>Apply</strong>: Do some caclulation within each group. Different types of “apply” steps might be</p></li>
+<li><p><em>Aggregation</em>: Get the mean or max within the group.</p></li>
+<li><p><em>Transformation</em>: Normalize all the values within a group</p></li>
+<li><p><em>Filtration</em>: Eliminate some groups based on a criterion.</p></li>
+<li><p><strong>Combine</strong>: Put the results back together into a single object.</p></li>
+</ol>
+<p><img alt="split-apply-combine" src="https://miro.medium.com/max/1840/1*JbF6nhrQsn4f-TaSF6IR9g.png" /></p>
+<div class="section" id="the-groupby-method">
+<h3>The <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method<a class="headerlink" href="#the-groupby-method" title="Permalink to this headline">¶</a></h3>
+<p>Both <code class="docutils literal notranslate"><span class="pre">Series</span></code> and <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> objects have a groupby method. It accepts a variety of arguments, but the simplest way to think about it is that you pass another series, whose unique values are used to split the original object into different groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">BASIN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f154d21f6a0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>There is a shortcut for doing this with dataframes: you just pass the column name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;BASIN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f154d03de50&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-groubby-object">
+<h3>The <code class="docutils literal notranslate"><span class="pre">GroubBy</span></code> object<a class="headerlink" href="#the-groubby-object" title="Permalink to this headline">¶</a></h3>
+<p>When we call, <code class="docutils literal notranslate"><span class="pre">groupby</span></code> we get back a <code class="docutils literal notranslate"><span class="pre">GroupBy</span></code> object:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;BASIN&#39;</span><span class="p">)</span>
+<span class="n">gb</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f154d0e89d0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The length tells us how many groups were found:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">gb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>All of the groups are available as a dictionary via the <code class="docutils literal notranslate"><span class="pre">.groups</span></code> attribute:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span> <span class="o">=</span> <span class="n">gb</span><span class="o">.</span><span class="n">groups</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">groups</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;EP&#39;, &#39;NA&#39;, &#39;NI&#39;, &#39;SI&#39;, &#39;SP&#39;, &#39;WP&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="iterating-and-selecting-groups">
+<h3>Iterating and selecting groups<a class="headerlink" href="#iterating-and-selecting-groups" title="Permalink to this headline">¶</a></h3>
+<p>You can loop through the groups if you want.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">gb</span><span class="p">:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">group</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The key is &quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SEASON</th>
+      <th>NUMBER</th>
+      <th>BASIN</th>
+      <th>SUBBASIN</th>
+      <th>NAME</th>
+      <th>ISO_TIME</th>
+      <th>NATURE</th>
+      <th>LAT</th>
+      <th>LON</th>
+      <th>WMO_WIND</th>
+      <th>WMO_PRES</th>
+    </tr>
+    <tr>
+      <th>SID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018131N12235</th>
+      <td>2018</td>
+      <td>23</td>
+      <td>EP</td>
+      <td>MM</td>
+      <td>NaN</td>
+      <td>2018-05-10 12:00:00</td>
+      <td>TS</td>
+      <td>12.1000</td>
+      <td>-125.400</td>
+      <td>25.0</td>
+      <td>1008.0</td>
+    </tr>
+    <tr>
+      <th>2018131N12235</th>
+      <td>2018</td>
+      <td>23</td>
+      <td>EP</td>
+      <td>MM</td>
+      <td>NaN</td>
+      <td>2018-05-10 15:00:00</td>
+      <td>TS</td>
+      <td>12.2101</td>
+      <td>-125.790</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018131N12235</th>
+      <td>2018</td>
+      <td>23</td>
+      <td>EP</td>
+      <td>MM</td>
+      <td>NaN</td>
+      <td>2018-05-10 18:00:00</td>
+      <td>TS</td>
+      <td>12.3000</td>
+      <td>-126.200</td>
+      <td>30.0</td>
+      <td>1007.0</td>
+    </tr>
+    <tr>
+      <th>2018131N12235</th>
+      <td>2018</td>
+      <td>23</td>
+      <td>EP</td>
+      <td>MM</td>
+      <td>NaN</td>
+      <td>2018-05-10 21:00:00</td>
+      <td>TS</td>
+      <td>12.3575</td>
+      <td>-126.643</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018131N12235</th>
+      <td>2018</td>
+      <td>23</td>
+      <td>EP</td>
+      <td>MM</td>
+      <td>NaN</td>
+      <td>2018-05-11 00:00:00</td>
+      <td>TS</td>
+      <td>12.4000</td>
+      <td>-127.100</td>
+      <td>30.0</td>
+      <td>1007.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The key is &quot;EP&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And you can get a specific group by key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;SP&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SEASON</th>
+      <th>NUMBER</th>
+      <th>BASIN</th>
+      <th>SUBBASIN</th>
+      <th>NAME</th>
+      <th>ISO_TIME</th>
+      <th>NATURE</th>
+      <th>LAT</th>
+      <th>LON</th>
+      <th>WMO_WIND</th>
+      <th>WMO_PRES</th>
+    </tr>
+    <tr>
+      <th>SID</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018027S11156</th>
+      <td>2018</td>
+      <td>5</td>
+      <td>SP</td>
+      <td>EA</td>
+      <td>FEHI</td>
+      <td>2018-01-26 12:00:00</td>
+      <td>DS</td>
+      <td>-11.4000</td>
+      <td>156.100</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018027S11156</th>
+      <td>2018</td>
+      <td>5</td>
+      <td>SP</td>
+      <td>EA</td>
+      <td>FEHI</td>
+      <td>2018-01-26 15:00:00</td>
+      <td>DS</td>
+      <td>-11.5675</td>
+      <td>156.525</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018027S11156</th>
+      <td>2018</td>
+      <td>5</td>
+      <td>SP</td>
+      <td>EA</td>
+      <td>FEHI</td>
+      <td>2018-01-26 18:00:00</td>
+      <td>DS</td>
+      <td>-11.8000</td>
+      <td>157.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018027S11156</th>
+      <td>2018</td>
+      <td>5</td>
+      <td>SP</td>
+      <td>EA</td>
+      <td>FEHI</td>
+      <td>2018-01-26 21:00:00</td>
+      <td>DS</td>
+      <td>-12.1477</td>
+      <td>157.537</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018027S11156</th>
+      <td>2018</td>
+      <td>5</td>
+      <td>SP</td>
+      <td>EA</td>
+      <td>FEHI</td>
+      <td>2018-01-27 00:00:00</td>
+      <td>TS</td>
+      <td>-12.6000</td>
+      <td>158.000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="aggregation">
+<h2>Aggregation<a class="headerlink" href="#aggregation" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know how to create a <code class="docutils literal notranslate"><span class="pre">GroupBy</span></code> object, let’s learn how to do aggregation on it.</p>
+<p>One way us to use the <code class="docutils literal notranslate"><span class="pre">.aggregate</span></code> method, which accepts another function as its argument. The result is automatically combined into a new dataframe with the group key as the index.</p>
+<p>We can use both <code class="docutils literal notranslate"><span class="pre">.</span></code> or <code class="docutils literal notranslate"><span class="pre">[]</span></code> syntax to select a specific column to operate on. Then we get back a series.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BASIN
+EP    140.0
+NA    160.0
+NI     95.0
+SI    125.0
+SP    110.0
+Name: WMO_WIND, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">)</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BASIN
+NA    160.0
+EP    140.0
+SI    125.0
+WP    115.0
+SP    110.0
+NI     95.0
+Name: WMO_WIND, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are shortcuts for common aggregation functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BASIN
+NA    160.0
+EP    140.0
+SI    125.0
+WP    115.0
+SP    110.0
+NI     95.0
+Name: WMO_WIND, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BASIN
+SI    10.0
+EP    15.0
+NA    15.0
+SP    15.0
+NI    20.0
+WP    35.0
+Name: WMO_WIND, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BASIN
+WP    61.534009
+EP    51.912698
+NA    50.308810
+SP    47.766520
+SI    46.231362
+NI    41.353846
+Name: WMO_WIND, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BASIN
+EP    30.176084
+NA    24.634510
+SP    23.220435
+WP    22.915217
+SI    22.771114
+NI    17.673680
+Name: WMO_WIND, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also apply multiple functions at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>amin</th>
+      <th>amax</th>
+      <th>mean</th>
+    </tr>
+    <tr>
+      <th>BASIN</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>EP</th>
+      <td>15.0</td>
+      <td>140.0</td>
+      <td>51.912698</td>
+    </tr>
+    <tr>
+      <th>NA</th>
+      <td>15.0</td>
+      <td>160.0</td>
+      <td>50.308810</td>
+    </tr>
+    <tr>
+      <th>NI</th>
+      <td>20.0</td>
+      <td>95.0</td>
+      <td>41.353846</td>
+    </tr>
+    <tr>
+      <th>SI</th>
+      <td>10.0</td>
+      <td>125.0</td>
+      <td>46.231362</td>
+    </tr>
+    <tr>
+      <th>SP</th>
+      <td>15.0</td>
+      <td>110.0</td>
+      <td>47.766520</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">aggregate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">])</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;BASIN&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_33_1.png" src="../_images/pandas_groupby_33_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="transformation">
+<h2>Transformation<a class="headerlink" href="#transformation" title="Permalink to this headline">¶</a></h2>
+<p>The key difference between aggregation and transformation is that aggregation returns a <em>smaller</em> object than the original, indexed by the group keys, while <em>transformation</em> returns an object with the same index (and same size) as the original object. Groupby + transformation is used when applying an operation that requires information about the whole group.</p>
+<p>In this example, we standardize the earthquakes in each country so that the distribution has zero mean and unit variance. We do this by first defining a function called <code class="docutils literal notranslate"><span class="pre">standardize</span></code> and then passing it to the <code class="docutils literal notranslate"><span class="pre">transform</span></code> method.</p>
+<p>I admit that I don’t know why you would want to do this. <code class="docutils literal notranslate"><span class="pre">transform</span></code> makes more sense to me in the context of time grouping operation. See below for another example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">wind_standardized_by_basin</span> <span class="o">=</span> <span class="n">gb</span><span class="o">.</span><span class="n">WMO_WIND</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">standardize</span><span class="p">)</span>
+<span class="n">wind_standardized_by_basin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SID
+2018004S08095   -0.932381
+2018004S08095         NaN
+2018004S08095   -0.932381
+2018004S08095         NaN
+2018004S08095   -0.932381
+                   ...   
+2021067S24058         NaN
+2021067S24058         NaN
+2021067S24058         NaN
+2021067S24058         NaN
+2021067S24058         NaN
+Name: WMO_WIND, Length: 17783, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-grouping">
+<h2>Time Grouping<a class="headerlink" href="#time-grouping" title="Permalink to this headline">¶</a></h2>
+<p>We already saw how pandas has a strong built-in understanding of time. This capability is even more powerful in the context of <code class="docutils literal notranslate"><span class="pre">groupby</span></code>. With datasets indexed by a pandas <code class="docutils literal notranslate"><span class="pre">DateTimeIndex</span></code>, we can easily group and resample the data using common time units.</p>
+<p>To get started, let’s load a NOAA timeseries data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib</span>
+
+<span class="n">header_url</span> <span class="o">=</span> <span class="s1">&#39;ftp://ftp.ncdc.noaa.gov/pub/data/uscrn/products/daily01/HEADERS.txt&#39;</span>
+<span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">header_url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">lines</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<span class="n">ftp_base</span> <span class="o">=</span> <span class="s1">&#39;ftp://ftp.ncdc.noaa.gov/pub/data/uscrn/products/daily01/&#39;</span>
+<span class="n">dframes</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">2019</span><span class="p">):</span>
+    <span class="n">data_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">/CRND0103-</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">-NY_Millbrook_3_W.txt&#39;</span>               
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ftp_base</span> <span class="o">+</span> <span class="n">data_url</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                     <span class="n">names</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;\s+&#39;</span><span class="p">,</span>
+                     <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">9999.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">99.0</span><span class="p">])</span>
+    <span class="n">dframes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dframes</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;LST_DATE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>SOLARAD_DAILY</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>LST_DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-01-01</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>3.4</td>
+      <td>-0.5</td>
+      <td>1.5</td>
+      <td>1.3</td>
+      <td>0.0</td>
+      <td>1.69</td>
+      <td>...</td>
+      <td>0.233</td>
+      <td>0.204</td>
+      <td>0.155</td>
+      <td>0.147</td>
+      <td>4.2</td>
+      <td>4.4</td>
+      <td>5.1</td>
+      <td>6.0</td>
+      <td>7.6</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2016-01-02</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>2.9</td>
+      <td>-3.6</td>
+      <td>-0.4</td>
+      <td>-0.3</td>
+      <td>0.0</td>
+      <td>6.25</td>
+      <td>...</td>
+      <td>0.227</td>
+      <td>0.199</td>
+      <td>0.152</td>
+      <td>0.144</td>
+      <td>2.8</td>
+      <td>3.1</td>
+      <td>4.2</td>
+      <td>5.7</td>
+      <td>7.4</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2016-01-03</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>5.1</td>
+      <td>-1.8</td>
+      <td>1.6</td>
+      <td>1.1</td>
+      <td>0.0</td>
+      <td>5.69</td>
+      <td>...</td>
+      <td>0.223</td>
+      <td>0.196</td>
+      <td>0.151</td>
+      <td>0.141</td>
+      <td>2.6</td>
+      <td>2.8</td>
+      <td>3.8</td>
+      <td>5.2</td>
+      <td>7.2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2016-01-04</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>0.5</td>
+      <td>-14.4</td>
+      <td>-6.9</td>
+      <td>-7.5</td>
+      <td>0.0</td>
+      <td>9.17</td>
+      <td>...</td>
+      <td>0.220</td>
+      <td>0.194</td>
+      <td>0.148</td>
+      <td>0.139</td>
+      <td>1.7</td>
+      <td>2.1</td>
+      <td>3.4</td>
+      <td>4.9</td>
+      <td>6.9</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2016-01-05</th>
+      <td>64756</td>
+      <td>2.422</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>-5.2</td>
+      <td>-15.5</td>
+      <td>-10.3</td>
+      <td>-11.7</td>
+      <td>0.0</td>
+      <td>9.34</td>
+      <td>...</td>
+      <td>0.213</td>
+      <td>0.191</td>
+      <td>0.148</td>
+      <td>0.138</td>
+      <td>0.4</td>
+      <td>0.9</td>
+      <td>2.4</td>
+      <td>4.3</td>
+      <td>6.6</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 28 columns</p>
+</div></div></div>
+</div>
+<p>This timeseries has daily resolution, and the daily plots are somewhat noisy.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">T_DAILY_MEAN</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_40_1.png" src="../_images/pandas_groupby_40_1.png" />
+</div>
+</div>
+<p>A common way to analyze such data in climate science is to create a “climatology,” which contains the average values in each month or day of the year. We can do this easily with groupby. Recall that <code class="docutils literal notranslate"><span class="pre">df.index</span></code> is a pandas <code class="docutils literal notranslate"><span class="pre">DateTimeIndex</span></code> object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_climatology</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">monthly_climatology</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WBANNO</th>
+      <th>CRX_VN</th>
+      <th>LONGITUDE</th>
+      <th>LATITUDE</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_AVG</th>
+      <th>P_DAILY_CALC</th>
+      <th>SOLARAD_DAILY</th>
+      <th>...</th>
+      <th>SOIL_MOISTURE_10_DAILY</th>
+      <th>SOIL_MOISTURE_20_DAILY</th>
+      <th>SOIL_MOISTURE_50_DAILY</th>
+      <th>SOIL_MOISTURE_100_DAILY</th>
+      <th>SOIL_TEMP_5_DAILY</th>
+      <th>SOIL_TEMP_10_DAILY</th>
+      <th>SOIL_TEMP_20_DAILY</th>
+      <th>SOIL_TEMP_50_DAILY</th>
+      <th>SOIL_TEMP_100_DAILY</th>
+      <th></th>
+    </tr>
+    <tr>
+      <th>LST_DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>2.924731</td>
+      <td>-7.122581</td>
+      <td>-2.100000</td>
+      <td>-1.905376</td>
+      <td>2.478495</td>
+      <td>5.812258</td>
+      <td>...</td>
+      <td>0.240250</td>
+      <td>0.199528</td>
+      <td>0.150387</td>
+      <td>0.162554</td>
+      <td>0.168817</td>
+      <td>0.232258</td>
+      <td>0.788172</td>
+      <td>1.749462</td>
+      <td>3.395699</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>64756</td>
+      <td>2.487882</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>6.431765</td>
+      <td>-5.015294</td>
+      <td>0.712941</td>
+      <td>1.022353</td>
+      <td>4.077647</td>
+      <td>8.495882</td>
+      <td>...</td>
+      <td>0.244229</td>
+      <td>0.203089</td>
+      <td>0.154294</td>
+      <td>0.165494</td>
+      <td>1.217647</td>
+      <td>1.183529</td>
+      <td>1.281176</td>
+      <td>1.602353</td>
+      <td>2.460000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>7.953763</td>
+      <td>-3.035484</td>
+      <td>2.455914</td>
+      <td>2.643011</td>
+      <td>2.788172</td>
+      <td>13.211290</td>
+      <td>...</td>
+      <td>0.224155</td>
+      <td>0.190753</td>
+      <td>0.153108</td>
+      <td>0.161742</td>
+      <td>3.469892</td>
+      <td>3.407527</td>
+      <td>3.379570</td>
+      <td>3.473118</td>
+      <td>3.792473</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>14.793333</td>
+      <td>1.816667</td>
+      <td>8.302222</td>
+      <td>8.574444</td>
+      <td>2.396667</td>
+      <td>15.295889</td>
+      <td>...</td>
+      <td>0.208611</td>
+      <td>0.183922</td>
+      <td>0.150022</td>
+      <td>0.159956</td>
+      <td>9.402222</td>
+      <td>9.140000</td>
+      <td>8.438889</td>
+      <td>7.600000</td>
+      <td>6.633333</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>21.235484</td>
+      <td>8.460215</td>
+      <td>14.850538</td>
+      <td>15.121505</td>
+      <td>3.015054</td>
+      <td>17.288602</td>
+      <td>...</td>
+      <td>0.198925</td>
+      <td>0.175441</td>
+      <td>0.146011</td>
+      <td>0.157710</td>
+      <td>16.889247</td>
+      <td>16.693548</td>
+      <td>15.570968</td>
+      <td>14.193548</td>
+      <td>12.344086</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>25.627778</td>
+      <td>11.837778</td>
+      <td>18.733333</td>
+      <td>19.026667</td>
+      <td>3.053333</td>
+      <td>21.913333</td>
+      <td>...</td>
+      <td>0.132867</td>
+      <td>0.127067</td>
+      <td>0.128344</td>
+      <td>0.154989</td>
+      <td>22.372222</td>
+      <td>22.198889</td>
+      <td>20.917778</td>
+      <td>19.421111</td>
+      <td>17.453333</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>28.568817</td>
+      <td>15.536559</td>
+      <td>22.054839</td>
+      <td>22.012903</td>
+      <td>3.865591</td>
+      <td>21.570645</td>
+      <td>...</td>
+      <td>0.100871</td>
+      <td>0.084978</td>
+      <td>0.112516</td>
+      <td>0.153264</td>
+      <td>25.453763</td>
+      <td>25.408602</td>
+      <td>24.141935</td>
+      <td>22.725806</td>
+      <td>20.994624</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>27.473118</td>
+      <td>15.351613</td>
+      <td>21.410753</td>
+      <td>21.378495</td>
+      <td>4.480645</td>
+      <td>18.493333</td>
+      <td>...</td>
+      <td>0.150914</td>
+      <td>0.121323</td>
+      <td>0.125398</td>
+      <td>0.162667</td>
+      <td>24.784946</td>
+      <td>24.897849</td>
+      <td>24.117204</td>
+      <td>23.311828</td>
+      <td>22.278495</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>64756</td>
+      <td>2.488667</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>24.084444</td>
+      <td>12.032222</td>
+      <td>18.057778</td>
+      <td>17.866667</td>
+      <td>3.730000</td>
+      <td>13.625667</td>
+      <td>...</td>
+      <td>0.131133</td>
+      <td>0.113678</td>
+      <td>0.117722</td>
+      <td>0.157660</td>
+      <td>21.061111</td>
+      <td>21.220000</td>
+      <td>20.947778</td>
+      <td>20.823333</td>
+      <td>20.717778</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>64756</td>
+      <td>2.548882</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>18.127473</td>
+      <td>5.757143</td>
+      <td>11.938462</td>
+      <td>11.952747</td>
+      <td>3.228261</td>
+      <td>9.442527</td>
+      <td>...</td>
+      <td>0.144363</td>
+      <td>0.103879</td>
+      <td>0.112703</td>
+      <td>0.147246</td>
+      <td>14.901099</td>
+      <td>15.050549</td>
+      <td>15.360440</td>
+      <td>16.113187</td>
+      <td>17.113187</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>64756</td>
+      <td>2.555333</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>9.586667</td>
+      <td>-1.375556</td>
+      <td>4.097778</td>
+      <td>4.277778</td>
+      <td>3.991111</td>
+      <td>6.350111</td>
+      <td>...</td>
+      <td>0.213856</td>
+      <td>0.174800</td>
+      <td>0.149300</td>
+      <td>0.159456</td>
+      <td>6.845556</td>
+      <td>6.918889</td>
+      <td>7.663333</td>
+      <td>8.987778</td>
+      <td>11.007778</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>64756</td>
+      <td>2.555333</td>
+      <td>-73.74</td>
+      <td>41.79</td>
+      <td>3.569892</td>
+      <td>-5.704301</td>
+      <td>-1.069892</td>
+      <td>-0.850538</td>
+      <td>2.791398</td>
+      <td>4.708602</td>
+      <td>...</td>
+      <td>0.231729</td>
+      <td>0.188398</td>
+      <td>0.156817</td>
+      <td>0.172882</td>
+      <td>1.896774</td>
+      <td>1.964516</td>
+      <td>2.658065</td>
+      <td>3.869892</td>
+      <td>5.846237</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>12 rows × 27 columns</p>
+</div></div></div>
+</div>
+<p>Each row in this new dataframe respresents the average values for the months (1=January, 2=February, etc.)</p>
+<p>We can apply more customized aggregations, as with any groupby operation. Below we keep the mean of the mean, max of the max, and min of the min for the temperature measurements.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_T_climatology</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s1">&#39;T_DAILY_MEAN&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+                                                              <span class="s1">&#39;T_DAILY_MAX&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+                                                              <span class="s1">&#39;T_DAILY_MIN&#39;</span><span class="p">:</span> <span class="s1">&#39;min&#39;</span><span class="p">})</span>
+<span class="n">monthly_T_climatology</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>T_DAILY_MEAN</th>
+      <th>T_DAILY_MAX</th>
+      <th>T_DAILY_MIN</th>
+    </tr>
+    <tr>
+      <th>LST_DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>-2.100000</td>
+      <td>16.9</td>
+      <td>-26.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.712941</td>
+      <td>24.9</td>
+      <td>-24.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2.455914</td>
+      <td>26.8</td>
+      <td>-16.5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8.302222</td>
+      <td>30.6</td>
+      <td>-11.3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>14.850538</td>
+      <td>33.4</td>
+      <td>-1.6</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">monthly_T_climatology</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_45_1.png" src="../_images/pandas_groupby_45_1.png" />
+</div>
+</div>
+<p>If we want to do it on a finer scale, we can group by day of year.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">daily_T_climatology</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span><span class="o">.</span><span class="n">aggregate</span><span class="p">({</span><span class="s1">&#39;T_DAILY_MEAN&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+                                                            <span class="s1">&#39;T_DAILY_MAX&#39;</span><span class="p">:</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span>
+                                                            <span class="s1">&#39;T_DAILY_MIN&#39;</span><span class="p">:</span> <span class="s1">&#39;min&#39;</span><span class="p">})</span>
+<span class="n">daily_T_climatology</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_47_1.png" src="../_images/pandas_groupby_47_1.png" />
+</div>
+</div>
+<div class="section" id="calculating-anomalies">
+<h3>Calculating anomalies<a class="headerlink" href="#calculating-anomalies" title="Permalink to this headline">¶</a></h3>
+<p>A common mode of analysis in climate science is to remove the climatology from a signal to focus only on the “anomaly” values. This can be accomplished with transformation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">standardize</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">anomaly</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">standardize</span><span class="p">)</span>
+<span class="n">anomaly</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;T_DAILY_MEAN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_49_1.png" src="../_images/pandas_groupby_49_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="resampling">
+<h3>Resampling<a class="headerlink" href="#resampling" title="Permalink to this headline">¶</a></h3>
+<p>Another common operation is to change the resolution of a dataset by resampling in time. Pandas exposes this through the <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html#resampling">resample</a> function. The resample periods are specified using pandas <a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases">offset index</a> syntax.</p>
+<p>Below we resample the dataset by taking the mean over each month.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;T_DAILY_MEAN&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_51_1.png" src="../_images/pandas_groupby_51_1.png" />
+</div>
+</div>
+<p>Just like with <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, we can apply any aggregation function to our <code class="docutils literal notranslate"><span class="pre">resample</span></code> operation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;T_DAILY_MAX&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_53_1.png" src="../_images/pandas_groupby_53_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="rolling-operations">
+<h3>Rolling Operations<a class="headerlink" href="#rolling-operations" title="Permalink to this headline">¶</a></h3>
+<p>The final category of operations applies to “rolling windows”. (See <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.rolling.html">rolling</a> documentation.) We specify a function to apply over a moving window along the index. We specify the size of the window and, optionally, the weights. We also use the keyword <code class="docutils literal notranslate"><span class="pre">centered</span></code> to tell pandas whether to center the operation around the midpoint of the window.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">T_DAILY_MEAN</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">win_type</span><span class="o">=</span><span class="s1">&#39;triang&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T_DAILY_MEAN</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;LST_DATE&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_groupby_55_1.png" src="../_images/pandas_groupby_55_1.png" />
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="basic_pandas.html" title="previous page">Pandas Fundamentals</a>
+    <a class='right-next' id="next-link" href="site.html" title="next page">Comparisons between Reefs</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>

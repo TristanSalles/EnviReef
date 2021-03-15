@@ -1,0 +1,1286 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparisons between Reefs &#8212; Environmental Simulation Modelling</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Climate variability Davies Reef" href="climvar.html" />
+    <link rel="prev" title="Pandas: Groupby" href="pandas_groupby.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo2.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/notebooks_how_to.html">
+   Interactive notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../start/environment.html">
+   Managing environments
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../start/getting_started_with_notebooks.html">
+   Jupyter notebook
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../start/python_fundamentals.html">
+     Python Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../start/functions_classes.html">
+     Python Functions and Classes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Model &amp; dataset
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eReefs/model.html">
+   eReefs model description
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../eReefs/dataformat.html">
+   Data formats and access
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/pythonstack.html">
+   The scientific Python stack
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/numpy.html">
+   Introduction to numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../scientific/matplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../scientific/cartopy.html">
+   Maps in Scientific Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/hydro_maps.html">
+     eReefs dataset maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/cross_section.html">
+     eReefs dataset cross section
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/loadfct.html">
+     eReefs plotting functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data analysis
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="pandas_intro.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basic_pandas.html">
+   Pandas Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="pandas_groupby.html">
+   Pandas: Groupby
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Comparisons between Reefs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="climvar.html">
+     Climate variability Davies Reef
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/pandas/site.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/EnviReef"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2Fpandas/site.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/pandas/site.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/pandas/site.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-problem-how-strong-does-the-wind-need-to-be-to-set-the-direction-of-the-surface-ocean-currents">
+   Example problem: How strong does the wind need to be to set the direction of the surface ocean currents?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analysis-method">
+     Analysis method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-to-get-the-data">
+     Setting up to get the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extracting-the-data">
+     Extracting the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#downloading-the-data">
+     Downloading the data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reading-and-cleaning-the-data">
+   Reading and cleaning the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation">
+   Correlation
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="comparisons-between-reefs">
+<h1>Comparisons between Reefs<a class="headerlink" href="#comparisons-between-reefs" title="Permalink to this headline">¶</a></h1>
+<p><em>Notebook designed by <strong>Mark Hammerton</strong> from <strong>AIMS</strong></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">cKDTree</span>
+
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="kn">import</span> <span class="nn">netCDF4</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">num2date</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39;
+<span class="n">plt</span><span class="o">.</span><span class="n">ion</span><span class="p">()</span>  <span class="c1"># To trigger the interactive inline mode</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this notebook, we use the <a class="reference external" href="https://extraction.ereefs.aims.gov.au/">AIMS eReefs extraction tool</a> to extract time series data for two locations of interest.</p>
+<div class="section" id="example-problem-how-strong-does-the-wind-need-to-be-to-set-the-direction-of-the-surface-ocean-currents">
+<h2>Example problem: How strong does the wind need to be to set the direction of the surface ocean currents?<a class="headerlink" href="#example-problem-how-strong-does-the-wind-need-to-be-to-set-the-direction-of-the-surface-ocean-currents" title="Permalink to this headline">¶</a></h2>
+<p>We will investigate the relationship between the strength of the wind and the direction of the surface currents for two locations. We will look at <strong>Myrmidon Reef</strong>, which is on the far outer edge of the GBR and is almost right in the middle of the southern <strong>Eastern Australian Current</strong>.</p>
+<p>Our second location will be <strong>Davies Reef</strong> which is further in the reef matrix, but in a similar sector of the GBR.</p>
+<div class="section" id="analysis-method">
+<h3>Analysis method<a class="headerlink" href="#analysis-method" title="Permalink to this headline">¶</a></h3>
+<p>The East Australian Current (EAC) usually is a strong southward current near Myrmidon and Davies Reefs. During winter months the wind moves in a north eastern direction in the near opposite direction to the EAC. When the wind is low the surface currents are dominated by the EAC. As the wind picks up at some speed the wind overpowers the EAC and the surface current moves in the direction of the wind.</p>
+<p>To determine the relation between the wind and the surface currents we will pull out hourly time series wind and current data for our two locations of interest. We will then look at the correlation between the wind and current vectors, where a correlation of 1 indicates they are pointing in the same direction, and -1 indicated they are in opposite directions.</p>
+</div>
+<div class="section" id="setting-up-to-get-the-data">
+<h3>Setting up to get the data<a class="headerlink" href="#setting-up-to-get-the-data" title="Permalink to this headline">¶</a></h3>
+<p>To extract the time series data using the extraction tool we need to create a CSV file containing the sites of interest. This file needs to contain the coordinates and names of the sites. To create this I first added my points manually in Google Earth. This was done to simply get the location of Myrmidon and Davies Reefs. Using Google Earth to create your CSV file for the extraction tool is only useful if you don’t already know the coordinates of your sites.</p>
+<p>The location of the two sites are:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="p">,</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span>
+<span class="n">Myrmidon</span> <span class="n">Reef</span><span class="p">,</span><span class="o">-</span><span class="mf">18.265599</span><span class="p">,</span><span class="mf">147.389028</span>
+<span class="n">Davies</span> <span class="n">Reef</span><span class="p">,</span><span class="o">-</span><span class="mf">18.822840</span><span class="p">,</span><span class="mf">147.645209</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="extracting-the-data">
+<h3>Extracting the data<a class="headerlink" href="#extracting-the-data" title="Permalink to this headline">¶</a></h3>
+<p>The CSV file] was uploaded to the <a class="reference external" href="https://extraction.ereefs.aims.gov.au/">AIMS extraction tool</a> and the extraction was performed with the following settings:</p>
+<p><em>Data collection:</em> GBR1 Hydro (Version 2)
+<em>Variables:</em> Eastward wind speed (wspeed_u), Northward wind speed (wspeed_v), Northward current (v), Eastward current (u)
+<em>Date range:</em> 1 January 2019 - 31 December 2019
+<em>Time step:</em> hourly
+<em>Depths:</em> -2.35 m</p>
+<p>Once the extraction request was submitted the dataset was created after an one hour of processing the data was available for download from <a class="reference external" href="https://extraction.ereefs.aims.gov.au/data/2009.c451dc3">Extraction request: Example dataset: Wind-vs-Current at Davies and Myrmidon Reefs (2019)</a>.</p>
+</div>
+<div class="section" id="downloading-the-data">
+<h3>Downloading the data<a class="headerlink" href="#downloading-the-data" title="Permalink to this headline">¶</a></h3>
+<p>In this notebook we will download the data using scripting. There is no need to re-run the extraction request as each extraction performed by the extraction tool has a permanent public page created for it that can be used to facilitate sharing of the data.</p>
+<p>Let’s first create a temporary folder to contain the downloaded data. Note: The temp folder is excluded using the .gitignore so it is not saved to the code repository, which is why we must reproduce it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s download the data. The file to download is 12.9 MB and so this download might take a little while. To allow us to re-run this script without having to wait for the download each time we first check that the download has not already been done.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">extractionfile</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;temp&#39;</span><span class="p">,</span><span class="s1">&#39;2009.c451dc3-collected.csv&#39;</span><span class="p">)</span>  <span class="c1"># Use os.path.join so the script will work cross-platform</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">extractionfile</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading extraction data ...&quot;</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://api.ereefs.aims.gov.au/data-extraction/request/2009.c451dc3/files/2009.c451dc3-collected.csv&#39;</span>
+    <span class="n">req</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">extractionfile</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Skipping redownloading extraction data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading extraction data ...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;temp/2009.c451dc3-collected.csv&#39;, &lt;http.client.HTTPMessage object at 0x7ff530f39190&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-and-cleaning-the-data">
+<h2>Reading and cleaning the data<a class="headerlink" href="#reading-and-cleaning-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Read the resulting CSV file into a <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/10min.html">Pandas data frame</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">extractionfile</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aggregated Date/Time</th>
+      <th>Variable</th>
+      <th>Depth</th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>mean</th>
+      <th>median</th>
+      <th>p5</th>
+      <th>p95</th>
+      <th>lowest</th>
+      <th>highest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>99999.90</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+      <td>-9.568488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>99999.90</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+      <td>-8.880175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>99999.90</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+      <td>3.260430</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>99999.90</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+      <td>2.756750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-01T00:00</td>
+      <td>v</td>
+      <td>-2.35</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+      <td>0.047311</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here we can see that data is in <a class="reference external" href="https://towardsdatascience.com/whats-tidy-data-how-to-organize-messy-datasets-in-python-with-melt-and-pivotable-functions-5d52daa996c9">tidy format</a>. That is each observation is in one row per time step, variable, depth and site. For each of these combinations there are summary statistics corresponding to the aggregation process that was applied. Somewhat confusingly we extracted hourly data from the hourly eReefs hydrodynamic model and so there was no aggregation applied. As a result all the stats values are the same and the mean corresponds to the actual extracted data values. Let’s clean this up a little by removing the redundant columns. Here we also drop the depth variable as the depth of the wind doesn’t match the depth of the surface current and so makes it difficult to align the wind and the current together. Since we are only processing a single depth this is an OK simplification. If we were processing the current at multiple depths then we would need a more complex set of data wraggling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="s1">&#39;p5&#39;</span><span class="p">,</span> <span class="s1">&#39;p95&#39;</span><span class="p">,</span> <span class="s1">&#39;lowest&#39;</span><span class="p">,</span><span class="s1">&#39;highest&#39;</span><span class="p">,</span><span class="s1">&#39;Depth&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">})</span>
+<span class="n">df2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Aggregated Date/Time</th>
+      <th>Variable</th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>-9.568488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_u</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-8.880175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>3.260430</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-01T00:00</td>
+      <td>wspeed_v</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2.756750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-01T00:00</td>
+      <td>v</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>0.047311</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70075</th>
+      <td>2019-12-31T23:00</td>
+      <td>wspeed_v</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-0.438245</td>
+    </tr>
+    <tr>
+      <th>70076</th>
+      <td>2019-12-31T23:00</td>
+      <td>v</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>-0.182262</td>
+    </tr>
+    <tr>
+      <th>70077</th>
+      <td>2019-12-31T23:00</td>
+      <td>v</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-0.132238</td>
+    </tr>
+    <tr>
+      <th>70078</th>
+      <td>2019-12-31T23:00</td>
+      <td>u</td>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>0.109877</td>
+    </tr>
+    <tr>
+      <th>70079</th>
+      <td>2019-12-31T23:00</td>
+      <td>u</td>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>-0.036996</td>
+    </tr>
+  </tbody>
+</table>
+<p>70080 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p>Next we need to align the wind and current values for a given time step and site on to the same rows of data. Here we are converting the data from tall format to wide format.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s2">&quot;Site Name&quot;</span><span class="p">,</span> <span class="s2">&quot;Latitude&quot;</span><span class="p">,</span> <span class="s2">&quot;Longitude&quot;</span><span class="p">,</span> <span class="s2">&quot;Aggregated Date/Time&quot;</span><span class="p">])</span>
+    <span class="o">.</span><span class="n">pivot</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Variable&quot;</span><span class="p">)[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">df3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Aggregated Date/Time</th>
+      <th>u</th>
+      <th>v</th>
+      <th>wspeed_u</th>
+      <th>wspeed_v</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T00:00</td>
+      <td>-0.048835</td>
+      <td>0.100391</td>
+      <td>-8.880175</td>
+      <td>2.756750</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T01:00</td>
+      <td>-0.090807</td>
+      <td>-0.036129</td>
+      <td>-8.749271</td>
+      <td>2.753487</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T02:00</td>
+      <td>-0.118289</td>
+      <td>-0.180480</td>
+      <td>-8.463824</td>
+      <td>2.587230</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T03:00</td>
+      <td>-0.110750</td>
+      <td>-0.278911</td>
+      <td>-8.223801</td>
+      <td>2.112059</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Davies Reef</td>
+      <td>-18.822840</td>
+      <td>147.645209</td>
+      <td>2019-01-01T04:00</td>
+      <td>-0.079472</td>
+      <td>-0.312360</td>
+      <td>-8.565171</td>
+      <td>2.711215</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>17515</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T19:00</td>
+      <td>0.122626</td>
+      <td>-0.135253</td>
+      <td>-3.541733</td>
+      <td>-1.553717</td>
+    </tr>
+    <tr>
+      <th>17516</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T20:00</td>
+      <td>0.109952</td>
+      <td>-0.159535</td>
+      <td>-4.599430</td>
+      <td>-2.777445</td>
+    </tr>
+    <tr>
+      <th>17517</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T21:00</td>
+      <td>0.093136</td>
+      <td>-0.191407</td>
+      <td>-5.076771</td>
+      <td>-2.509114</td>
+    </tr>
+    <tr>
+      <th>17518</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T22:00</td>
+      <td>0.097422</td>
+      <td>-0.195158</td>
+      <td>-4.684705</td>
+      <td>-1.118275</td>
+    </tr>
+    <tr>
+      <th>17519</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-12-31T23:00</td>
+      <td>0.109877</td>
+      <td>-0.182262</td>
+      <td>-4.291664</td>
+      <td>-0.946930</td>
+    </tr>
+  </tbody>
+</table>
+<p>17520 rows × 8 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="correlation">
+<h2>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h2>
+<p>Our aim is to create an index that estimates the correlation of the current and the wind vectors.</p>
+<p>The correlation of the current and wind vectors can be estimated based using the <a class="reference external" href="https://www.mathsisfun.com/algebra/vectors-dot-product.html">dot product</a>. An overview of the relationship between correlation and using the dot product is described in <a class="reference external" href="https://medium.com/&#64;ns2586/geometric-interpretation-of-the-correlation-between-two-variables-4011fb3ea18e">Geometric Interpretation of the Correlation between Two Variables</a>. The correlation between the two vectors ‘r’ is given by:</p>
+<p><span class="math notranslate nohighlight">\(r = \cos(\theta) = \frac{a \cdot b}{\|a\| \cdot \|b\|}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(a \cdot b\)</span> is the dot product between the tow vectors and <span class="math notranslate nohighlight">\(\|a\|\)</span> and <span class="math notranslate nohighlight">\(\|b\|\)</span> are the magnitudes of the vectors. The dot product can be calculated using the following.</p>
+<p><span class="math notranslate nohighlight">\(a \cdot b = a_{x} \times b_{x} + a_{y} \times b_{y}\)</span></p>
+<p>and the magnitude of the vectors:</p>
+<p><span class="math notranslate nohighlight">\(\|a\| = \sqrt{a_{x}^2+a_{y}^2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\|b\| = \sqrt{b_{x}^2+b_{y}^2}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;currentmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df3</span><span class="p">[</span><span class="s1">&#39;windmag&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_u&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_v&#39;</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">df3</span><span class="p">[</span><span class="s1">&#39;windcurrentcorr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_u&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df3</span><span class="p">[</span><span class="s1">&#39;wspeed_v&#39;</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;currentmag&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">df3</span><span class="p">[</span><span class="s1">&#39;windmag&#39;</span><span class="p">])</span>
+<span class="n">df3</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Aggregated Date/Time</th>
+      <th>u</th>
+      <th>v</th>
+      <th>wspeed_u</th>
+      <th>wspeed_v</th>
+      <th>currentmag</th>
+      <th>windmag</th>
+      <th>windcurrentcorr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T00:00</td>
+      <td>-0.048835</td>
+      <td>0.100391</td>
+      <td>-8.880175</td>
+      <td>2.756750</td>
+      <td>0.111638</td>
+      <td>9.298236</td>
+      <td>0.684380</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T01:00</td>
+      <td>-0.090807</td>
+      <td>-0.036129</td>
+      <td>-8.749271</td>
+      <td>2.753487</td>
+      <td>0.097730</td>
+      <td>9.172319</td>
+      <td>0.775325</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T02:00</td>
+      <td>-0.118289</td>
+      <td>-0.180480</td>
+      <td>-8.463824</td>
+      <td>2.587230</td>
+      <td>0.215790</td>
+      <td>8.850428</td>
+      <td>0.279727</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T03:00</td>
+      <td>-0.110750</td>
+      <td>-0.278911</td>
+      <td>-8.223801</td>
+      <td>2.112059</td>
+      <td>0.300094</td>
+      <td>8.490683</td>
+      <td>0.126259</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Davies Reef</td>
+      <td>-18.82284</td>
+      <td>147.645209</td>
+      <td>2019-01-01T04:00</td>
+      <td>-0.079472</td>
+      <td>-0.312360</td>
+      <td>-8.565171</td>
+      <td>2.711215</td>
+      <td>0.322311</td>
+      <td>8.984033</td>
+      <td>-0.057391</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s look at the relationship between the wind and current as a function of the wind speed.</p>
+<p>Here we are considering each hourly sample as an independent estimate of the relationship. In reality this is not the case as the longer the wind blows the more effect it will have on the current. This is a limitation of the analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">davies</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`Site Name` == &quot;Davies Reef&quot;&#39;</span><span class="p">)</span>
+<span class="n">myrmidon</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;`Site Name` == &quot;Myrmidon Reef&quot;&#39;</span><span class="p">)</span>
+<span class="n">myrmidon</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Site Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Aggregated Date/Time</th>
+      <th>u</th>
+      <th>v</th>
+      <th>wspeed_u</th>
+      <th>wspeed_v</th>
+      <th>currentmag</th>
+      <th>windmag</th>
+      <th>windcurrentcorr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8760</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T00:00</td>
+      <td>0.012498</td>
+      <td>0.047311</td>
+      <td>-9.568488</td>
+      <td>3.260430</td>
+      <td>0.048934</td>
+      <td>10.108727</td>
+      <td>0.070078</td>
+    </tr>
+    <tr>
+      <th>8761</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T01:00</td>
+      <td>-0.029212</td>
+      <td>-0.013297</td>
+      <td>-9.420339</td>
+      <td>3.528335</td>
+      <td>0.032096</td>
+      <td>10.059420</td>
+      <td>0.707019</td>
+    </tr>
+    <tr>
+      <th>8762</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T02:00</td>
+      <td>-0.060520</td>
+      <td>-0.066542</td>
+      <td>-9.333500</td>
+      <td>3.765564</td>
+      <td>0.089947</td>
+      <td>10.064477</td>
+      <td>0.347188</td>
+    </tr>
+    <tr>
+      <th>8763</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T03:00</td>
+      <td>-0.078321</td>
+      <td>-0.111699</td>
+      <td>-9.281394</td>
+      <td>3.784521</td>
+      <td>0.136421</td>
+      <td>10.023316</td>
+      <td>0.222466</td>
+    </tr>
+    <tr>
+      <th>8764</th>
+      <td>Myrmidon Reef</td>
+      <td>-18.265599</td>
+      <td>147.389028</td>
+      <td>2019-01-01T04:00</td>
+      <td>-0.076759</td>
+      <td>-0.132760</td>
+      <td>-8.527690</td>
+      <td>3.885759</td>
+      <td>0.153353</td>
+      <td>9.371266</td>
+      <td>0.096513</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s create a scatter plot to see if there is a relationship between the wind and currents.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wind speed (m/s)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Wind-current correlation&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">myrmidon</span><span class="p">[</span><span class="s2">&quot;windmag&quot;</span><span class="p">],</span> <span class="n">myrmidon</span><span class="p">[</span><span class="s2">&quot;windcurrentcorr&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">davies</span><span class="p">[</span><span class="s2">&quot;windmag&quot;</span><span class="p">],</span> <span class="n">davies</span><span class="p">[</span><span class="s2">&quot;windcurrentcorr&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlation between wind and surface current (hourly data, 2019)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># plt.savefig(&quot;CorrelationWindCurrent.png&quot;,dpi=300)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/site_17_0.png" src="../_images/site_17_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>This scatter plot shows that the relationship between wind and current is weak. This is not surprising given that we are considering just the hourly samples, with no consideration for how long the wind has been blowing. At low wind conditions the current has an even chance of being aligned with the wind (correlation = 1) as in the opposite direction (correlation = -1), however in high wind we can see that there is much more chance that the currents are aligned with the wind.</p>
+<p>To understand this relationship better we want to understand how much the wind nudges the current in its direction. If we bin the wind speeds then collect all the correlation samples in each bin then we can see if they average to zero (indicating that there is no relationship between the wind and current) or there is average alignment.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Wind speed (m/s)&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Wind-current correlation&#39;</span><span class="p">)</span>
+
+<span class="n">wind</span> <span class="o">=</span> <span class="n">davies</span><span class="p">[</span><span class="s2">&quot;windmag&quot;</span><span class="p">]</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">davies</span><span class="p">[</span><span class="s2">&quot;windcurrentcorr&quot;</span><span class="p">]</span>
+<span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">wind</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Davies Reef&#39;</span><span class="p">)</span>
+
+
+<span class="n">wind</span> <span class="o">=</span> <span class="n">myrmidon</span><span class="p">[</span><span class="s2">&quot;windmag&quot;</span><span class="p">]</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">myrmidon</span><span class="p">[</span><span class="s2">&quot;windcurrentcorr&quot;</span><span class="p">]</span>
+<span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">,</span> <span class="n">binnumber</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">wind</span><span class="p">,</span> <span class="n">current</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">bin_means</span><span class="p">,</span> <span class="n">bin_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bin_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Myrmidon Reef&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean correlation between wind and surface current (hourly data, 2019)&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/site_19_0.png" src="../_images/site_19_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this we can see that for wind speeds below 8 m/s the surface current direction is unrelated to the wind. Above this wind speed the surface current is increasingly determined by the direction of the wind. By the time the wind is 16 m/s the direction of the surface current is dominated by the wind direction.</p>
+<p><em>Note: It should be remembered that this analysis is based on the eReefs Hydrodynamic model and as such is not based on real data. The eReefs model has however been tuned to accurately capture the flow dynamics of the GBR and so we would expect the estimates from this analysis to be approximately correct.</em></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./pandas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="pandas_groupby.html" title="previous page">Pandas: Groupby</a>
+    <a class='right-next' id="next-link" href="climvar.html" title="next page">Climate variability Davies Reef</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
