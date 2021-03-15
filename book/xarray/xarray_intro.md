@@ -1,4 +1,4 @@
-# Xarray for multidimensional gridded data
+# Xarray for multidimensional data
 
 *This material is adapted from the [Xarray documentation](http://xarray.pydata.org/en/stable/index.html)*.
 
