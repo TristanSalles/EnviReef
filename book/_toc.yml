@@ -41,7 +41,7 @@
       sections:
         - file: xarray/xarray
         - file: xarray/xarray-part2
-        # - file: xarray/xarray_tips_and_tricks
+        - file: xarray/xarray_tips_and_tricks
 
 #   - file: scientific/dask
 #   - file: scientific/geoviews
