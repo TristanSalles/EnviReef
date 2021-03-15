@@ -1,6 +1,6 @@
 # Xarray for multidimensional gridded data
 
-*This material is adapted from the [Earth and Environmental Data Science](https://earth-env-data-science.github.io/intro.html), from Ryan Abernathey (Columbia University)*.
+*This material is adapted from the [Xarray documentation](http://xarray.pydata.org/en/stable/index.html)*.
 
 In the previous set of notebooks, we saw how `Pandas` provided a way to keep track of additional "metadata" surrounding tabular datasets, including "indexes" for each row and labels for each column. These features, together with Pandas' many useful routines for all kinds of data munging and analysis, have made `Pandas` one of the most popular Python packages in the world.
 

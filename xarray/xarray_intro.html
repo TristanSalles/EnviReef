@@ -54,6 +54,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../_static/jupyter.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Xarray Fundamentals" href="xarray.html" />
@@ -76,7 +77,7 @@
         <div class="navbar-brand-box">
 <a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="../_static/logo2.png" class="logo" alt="logo">
+  <img src="../_static/logo4.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
@@ -228,29 +229,25 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Xarray for multidimensional gridded data
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="xarray.html">
-     Xarray Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="xarray-part2.html">
-     Advanced Xarray
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="xarray_tips_and_tricks.html">
-     Xarray Tips and Tricks
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="xarray.html">
+   Xarray Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="xarray-part2.html">
+   Advanced Xarray
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="xarray_tips_and_tricks.html">
+   Xarray Tips and Tricks
+  </a>
  </li>
 </ul>
 
@@ -421,7 +418,7 @@
                 
   <div class="section" id="xarray-for-multidimensional-gridded-data">
 <h1>Xarray for multidimensional gridded data<a class="headerlink" href="#xarray-for-multidimensional-gridded-data" title="Permalink to this headline">¶</a></h1>
-<p><em>This material is adapted from the <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">Earth and Environmental Data Science</a>, from Ryan Abernathey (Columbia University)</em>.</p>
+<p><em>This material is adapted from the <a class="reference external" href="http://xarray.pydata.org/en/stable/index.html">Xarray documentation</a></em>.</p>
 <p>In the previous set of notebooks, we saw how <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> provided a way to keep track of additional “metadata” surrounding tabular datasets, including “indexes” for each row and labels for each column. These features, together with Pandas’ many useful routines for all kinds of data munging and analysis, have made <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> one of the most popular Python packages in the world.</p>
 <p>However, not all Earth science datasets easily fit into the “tabular” model (<em>i.e.</em> rows and columns) imposed by <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. In particular, we often deal with <em>multidimensional data</em>. By <em>multidimensional data</em> (also often called <em>N-dimensional</em>), I mean data with many independent dimensions or axes. For example, we might represent Earth’s surface temperature <span class="math notranslate nohighlight">\(T\)</span> as a three dimensional variable</p>
 <div class="math notranslate nohighlight">
@@ -518,8 +515,6 @@
 <li><p>Show multiple line plots over a dimension using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> keyword</p></li>
 <li><p>Create multiple 2D plots using faceting</p></li>
 </ol>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 </div>
