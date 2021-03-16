@@ -41,6 +41,10 @@
     - file: xarray/xarray
     - file: xarray/xarray-part2
     - file: xarray/xarray_tips_and_tricks
+      sections:
+        - file: xarray/eReefs_site
+        - file: xarray/eReefs_maps
+        - file: xarray/eReefs_bokeh
 
 #   - file: scientific/dask
 #   - file: scientific/geoviews
