@@ -242,10 +242,29 @@
    Advanced Xarray
   </a>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../xarray/xarray_tips_and_tricks.html">
    Xarray Tips and Tricks
   </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/eReefs_site.html">
+     eReefs Xarray Davies Reef
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/eReefs_maps.html">
+     eReefs Xarray maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../xarray/eReefs_bokeh.html">
+     eReefs Xarray examples
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
  </li>
 </ul>
 
@@ -503,6 +522,10 @@
 <p><strong>This cell takes a lot of time to run.</strong></p>
 <p>To speed up the process you might want to only extract the information for a restricted period of time and also some specific parameters (<em>e.g.</em> temperature or current speed…).</p>
 <p>For the sake of the exercise, I have stored the output from this cell in a CSV file (<code class="docutils literal notranslate"><span class="pre">DaviesReef_timeseries.csv</span></code>) so there is no need to run it again! Obviously depending of the reef you will chose in your project, you will need to run it.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>We will see how this can be done in a easier way with <a class="reference external" href="http://xarray.pydata.org/en/stable/">Xarray</a> in one of our following lecture!</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># # Define starting and ending date of the netcdf file we want to load </span>
