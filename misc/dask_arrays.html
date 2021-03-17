@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dask Arrays &#8212; Environmental Simulation Modelling</title>
+    <title>Dask example &#8212; Environmental Simulation Modelling</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -284,7 +284,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Dask Arrays
+   Dask example
   </a>
  </li>
 </ul>
@@ -444,8 +444,8 @@
         
               <div>
                 
-  <div class="section" id="dask-arrays">
-<h1>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dask-example">
+<h1>Dask example<a class="headerlink" href="#dask-example" title="Permalink to this headline">¶</a></h1>
 <p><em>This material is adapted from the <a class="reference external" href="https://tutorial.dask.org/00_overview.html">Dask tutorial documentation</a> and the <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">Earth and Environmental Data Science</a> website.</em></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -752,7 +752,7 @@
 <p>Do not try to <code class="docutils literal notranslate"><span class="pre">.visualize()</span></code> this array!</p>
 </div>
 <p>When doing a big calculation, Dask also has some tools to help us understand what is happening under the hood</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
 
@@ -768,61 +768,46 @@
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[                                        ] | 0% Completed |  0.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#                                       ] | 2% Completed |  0.1s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[##                                      ] | 6% Completed |  0.1s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[###                                     ] | 7% Completed |  0.2s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#####                                   ] | 13% Completed |  0.2s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#####                                   ] | 13% Completed |  0.3s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[########                                ] | 21% Completed |  0.3s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#######                                 ] | 18% Completed |  0.4s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[###########                             ] | 29% Completed |  0.4s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#########                               ] | 23% Completed |  0.5s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[##############                          ] | 37% Completed |  0.5s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[###########                             ] | 28% Completed |  0.6s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#################                       ] | 44% Completed |  0.6s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#############                           ] | 34% Completed |  0.7s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[####################                    ] | 51% Completed |  0.7s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[################                        ] | 40% Completed |  0.8s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#######################                 ] | 59% Completed |  0.8s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[##################                      ] | 46% Completed |  0.9s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[##########################              ] | 66% Completed |  0.9s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[####################                    ] | 51% Completed |  1.0s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#############################           ] | 74% Completed |  1.0s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#######################                 ] | 57% Completed |  1.1s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#################################       ] | 82% Completed |  1.1s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#########################               ] | 63% Completed |  1.2s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[####################################    ] | 90% Completed |  1.2s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[###########################             ] | 69% Completed |  1.3s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[####################################### ] | 98% Completed |  1.3s
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[##############################          ] | 75% Completed |  1.4s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[################################        ] | 81% Completed |  1.5s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[##################################      ] | 87% Completed |  1.6s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[#####################################   ] | 92% Completed |  1.7s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[####################################### ] | 98% Completed |  1.8s
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[########################################] | 100% Completed |  1.9s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[########################################] | 100% Completed |  1.5s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
@@ -902,7 +887,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f948887b910&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f53d8319a30&gt;]
 </pre></div>
 </div>
 <img alt="../_images/dask_arrays_25_1.png" src="../_images/dask_arrays_25_1.png" />
@@ -927,7 +912,7 @@
 <td style="vertical-align: top; border: 0px solid white">
 <h3 style="text-align: left;">Client</h3>
 <ul style="text-align: left; list-style: none; margin: 0; padding: 0;">
-  <li><b>Scheduler: </b>tcp://127.0.0.1:35705</li>
+  <li><b>Scheduler: </b>tcp://127.0.0.1:39421</li>
   <li><b>Dashboard: </b><a href='http://127.0.0.1:8787/status' target='_blank'>http://127.0.0.1:8787/status</a></li>
 </ul>
 </td>
@@ -1023,6 +1008,10 @@
 </div>
 <div class="section" id="dask-xarray">
 <h2>Dask + XArray<a class="headerlink" href="#dask-xarray" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Everything has been commented below to speed-up the <code class="docutils literal notranslate"><span class="pre">Jupyter-book</span></code> creation!</p>
+</div>
 <p><code class="docutils literal notranslate"><span class="pre">Xarray</span></code> can automatically wrap its data in Dask arrays.</p>
 <p><strong>This capability turns Xarray into an extremely powerful tool for Big Data Environmental science!!!</strong></p>
 <p>To see this in action, we will download a fairly large dataset to analyze.</p>
@@ -1066,17 +1055,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_first</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">/</span> <span class="mf">1e6</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">25</span><span class="o">-</span><span class="mi">40</span><span class="n">a64eb9f9ad</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds_first</span><span class="o">.</span><span class="n">nbytes</span> <span class="o">/</span> <span class="mf">1e6</span>
-
-<span class="ne">NameError</span>: name &#39;ds_first&#39; is not defined
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ds_first.nbytes / 1e6</span>
 </pre></div>
 </div>
 </div>
@@ -1147,21 +1126,9 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
-<span class="n">weight</span> <span class="o">/=</span> <span class="n">weight</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="p">(</span><span class="n">ssh_anom</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="mi">12468</span><span class="n">a8c6c7c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">lat</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">weight</span> <span class="o">/=</span> <span class="n">weight</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="p">(</span><span class="n">ssh_anom</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;ds&#39; is not defined
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># weight = np.cos(np.deg2rad(ds.lat))</span>
+<span class="c1"># weight /= weight.mean()</span>
+<span class="c1"># (ssh_anom * weight).mean(dim=(&#39;lon&#39;, &#39;lat&#39;)).plot()</span>
 </pre></div>
 </div>
 </div>

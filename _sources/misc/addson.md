@@ -1,12 +1,5 @@
 # Other libraries of interest
 
-```{figure} ../_static/NCI.png
----
-figclass: margin
-name: margin_launch
----
-```
-
 Part of the following librairies address an incresingly common problem: *what happens if the data we wish to analyze is “big data”?*
 
 We learned how to use `Numpy`, `Pandas`, and `Xarray` to analyze various types of environmental data. There are obviously many others useful libraries, especially when it comes to **Big data**.
@@ -56,6 +49,13 @@ Siphon allows efficient access to Unidata data hosted on a THREDDS Data Server.
 
 
 ## NCI examples
+
+```{figure} ../_static/NCI.png
+---
+figclass: margin
+name: margin_launch
+---
+```
 
 + A useful overview of the National Computing Infrastructure data collection and services can be found [here](https://nci-data-training.readthedocs.io/en/latest/_notebook/tds/THREDDS_WMS.html?highlight=ereefs#In-this-notebook:). Series of Jupyter notebooks [examples](https://nci-data-training.readthedocs.io/en/latest/index.html) are provided.
 
