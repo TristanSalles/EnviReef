@@ -1,5 +1,12 @@
 # Other libraries of interest
 
+```{figure} ../_static/NCI.png
+---
+figclass: margin
+name: margin_launch
+---
+```
+
 - [DASK](https://dask.org)
 - [Zarr](https://zarr.readthedocs.io/en/stable/)
 - [Siphon](https://unidata.github.io/siphon/latest/index.html)
