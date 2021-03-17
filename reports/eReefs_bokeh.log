@@ -33,6 +33,5 @@ The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
 load_week = week_ds.load()
-load_week
 -------------------
 
