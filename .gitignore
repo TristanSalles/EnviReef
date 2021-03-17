@@ -8,6 +8,9 @@ book/examples/__pycache__/*
 book/start/.ipynb_checkpoints/*
 book/pandas/.ipynb_checkpoints/*
 book/xarray/.ipynb_checkpoints/*
+book/misc/.ipynb_checkpoints/*
 book/examples/fig-currents/mycurrents.gif
 book/examples/temp/*
 book/pandas/temp/*
+book/misc/dask-worker-space/
+book/misc/mydask.png

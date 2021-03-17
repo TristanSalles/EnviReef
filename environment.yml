@@ -3,6 +3,7 @@ channels:
   - conda-forge
   - pyviz
   - defaults
+  - anaconda
 dependencies:
   - python=3.8    # Python version 3.8
   - sphinx
@@ -38,6 +39,13 @@ dependencies:
   - Pillow        # Python Imaging Library
   - dask          # Parallel computing in Python
   - geoviews      # Geo-datasets
+  - python-graphviz
+  - requests
+  - aiohttp
+  - intake
+  - intake-xarray
+  - gcsfs
+  - wget
   - pip:
     - pyproj      # Geographic projections
 
