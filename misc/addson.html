@@ -55,6 +55,7 @@
     <link rel="shortcut icon" href="../_static/jupyter.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dask Arrays" href="dask_arrays.html" />
     <link rel="prev" title="Interactive Maps" href="../xarray/eReefs_bokeh.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -282,6 +283,11 @@
    Other libraries of interest
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dask_arrays.html">
+   Dask Arrays
+  </a>
+ </li>
 </ul>
 
 </nav> <!-- To handle the deprecated key -->
@@ -372,8 +378,18 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examples">
-   Examples
+  <a class="reference internal nav-link" href="#faster-array-manipulation">
+   Faster array manipulation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-loading-libraries">
+   Data loading libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nci-examples">
+   NCI examples
   </a>
  </li>
 </ul>
@@ -393,25 +409,76 @@
 <div class="margin figure align-default" id="margin-launch">
 <img alt="../_images/NCI.png" src="../_images/NCI.png" />
 </div>
+<p>Part of the following librairies address an incresingly common problem: <em>what happens if the data we wish to analyze is “big data”?</em></p>
+<p>We learned how to use <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>, and <code class="docutils literal notranslate"><span class="pre">Xarray</span></code> to analyze various types of environmental data. There are obviously many others useful libraries, especially when it comes to <strong>Big data</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Big data</strong> is data sets that are so voluminous and complex that traditional data processing application software are inadequate to deal with them.</p>
+</div>
+<p>By this definition, most of the dataset we are regularly confronted to in environmental science (actually <em>in Earth science more generally</em>) are big data.</p>
+<div class="section" id="faster-array-manipulation">
+<h2>Faster array manipulation<a class="headerlink" href="#faster-array-manipulation" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default">
+<a class="reference internal image-reference" href="../_images/daskzarr.png"><img alt="../_images/daskzarr.png" src="../_images/daskzarr.png" style="width: 734.6999999999999px; height: 165.29999999999998px;" /></a>
+</div>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-6 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header docutils">
+<p class="card-text"><strong><a class="reference external" href="https://dask.org">DASK</a></strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text"><strong>Dask</strong> provides advanced parallelism for analytics. It is developed in coordination with other community projects like NumPy, pandas, and scikit-learn.</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-6 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header docutils">
+<p class="card-text"><strong><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Zarr</a></strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text"><strong>Zarr</strong> is a format for the storage of chunked, compressed, N-dimensional arrays that depends on Numpy.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-loading-libraries">
+<h2>Data loading libraries<a class="headerlink" href="#data-loading-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-6 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header docutils">
+<p class="card-text"><strong><a class="reference external" href="https://intake.readthedocs.io/en/latest/">Intake</a></strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text"><strong>Intake</strong> is a lightweight set of tools for loading and sharing data in data science projects.</p>
+</div>
+</div>
+</div>
+<div class="d-flex col-6 docutils">
+<div class="card w-100 border-2 docutils">
+<div class="card-header docutils">
+<p class="card-text"><strong><a class="reference external" href="https://unidata.github.io/siphon/latest/index.html">Siphon</a></strong></p>
+</div>
+<div class="card-body docutils">
+<p class="card-text">Siphon allows efficient access to Unidata data hosted on a THREDDS Data Server.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="nci-examples">
+<h2>NCI examples<a class="headerlink" href="#nci-examples" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://dask.org">DASK</a></p></li>
-<li><p><a class="reference external" href="https://zarr.readthedocs.io/en/stable/">Zarr</a></p></li>
-<li><p><a class="reference external" href="https://unidata.github.io/siphon/latest/index.html">Siphon</a></p></li>
-<li><p><a class="reference external" href="https://intake.readthedocs.io/en/latest/">Intake</a></p></li>
-</ul>
-<div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://nci-data-training.readthedocs.io/en/latest/_notebook/tds/THREDDS_WMS.html?highlight=ereefs#In-this-notebook:">NCI</a></p>
-<ul>
-<li><p><a class="reference external" href="https://nci-data-training.readthedocs.io/en/latest/index.html">examples</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://opus.nci.org.au/display/Help/examples-dask">NCI Dask</a></p>
-<ul>
-<li><p>especially for eReefs models: <code class="docutils literal notranslate"><span class="pre">Dask_13_intensive_calculation_eReef.ipynb</span></code></p></li>
-</ul>
-</li>
+<li><p>A useful overview of the National Computing Infrastructure data collection and services can be found <a class="reference external" href="https://nci-data-training.readthedocs.io/en/latest/_notebook/tds/THREDDS_WMS.html?highlight=ereefs#In-this-notebook:">here</a>. Series of Jupyter notebooks <a class="reference external" href="https://nci-data-training.readthedocs.io/en/latest/index.html">examples</a> are provided.</p></li>
+<li><p><a class="reference external" href="https://opus.nci.org.au/display/Help/examples-dask">NCI Dask</a> themed notebook tutorials demonstrate how to use Dask on data collections hosted at the NCI as well as data extracted from external databases (especially for eReefs models one can look at the following <code class="docutils literal notranslate"><span class="pre">Dask_13_intensive_calculation_eReef.ipynb</span></code> notebook).</p></li>
+<li><p><a class="reference external" href="https://opus.nci.org.au/display/Help/examples-thredds">NCI THREDDS</a> demonstrate how to access data stored on NCI’s THREDDS Data Server using Jupyter notebooks.</p></li>
 </ul>
 </div>
 </div>
@@ -442,6 +509,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../xarray/eReefs_bokeh.html" title="previous page">Interactive Maps</a>
+    <a class='right-next' id="next-link" href="dask_arrays.html" title="next page">Dask Arrays</a>
 
         </div>
         
