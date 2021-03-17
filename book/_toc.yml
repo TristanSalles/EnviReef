@@ -47,4 +47,7 @@
         - file: xarray/eReefs_app
         - file: xarray/eReefs_bokeh
 
+- part: Going further
+  chapters:
+    - file: misc/addson
 #   - file: scientific/tracers
