@@ -3,7 +3,7 @@
 title : Environmental Simulation Modelling
 author: Tristan Salles
 copyright: "2020-2022"  # Copyright year to be placed in the footer
-logo: '_static/logo5.png'
+logo: '_static/logo6.png'
 
 # Launch button settings
 repository:
@@ -19,7 +19,7 @@ execute:
 #######################################################################################
 # HTML-specific settings
 html:
-  favicon                     : '_static/jupyter.ico'
+  favicon                     : '_static/favicon.ico'
   home_page_in_navbar         : false
   use_repository_button: true
   use_issues_button: true
