@@ -32,7 +32,9 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-load_alk = alk.load()
-load_curr = mean_cur.load()
+im_hist = var_mask.to(gv.Image, 
+                      ['longitude', 'latitude']).hist().opts(width=500, height=450, 
+                                                             title=titleName)
+im_hist
 -------------------
 
