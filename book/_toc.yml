@@ -44,8 +44,9 @@
       sections:
         - file: xarray/eReefs_site
         - file: xarray/eReefs_maps
-        - file: xarray/eReefs_app
         - file: xarray/eReefs_bokeh
+        - file: xarray/eReefs_roi
+        - file: xarray/eReefs_app
 
 - part: Going further
   chapters:
