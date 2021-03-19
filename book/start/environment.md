@@ -183,6 +183,7 @@ on your local hard drive:
       - conda-forge
       - pyviz
       - defaults
+      - anaconda
     dependencies:
       - python=3.8    # Python version 3.8
       - sphinx
@@ -199,7 +200,7 @@ on your local hard drive:
       - shapely       # Geometric library
       - cftime        # Time units decoder
       - cartopy       # Geographic plotting toolkit
-      - myst-nb
+      - myst-nb       # Notebook syntax
       - sympy         # Symbolic expression
       - dask          # Parallel processing library
       - hvplot        # Interactive plotting
@@ -208,11 +209,24 @@ on your local hard drive:
       - jupyter-book  # Jupyter book environment
       - basemap       # Mapping package
       - h5py          # Wrapper for HDF5
+      - pymannkendall # Mann-Kendall trend analysis
       - seaborn       # Statistical visualizations
       - pyresample    # Geographic resampling tools
       - statsmodels   # Regression/modeling toolkit
       - zarr          # Array storage library
       - numcodecs     # Compression library used by zarr
+      - siphon        # Remote geoscience data
+      - Pillow        # Python Imaging Library
+      - dask          # Parallel computing in Python
+      - geoviews      # Geo-datasets
+      - parcels       # Particle tracking
+      - python-graphviz
+      - requests
+      - aiohttp
+      - intake
+      - intake-xarray
+      - gcsfs
+      - wget
       - pip:
         - pyproj      # Geographic projections
 
