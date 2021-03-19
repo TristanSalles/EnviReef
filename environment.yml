@@ -39,6 +39,7 @@ dependencies:
   - Pillow        # Python Imaging Library
   - dask          # Parallel computing in Python
   - geoviews      # Geo-datasets
+  - parcels       # Particle tracking
   - python-graphviz
   - requests
   - aiohttp

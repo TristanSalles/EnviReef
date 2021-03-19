@@ -50,6 +50,7 @@
 
 - part: Going further
   chapters:
+    - file: misc/Parcels
     - file: misc/addson
     - file: misc/dask_arrays
 #   - file: scientific/tracers
