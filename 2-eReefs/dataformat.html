@@ -1,0 +1,842 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data formats and access &#8212; Environmental Simulation Modelling</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.c441f2ba0852f4cabcb80105e3a46ae6.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The scientific Python stack" href="../3-scientific/pythonstack.html" />
+    <link rel="prev" title="eReefs model description" href="model.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo6.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Environmental Simulation Modelling</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Get started
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1-start/notebooks.html">
+   Interactive notebooks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1-start/environment.html">
+   Managing environments
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1-start/jupyter.html">
+   Jupyter notebook
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-start/fundamentals.html">
+     Python Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1-start/functions.html">
+     Python Functions and Classes
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Model &amp; dataset
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="model.html">
+   eReefs model description
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data formats and access
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Scientific Python Fundamentals
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3-scientific/pythonstack.html">
+   The scientific Python stack
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3-scientific/numpy.html">
+   Introduction to numpy
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3-scientific/matplotlib.html">
+   Introduction to matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../3-scientific/cartopy.html">
+   Maps in Scientific Python
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-scientific/examples/hydro_maps.html">
+     eReefs dataset maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-scientific/examples/cross_section.html">
+     eReefs dataset cross section
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../3-scientific/examples/loadfct.html">
+     eReefs plotting functions
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Data analysis
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4-pandas/intro.html">
+   Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4-pandas/basic.html">
+   Pandas Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../4-pandas/groupby.html">
+   Pandas: Groupby
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4-pandas/examples/site.html">
+     Comparisons between Reefs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../4-pandas/examples/climvar.html">
+     Climate variability Davies Reef
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Multi-dimensional data
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5-xarray/intro.html">
+   Xarray for multidimensional data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5-xarray/basic.html">
+   Xarray Fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5-xarray/advanced.html">
+   Advanced Xarray
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../5-xarray/tips.html">
+   Xarray Tips and Tricks
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5-xarray/examples/davies.html">
+     Xarray Davies Reef
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5-xarray/examples/maps.html">
+     Xarray maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5-xarray/examples/interactive.html">
+     Interactive maps
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5-xarray/examples/box.html">
+     Box streaming
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5-xarray/examples/app.html">
+     PyViz Application
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Going further
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6-addson/parcels.html">
+   Particles tracking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6-addson/libraries.html">
+   Other libraries of interest
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6-addson/dask.html">
+   Dask example
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/2-eReefs/dataformat.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/TristanSalles/EnviReef"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/TristanSalles/EnviReef/issues/new?title=Issue%20on%20page%20%2F2-eReefs/dataformat.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/TristanSalles/EnviReef/edit/main/book/2-eReefs/dataformat.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TristanSalles/EnviReef/main?urlpath=lab/tree/book/2-eReefs/dataformat.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ereefs-data">
+   eReefs data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-access-ereefs-data">
+     How to access eReefs data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-access">
+   Data Access
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thredds">
+     THREDDS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#thredds-data-server">
+     THREDDS Data Server
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-data-model">
+     Common Data Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#opendap">
+     OPeNDAP
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-file-structure">
+   Data File Structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#netcdf">
+     NetCDF
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-real-example">
+     A real example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ereefs-data-catalogs">
+   eReefs data catalogs
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hosted-by-the-australian-institute-of-marine-science-aims">
+     Hosted by the Australian Institute of Marine Science (AIMS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hosted-on-the-national-computational-infrastructure-nci">
+     Hosted on the National Computational Infrastructure (NCI)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hosted-by-the-bureau-of-meteorology">
+     Hosted by the Bureau of Meteorology
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="data-formats-and-access">
+<span id="data-format"></span><h1>Data formats and access<a class="headerlink" href="#data-formats-and-access" title="Permalink to this headline">¶</a></h1>
+<p>This material is from the <a class="reference external" href="https://ereefs.github.io/about/">eReefs Data Workshop</a> - Great Barrier Reef Marine Park Authority &amp; BOM, and the <a class="reference external" href="https://research.csiro.au/ereefs/">eReefs Research</a> from CSIRO.</p>
+<blockquote>
+<div><p>Now that you’ve got a bit more of a handle on how the eReefs data are generated we’re going to look at how you can access them.</p>
+</div></blockquote>
+<p>To do this we are going to talk briefly about the data files and their structure, then give you an overview of how to access them.</p>
+<div class="important admonition">
+<p class="admonition-title">Key outcomes:</p>
+<p>By the end of this section, you will know that:</p>
+<ul class="simple">
+<li><p>eReefs data uses a <strong>netcdf</strong> file and what that looks like.</p></li>
+<li><p>eReefs data can be accessed via two main ways - the <strong>web data browser</strong> or <strong>Thredds/OpenDAP</strong> protocol.</p></li>
+</ul>
+</div>
+<div class="section" id="ereefs-data">
+<h2>eReefs data<a class="headerlink" href="#ereefs-data" title="Permalink to this headline">¶</a></h2>
+<p>eReefs data is delivered through an interoperable information architecture. The system improves how data is described, discovered and accessed and adopts many of the ‘Linked Data’ principles. To find out more about Linked Data and the Semantic Web, visit <a class="reference external" href="https://www.w3.org/standards/semanticweb/data">https://www.w3.org/standards/semanticweb/data</a> and <a class="reference external" href="http://5stardata.info/en/">http://5stardata.info/en/</a>.</p>
+<div class="section" id="how-to-access-ereefs-data">
+<h3>How to access eReefs data<a class="headerlink" href="#how-to-access-ereefs-data" title="Permalink to this headline">¶</a></h3>
+<p>There are three ways to access eReefs data, each of which is intended for different types of users:</p>
+<div class="note dropdown admonition">
+<p class="admonition-title">Visualisation portal</p>
+<a class="reference internal image-reference" href="../_images/transect.png"><img alt="timeseries" src="../_images/transect.png" style="width: 800px;" /></a>
+<p>The <a class="reference external" href="https://portal.ereefs.info/">Visualisation Portal</a> is the simplest method for most users. It provides access to any dataset which is connected to the eReefs Data Brokering Layer. For more information on how to use the portal, <a class="reference external" href="https://research.csiro.au/ereefs/data-visualisation/">click here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Even though we are not going to use the portal in the course, you might want to try accessing the core data visualisation functionality with the portal following <a class="reference external" href="https://research.csiro.au/ereefs/data-visualisation/#anchor-getting-started">CSIRO provided guide</a>.</p>
+</div>
+<p>The <a class="reference external" href="https://extraction.ereefs.aims.gov.au/extract-data">Time Series Extraction</a> tool from AIMS allows you to extract time series data for the environmental variables and locations of interest from the eReefs models in specific locations.</p>
+<a class="reference internal image-reference" href="../_images/extract.png"><img alt="timeseries" src="../_images/extract.png" style="width: 800px;" /></a>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Data brokering layer API</p>
+<a class="reference internal image-reference" href="../_images/api.png"><img alt="api" src="../_images/api.png" style="width: 800px;" /></a>
+<p>The Data Brokering Layer (DBL) API is a programmatic interface which allows developers and other technical users to discover the data services belonging to each data product. The DBL API is the front end of the <a class="reference external" href="https://research.csiro.au/ereefs/ereefs-data/information-architecture/data-brokering-layer/">Data Brokering Layer</a>, which is a collection of services and infrastructure designed to harvest information from connected Data Provider Nodes. You can access it via this <a class="reference external" href="https://data.ereefs.info">link</a>.</p>
+</div>
+<div class="note dropdown admonition">
+<p class="admonition-title">Direct from source</p>
+<a class="reference internal image-reference" href="../_images/thredds.png"><img alt="thredds" src="../_images/thredds.png" style="width: 800px;" /></a>
+<p>Users can also find direct links to data services by using either the Visualisation Portal or the DBL API. These services can then be directly accessed from their host organisations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Users will tend to use this approach when they want to do something that the portal cannot do? This type of custom data access is the approach that we will be using for this course.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-access">
+<h2>Data Access<a class="headerlink" href="#data-access" title="Permalink to this headline">¶</a></h2>
+<p>Reefs data files are stored on centralised and backed up disk at AIMS, CSIRO and BOM. These data are accessable through a series of tools that allow external users to view, query, and retrieve the data via the internet and the world wide web.</p>
+<div class="section" id="thredds">
+<h3>THREDDS<a class="headerlink" href="#thredds" title="Permalink to this headline">¶</a></h3>
+<p>All of the data access methods for the eReefs data are centralised around <strong>THREDDS</strong> (<em>Thematic Real-time Environmental Distributed Data Services</em>). <strong>THREDDS</strong> is middleware that bridges the gap between data providers and data users and consists of two main areas:</p>
+<ul class="simple">
+<li><p>the <strong>THREDDS</strong> Data Server (TDS) and</p></li>
+<li><p>the <strong>Common Data Model (CDM)/netCDF-Java</strong> library.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>THREDDS</strong> is developed and supported by Unidata, a division of the University Corporation for Atmospheric Research (<a class="reference external" href="http://www2.ucar.edu/">UCAR</a>), and is sponsored by the <a class="reference external" href="http://www.nsf.gov/">National Science Foundation</a>.</p>
+</div>
+</div>
+<div class="section" id="thredds-data-server">
+<h3>THREDDS Data Server<a class="headerlink" href="#thredds-data-server" title="Permalink to this headline">¶</a></h3>
+<p>The THREDDS Data Server (TDS) provides catalog, metadata, and data access services for scientific data. The TDS publishes <a class="reference external" href="https://docs.unidata.ucar.edu/netcdf-java/current/userguide/index.html">THREDDS catalogs</a> that advertise the datasets and services it makes available. These THREDDS catalogs are XML documents that list the datasets and the data access services available for the eReefs system. Catalogs may contain metadata to document details about the datasets.</p>
+<p>The TDS allows users to query the datasets listed in it’s catalogs using several standard data access protocols. The available remote data access protocols for eReefs include OPeNDAP, OGC WCS, OGC WMS, ERDDAP, and HTTP.</p>
+<p>The TDS also supports several dataset collection services including some sophisticated dataset aggregation capabilities. This allows the TDS to aggregate a collection of datasets into a single virtual dataset, greatly simplifying user access to that data collection. For more information see the THREDDS Data Server page.</p>
+</div>
+<div class="section" id="common-data-model">
+<h3>Common Data Model<a class="headerlink" href="#common-data-model" title="Permalink to this headline">¶</a></h3>
+<p>The Common Data Model (CDM) provides data access through the <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf-java/">netCDF-Java API</a> to a variety of data formats (<em>e.g.</em>, netCDF, HDF, GRIB). Layered above the basic data access, the CDM uses the metadata contained in datasets to provide a higher-level interface to geoscience specific features of datasets, in particular, providing geolocation and data subsetting in coordinate space.</p>
+</div>
+<div class="section" id="opendap">
+<h3>OPeNDAP<a class="headerlink" href="#opendap" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://www.opendap.org/">OPeNDAP</a> stands for “Open-source Project for a Network Data Access Protocol”. OPeNDAP is both the name of a non-profit organization and the commonly-used name of a data access protocol which the OPeNDAP organization developed. The OPeNDAP protocol provides a standardised means of requesting and providing data across the World Wide Web. The goal is to allow end users, whoever they may be, to access immediately whatever data they require in a form they can use, all while using applications they already possess and are familiar with. Ultimately, it is hoped, OPeNDAP will be a fundamental component of systems which provide machine-to-machine interoperability with semantic meaning in a highly distributed environment of heterogeneous datasets.</p>
+<p>OPeNDAP allows you to access remote data over the internet using familiar data analysis and visualization packages/clients (i.e., applications able to access remote served data) like:</p>
+<ul class="simple">
+<li><p>GIS</p></li>
+<li><p>Python</p></li>
+<li><p>R</p></li>
+<li><p>Matlab</p></li>
+<li><p>Ferret</p></li>
+<li><p>IDL</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="data-file-structure">
+<h2>Data File Structure<a class="headerlink" href="#data-file-structure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="netcdf">
+<h3>NetCDF<a class="headerlink" href="#netcdf" title="Permalink to this headline">¶</a></h3>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What do NetCDF’s look like?</p>
+<p><strong>NetCDF</strong> is a “self-describing” binary file format that’s used a lot for storing atmospheric and oceanographic data.</p>
+<p>“self-describing” means that each file contains all the metadata to describe itself - <em>e.g.</em> describing the spatial and temporal dimensions of variables, as well as information about units, and what missing values are set to etc. In the beginning it’s a bit of an intimidating format to deal with, but you only need to know a small subset of things to get access to the data they hold.</p>
+</div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">NetCDF files contain dimensions, variables, and attributes:</p>
+<ul class="simple">
+<li><p>A <strong>dimension</strong> is just a name and a size that describes what the shape of the data inside the file is.</p></li>
+<li><p>A <strong>variable</strong> has a name, a type, a list of dimensions, some attributes, and some data (As well as specific attributes attached to specific variables NetCDF files can also have some overall global attributes).</p></li>
+<li><p>An <strong>attribute</strong> has a name, a type, and a value.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="a-real-example">
+<h3>A real example<a class="headerlink" href="#a-real-example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">netcdf</span> <span class="n">A20150521</span><span class="o">.</span><span class="n">P1D</span><span class="o">.</span><span class="n">ANN_MIM_RMP</span> <span class="p">{</span>
+<span class="n">dimensions</span><span class="p">:</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+    <span class="n">lat</span> <span class="o">=</span> <span class="mi">1600</span> <span class="p">;</span>
+    <span class="n">lon</span> <span class="o">=</span> <span class="mi">1400</span> <span class="p">;</span>
+<span class="n">variables</span><span class="p">:</span>
+    <span class="nb">int</span> <span class="n">time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">time</span><span class="p">:</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="p">;</span>
+        <span class="n">time</span><span class="p">:</span><span class="n">standard_name</span> <span class="o">=</span> <span class="s2">&quot;time&quot;</span> <span class="p">;</span>
+        <span class="n">time</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;seconds since 1970-01-01 00:00:00&quot;</span> <span class="p">;</span>
+        <span class="n">time</span><span class="p">:</span><span class="n">calendar</span> <span class="o">=</span> <span class="s2">&quot;gregorian&quot;</span> <span class="p">;</span>
+        <span class="n">time</span><span class="p">:</span><span class="n">axis</span> <span class="o">=</span> <span class="s2">&quot;T&quot;</span> <span class="p">;</span>
+        <span class="n">time</span><span class="p">:</span><span class="n">ioos_category</span> <span class="o">=</span> <span class="s2">&quot;Time&quot;</span> <span class="p">;</span>
+    <span class="nb">float</span> <span class="n">lat</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">lat</span><span class="p">:</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;latitude&quot;</span> <span class="p">;</span>
+        <span class="n">lat</span><span class="p">:</span><span class="n">standard_name</span> <span class="o">=</span> <span class="s2">&quot;latitude&quot;</span> <span class="p">;</span>
+        <span class="n">lat</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;degrees_north&quot;</span> <span class="p">;</span>
+        <span class="n">lat</span><span class="p">:</span><span class="n">axis</span> <span class="o">=</span> <span class="s2">&quot;Y&quot;</span> <span class="p">;</span>
+        <span class="n">lat</span><span class="p">:</span><span class="n">ioos_category</span> <span class="o">=</span> <span class="s2">&quot;Location&quot;</span> <span class="p">;</span>
+    <span class="nb">float</span> <span class="n">lon</span><span class="p">(</span><span class="n">lon</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">lon</span><span class="p">:</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;longitude&quot;</span> <span class="p">;</span>
+        <span class="n">lon</span><span class="p">:</span><span class="n">standard_name</span> <span class="o">=</span> <span class="s2">&quot;longitude&quot;</span> <span class="p">;</span>
+        <span class="n">lon</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;degrees_east&quot;</span> <span class="p">;</span>
+        <span class="n">lon</span><span class="p">:</span><span class="n">axis</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span> <span class="p">;</span>
+        <span class="n">lon</span><span class="p">:</span><span class="n">ioos_category</span> <span class="o">=</span> <span class="s2">&quot;Location&quot;</span> <span class="p">;</span>
+    <span class="nb">float</span> <span class="n">Chl_MIM</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">lon</span><span class="p">)</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">_FillValue</span> <span class="o">=</span> <span class="mf">1.e+20</span><span class="n">f</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">least_significant_digit</span> <span class="o">=</span> <span class="mi">3</span><span class="n">s</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">comment</span> <span class="o">=</span> <span class="s2">&quot;chlorophyll-a concentration, MIM SVDC on Rrs&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">coordinates</span> <span class="o">=</span> <span class="s2">&quot;time lat lon&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">feature_id</span> <span class="o">=</span> <span class="s2">&quot;http://sweet.jpl.nasa.gov/2.2/realmOcean.owl#OceanRegion&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">ioos_category</span> <span class="o">=</span> <span class="s2">&quot;Ocean Color&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">long_name</span> <span class="o">=</span> <span class="s2">&quot;chlorophyll-a concentration, MIM SVDC on Rrs&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">matrix_id</span> <span class="o">=</span> <span class="s2">&quot;http://sweet.jpl.nasa.gov/2.2/matrWater.owl#SeaWater&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">procedure_id</span> <span class="o">=</span> <span class="s2">&quot;matrix_inversion_method_singular_value_decomposition&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">scaledQuantityKind_id</span> <span class="o">=</span> <span class="s2">&quot;http://environment.data.gov.au/water/quality/def/property/chlorophyll_a_concentration&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">standard_name</span> <span class="o">=</span> <span class="s2">&quot;mass_concentration_of_chlorophyll_in_sea_water&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">substanceOrTaxon_id</span> <span class="o">=</span> <span class="s2">&quot;http://environment.data.gov.au/water/quality/def/object/chlorophyll_a&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">unit_id</span> <span class="o">=</span> <span class="s2">&quot;http://environment.data.gov.au/water/quality/def/unit/MicroGramsPerLitre&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">units</span> <span class="o">=</span> <span class="s2">&quot;mg m-3&quot;</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">valid_max</span> <span class="o">=</span> <span class="mf">64.</span><span class="n">f</span> <span class="p">;</span>
+        <span class="n">Chl_MIM</span><span class="p">:</span><span class="n">valid_min</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">f</span> <span class="p">;</span>
+
+        <span class="o">...</span><span class="n">more</span> <span class="n">variables</span> <span class="n">here</span><span class="o">...</span>
+
+<span class="o">//</span> <span class="k">global</span> <span class="n">attributes</span><span class="p">:</span>
+                <span class="p">:</span><span class="n">Conventions</span> <span class="o">=</span> <span class="s2">&quot;CF-1.6&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">Metadata_Conventions</span> <span class="o">=</span> <span class="s2">&quot;Unidata Dataset Discovery v1.0&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">Metadata_Link</span> <span class="o">=</span> <span class="s2">&quot;Currently unavailable&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">keywords</span> <span class="o">=</span> <span class="s2">&quot;EARTH SCIENCE &gt; OCEANS &gt; OCEAN OPTICS&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">keywords_vocabulary</span> <span class="o">=</span> <span class="s2">&quot;NASA Global Change Master Directory (GCMD) Science Keywords&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">standard_name_vocabulary</span> <span class="o">=</span> <span class="s2">&quot;CF-1.6&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">naming_authority</span> <span class="o">=</span> <span class="s2">&quot;au.gov.bom&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">netCDF_version</span> <span class="o">=</span> <span class="s2">&quot;4.1.3 of Aug 10 2011 04:46:23 &quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="nb">id</span> <span class="o">=</span> <span class="s2">&quot;ABOM_EREEFS_MWQ_P1D_GRID_v20130813&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;Marine water quality grids for the Great Barrier Reef region - daily data&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">summary</span> <span class="o">=</span> <span class="s2">&quot;Parameters calculated using the MIM SVDC on Rrs approach as part of the eReefs - Marine Water Quality project - daily data&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">references</span> <span class="o">=</span> <span class="s2">&quot;Brando, Dekker, Park and Schroder, 2012, Adaptive semianalytical inversion of ocean color radiometry in optically complex waters, Applied Optics, v 51, n 15, 2808-2833&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">comment</span> <span class="o">=</span> <span class="s2">&quot;NetCDF file contains water quality grids calculated using the MIM SVDC on Rrs approach for daily data&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">processing_level</span> <span class="o">=</span> <span class="s2">&quot;Automatically generated environmental data record with quality level indicator (EDR)&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">cdm_data_type</span> <span class="o">=</span> <span class="s2">&quot;grid&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">spatial_resolution</span> <span class="o">=</span> <span class="mf">0.01</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lat_units</span> <span class="o">=</span> <span class="s2">&quot;degrees_N&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lat_resolution</span> <span class="o">=</span> <span class="mf">0.01</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lat_min</span> <span class="o">=</span> <span class="o">-</span><span class="mf">25.495</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lat_max</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.505</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lon_units</span> <span class="o">=</span> <span class="s2">&quot;degrees_E&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lon_resolution</span> <span class="o">=</span> <span class="mf">0.01</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lon_min</span> <span class="o">=</span> <span class="mf">142.005</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">geospatial_lon_max</span> <span class="o">=</span> <span class="mf">155.995</span><span class="n">f</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">start_time</span> <span class="o">=</span> <span class="s2">&quot;20150521T042008Z&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">stop_time</span> <span class="o">=</span> <span class="s2">&quot;20150521T042506Z&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">time_coverage_duration</span> <span class="o">=</span> <span class="s2">&quot;P1D&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">time_coverage_resolution</span> <span class="o">=</span> <span class="s2">&quot;P1D&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">institution</span> <span class="o">=</span> <span class="s2">&quot;ABOM&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;eReefs - Marine Water Quality&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">creator_name</span> <span class="o">=</span> <span class="s2">&quot;National Plan for Environmental Information&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">creator_email</span> <span class="o">=</span> <span class="s2">&quot;ereefs_support@bom.gov.au&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">creator_url</span> <span class="o">=</span> <span class="s2">&quot;http://www.bom.gov.au/environment/&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">acknowledgment</span> <span class="o">=</span> <span class="s2">&quot;Any use of these data requires the following acknowledgment: </span><span class="se">\&quot;</span><span class="s2">Marine water quality indices produced by the Australian Bureau of Meteorology as a contribution to eReefs - a collaboration between the Great Barrier Reef Foundation, Australian Government | Bureau of Meteorology, Commonwealth Scientific and Industrial Research Organisation, Australian Government | Australian Institute of Marine Science and the Queensland Government.</span><span class="se">\&quot;</span><span class="s2"> Data are acquired from NASA spacecraft by the Bureau, Australian Institute of Marine Science, and the Commonwealth Scientific and Industrial Research Organization.&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">license</span> <span class="o">=</span> <span class="s2">&quot;Copyright for any data supplied by the Bureau of Meteorology is held in the Commonwealth of Australia and the purchaser shall give acknowledgement of the source in reference to the data. Apart from dealings under the Copyright Act 1968, the purchaser shall not reproduce (electronically or otherwise), modify or supply (by sale or otherwise) these data without written permission from the supplier.&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">disclaimer</span> <span class="o">=</span> <span class="s2">&quot;You accept all risks and responsibility for losses, damages, costs and other consequences resulting directly or indirectly from using Bureau of Meteorology data and any information or material available from it. To the maximum permitted by law, the Bureau of Meteorology excludes all liability to any person arising directly or indirectly from using this data and any information or material available from it. The data may not be accurate, current or complete&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">history</span> <span class="o">=</span> <span class="s2">&quot;mwq_L3_processor using pyresample (EDR)&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;A2015141023000.SEADAS.hdf, A2015141023000.ANN.hdf, A2015141023000.ANN_MIM.hdf, A2015141023500.SEADAS.hdf, A2015141023500.ANN.hdf, A2015141023500.ANN_MIM.hdf, A2015141024000.SEADAS.hdf, A2015141024000.ANN.hdf, A2015141024000.ANN_MIM.hdf, A2015141040500.SEADAS.hdf, A2015141040500.ANN.hdf, A2015141040500.ANN_MIM.hdf, A2015141041000.SEADAS.hdf, A2015141041000.ANN.hdf, A2015141041000.ANN_MIM.hdf, A2015141041500.SEADAS.hdf, A2015141041500.ANN.hdf, A2015141041500.ANN_MIM.hdf, A2015141042000.SEADAS.hdf, A2015141042000.ANN.hdf, A2015141042000.ANN_MIM.hdf&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">uuid</span> <span class="o">=</span> <span class="s2">&quot;def05096-0003-11e5-b7b0-001517d04ac5&quot;</span> <span class="p">;</span>
+                <span class="p">:</span><span class="n">date_created</span> <span class="o">=</span> <span class="s2">&quot;20150521T215352Z&quot;</span> <span class="p">;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ereefs-data-catalogs">
+<h2>eReefs data catalogs<a class="headerlink" href="#ereefs-data-catalogs" title="Permalink to this headline">¶</a></h2>
+<p>There are many places where you could find eReefs dataset. Here is a non-exhaustive list of some of the servers we will be using during the course.</p>
+<div class="section" id="hosted-by-the-australian-institute-of-marine-science-aims">
+<h3>Hosted by the Australian Institute of Marine Science (AIMS)<a class="headerlink" href="#hosted-by-the-australian-institute-of-marine-science-aims" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/catalog.html">AIMS eReefs THREDDS server</a> provides access via OPeNDAP for all NetCDF files produced by the AIMS eReefs system. The AIMS eReefs THREDDS service contains regridded and aggregated format of the eReefs model output.</p>
+<div class="myclass figure align-default" id="fig-target7">
+<a class="reference internal image-reference" href="../_images/grids.jpg"><img alt="timeseries" src="../_images/grids.jpg" style="width: 600px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Different time span and sample rate for eReefs dataset</span><a class="headerlink" href="#fig-target7" title="Permalink to this image">¶</a></p>
+</div>
+<p>The hydrodynamics is modelled at 1 km and 4 km resolution and is available as hourly data.
+The biogeochemical model is available at 4 km resolution and has daily (midday sample) data available.</p>
+<p><strong>Hydrodynamic:</strong></p>
+<ul class="simple">
+<li><p>1km December 2014 - hourly</p></li>
+<li><p>4km September 2010 - hourly</p></li>
+</ul>
+<p><strong>Biogeochemical:</strong></p>
+<ul class="simple">
+<li><p>4km Jan 2015 - daily</p></li>
+</ul>
+<p>Following the following steps will help you find the OpenDAP URL of your dataset. Same approach will work with the 2 others servers described below (NCI and BOM).</p>
+<ol class="simple">
+<li><p>Open the <a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/catalog.html">AIMS eReefs THREDDS server</a> website and select the link Data derived from the eReefs model.</p></li>
+<li><p>On the next page select the link to the required model</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/s3catalogue/aims-ereefs-public-prod/derived/ncaggregate/ereefs/GBR4_H2p0_B3p1_Cq3P_Dhnd/catalog.html">GBR4_H2p0_B3p1_Cq3P_Dhnd</a>: eReefs BioGeoChemical model version 3.1 (4 km resolution) - source catchments using Pre-Industrial catchment conditions</p></li>
+<li><p><a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/s3catalogue/aims-ereefs-public-prod/derived/ncaggregate/ereefs/GBR4_H2p0_B3p1_Cq3R_Dhnd/catalog.html">GBR4_H2p0_B3p1_Cq3R_Dhnd</a>: eReefs BioGeoChemical model version 3.1 (4 km resolution) - source catchments using Hindcast catchment conditions (anthropogenic loads reduced according to the percentage reductions of DIN, PN, PP and TSS specified in the <a class="reference external" href="https://www.reefplan.qld.gov.au/__data/assets/pdf_file/0017/46115/reef-2050-water-quality-improvement-plan-2017-22.pdf">Reef 2050 Water Quality Improvement Plan 2017-2022</a>)</p></li>
+<li><p><a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/s3catalogue/aims-ereefs-public-prod/derived/ncaggregate/ereefs/GBR4_H2p0_B3p1_Cq3b_Dhnd/catalog.html">GBR4_H2p0_B3p1_Cq3b_Dhnd</a>: eReefs BioGeoChemical model version 3.1 (4 km resolution) - source catchments using Baseline catchment conditions.</p></li>
+<li><p><a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/s3catalogue/aims-ereefs-public-prod/derived/ncaggregate/ereefs/gbr1_2.0/catalog.html">gbr1_2.0</a>: eReefs Hydrodynamic model version 2.0 (1 km resolution)</p></li>
+<li><p><a class="reference external" href="http://thredds.ereefs.aims.gov.au/thredds/s3catalogue/aims-ereefs-public-prod/derived/ncaggregate/ereefs/gbr4_v2/catalog.html">gbr4_v2</a>: Reefs Hydrodynamic model version 2.0 (4 km resolution)</p></li>
+</ul>
+</li>
+<li><p>Each model has its derived output grouped into folders with the names indicating the time steps and aggregation in a file. For example a folder with the name”daily-monthly” contains “monthly” files with “daily” data while a folder with the name “annual-annual” contains “annual” files with “annual” data. Select the link to the folder of interest.</p></li>
+<li><p>In the list of NetCDF files, select the one of interest. The file names describe the data they contain with the structure “EREEFS_organisations_model_timestep-aggregation-date.nc”. For example the file “EREEFS_AIMS-CSIRO_gbr4_v2_hydro_daily-monthly-2010-09.nc” can be broken down into:</p>
+<ul class="simple">
+<li><p>“AIMS-CSIRO” := Reference to the organisations AIMS and CSIRO</p></li>
+<li><p>“gbr4_v2_hydro” := eReefs Hydrodynamic model version 2.0 (4 km resolution)</p></li>
+<li><p>“daily” := “daily” data</p></li>
+<li><p>“monthly” := one month of data</p></li>
+<li><p>“2010-09” := data for September 2010</p></li>
+</ul>
+</li>
+<li><p>On the single file page in the section “Access” click the link “OPENDAP”</p></li>
+<li><p>On the next page copy the value of the input field “Data URL”.</p></li>
+</ol>
+</div>
+<div class="section" id="hosted-on-the-national-computational-infrastructure-nci">
+<h3>Hosted on the National Computational Infrastructure (NCI)<a class="headerlink" href="#hosted-on-the-national-computational-infrastructure-nci" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://research.csiro.au/ereefs/models/model-outputs/access-to-raw-model-output/"><strong>Summary table of the latest model simulations available on the eReefs visualization portal and NCI.</strong></a></p>
+<p>You can also visit the NCI catalog <a class="reference external" href="http://dapds00.nci.org.au/thredds/catalogs/fx3/catalog.html"><strong>here</strong></a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://dapds00.nci.org.au/thredds/catalog/fx3/gbr4_bgc_GBR4_H2p0_B3p0_Chyd_Dcrt/catalog.html">For long simulations with consistent forcing (up to 2018-10)</a></p></li>
+<li><p><a class="reference external" href="http://dapds00.nci.org.au/thredds/catalog/fx3/gbr1_bgc_924/catalog.html">For the most uptodate (and in 1 km)</a></p></li>
+</ul>
+<p>More information about the different models are available from this <a class="reference external" href="https://regional-models.ereefs.info/thredds/catalog/catalog.html">link</a>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Biogeochemical simulation naming protocol:</p>
+<p>All simulations from 2017 onwards have the following naming structure:</p>
+<p><strong>GBRg_Hhhh_Bbbb_Cccc_Dddd</strong></p>
+<p>where:</p>
+<ul class="simple">
+<li><p>GBRg  – Model grid with g = approximate grid resolution in kilometres.</p></li>
+<li><p>Hhhh  – Hydrodynamic model, hhh = model version.</p></li>
+<li><p>Bbbb  – Biogeochemical model, bbb = model version.</p></li>
+<li><p>Cccc  – Catchment model, ccc = load specification.</p></li>
+</ul>
+<p>For the full naming convention visit this <a class="reference external" href="https://research.csiro.au/ereefs/models/models-about/biogeochemical-simulation-naming-protocol/">page</a>.</p>
+</div>
+</div>
+<div class="section" id="hosted-by-the-bureau-of-meteorology">
+<h3>Hosted by the Bureau of Meteorology<a class="headerlink" href="#hosted-by-the-bureau-of-meteorology" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="http://ereeftds.bom.gov.au/ereefs/tds/catalogs/ereefs_data.html">ereeftds.bom.gov.au</a> is another place where additional dataset and derived products could be found such as:</p>
+<ul class="simple">
+<li><p>Catchment modelling</p></li>
+<li><p>Monitoring water quality program output</p></li>
+<li><p>Reef temperature</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./2-eReefs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="model.html" title="previous page">eReefs model description</a>
+    <a class='right-next' id="next-link" href="../3-scientific/pythonstack.html" title="next page">The scientific Python stack</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Tristan Salles<br/>
+        
+            &copy; Copyright 2020-2022.<br/>
+          <div class="extra_footer">
+            <p>
+<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+  <img align="right" class="margin" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" width="88px">
+</a>
+These lecture notes and exercises are licensed under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International (CC BY 4.0) license</a>.
+<br>
+&copy; Copyright 2020-2022.
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
