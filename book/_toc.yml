@@ -3,54 +3,53 @@
 
 - part: Get started
   chapters:
-    - file: start/notebooks_how_to
-    - file: start/environment
-    - file: start/getting_started_with_notebooks
+    - file: 1-start/notebooks
+    - file: 1-start/environment
+    - file: 1-start/jupyter
       sections:
-        - file: start/python_fundamentals
-        - file: start/functions_classes
+        - file: 1-start/fundamentals
+        - file: 1-start/functions
 
 - part: Model & dataset
   chapters:
-    - file: eReefs/model
-    - file: eReefs/dataformat
+    - file: 2-eReefs/model
+    - file: 2-eReefs/dataformat
 
 - part: Scientific Python Fundamentals
   chapters:
-    - file: scientific/pythonstack
-    - file: scientific/numpy
-    - file: scientific/matplotlib
-    - file: scientific/cartopy
+    - file: 3-scientific/pythonstack
+    - file: 3-scientific/numpy
+    - file: 3-scientific/matplotlib
+    - file: 3-scientific/cartopy
       sections:
-        - file: examples/hydro_maps
-        - file: examples/cross_section
-        - file: examples/loadfct
+        - file: 3-scientific/examples/hydro_maps
+        - file: 3-scientific/examples/cross_section
+        - file: 3-scientific/examples/loadfct
 
 - part: Data analysis
   chapters:
-    - file: pandas/pandas_intro
-    - file: pandas/basic_pandas
-    - file: pandas/pandas_groupby
+    - file: 4-pandas/intro
+    - file: 4-pandas/basic
+    - file: 4-pandas/groupby
       sections:
-        - file: pandas/site
-        - file: pandas/climvar
+        - file: 4-pandas/examples/site
+        - file: 4-pandas/examples/climvar
 
 - part: Multi-dimensional data
   chapters:
-    - file: xarray/xarray_intro
-    - file: xarray/xarray
-    - file: xarray/xarray-part2
-    - file: xarray/xarray_tips_and_tricks
+    - file: 5-xarray/intro
+    - file: 5-xarray/basic
+    - file: 5-xarray/advanced
+    - file: 5-xarray/tips
       sections:
-        - file: xarray/eReefs_site
-        - file: xarray/eReefs_maps
-        - file: xarray/eReefs_bokeh
-        - file: xarray/eReefs_roi
-        - file: xarray/eReefs_app
+        - file: 5-xarray/examples/davies
+        - file: 5-xarray/examples/maps
+        - file: 5-xarray/examples/interactive
+        - file: 5-xarray/examples/box
+        - file: 5-xarray/examples/app
 
 - part: Going further
   chapters:
-    - file: misc/Parcels
-    - file: misc/addson
-    - file: misc/dask_arrays
-#   - file: scientific/tracers
+    - file: 6-addson/parcels
+    - file: 6-addson/libraries
+    - file: 6-addson/dask
