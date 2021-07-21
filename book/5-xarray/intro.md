@@ -12,7 +12,7 @@ where $x$ is longitude, $y$ is latitude, and $t$ is time.
 
 The point of xarray is to provide Pandas-level convenience for working with this type of data. 
 
-![xarray data model](https://github.com/pydata/xarray/raw/master/doc/_static/dataset-diagram.png)
+![xarray data model](http://xarray.pydata.org/en/stable/_images/dataset-diagram.png)
 
 ## Learning Goals for Xarray
 
