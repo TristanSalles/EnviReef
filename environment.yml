@@ -47,6 +47,7 @@ dependencies:
   - intake-xarray
   - gcsfs
   - wget
+  - rise
   - pip:
     - pyproj      # Geographic projections
 
