@@ -15,7 +15,7 @@ dependencies:
   - numpy         # N-d array and numerics
   - scipy         # Common math/stats/science functions
   - scikit-learn  # Machine learning library
-  - scikit-image  # Image processing routines
+  #- scikit-image  # Image processing routines
   - geopandas     # Labeled array library for geosciences
   - shapely       # Geometric library
   - cftime        # Time units decoder
@@ -33,18 +33,18 @@ dependencies:
   - seaborn       # Statistical visualizations
   - pyresample    # Geographic resampling tools
   - statsmodels   # Regression/modeling toolkit
-  - zarr          # Array storage library
+  #- zarr          # Array storage library
   - numcodecs     # Compression library used by zarr
-  - siphon        # Remote geoscience data
+  #- siphon        # Remote geoscience data
   - Pillow        # Python Imaging Library
-  - dask          # Parallel computing in Python
+  #- dask          # Parallel computing in Python
   - geoviews      # Geo-datasets
   - parcels       # Particle tracking
   - python-graphviz
   - requests
-  - aiohttp
-  - intake
-  - intake-xarray
+  # - aiohttp
+  #- intake
+  #- intake-xarray
   - gcsfs
   - wget
   - pip:
