@@ -4,7 +4,7 @@ Lecture notes of the Environmental Science master unit [ENVI5809](https://www.sy
 
 **The course is available from the following [Jupyter-Book](https://tristansalles.github.io/EnviReef/welcome.html).**
 
-This lecture is tailored for a semester-long class, but these notes might also be of interest to other (envi-)scientists wanting to learn how to query, analyse and visualise scientific dataset. 
+This lecture is tailored for a semester-long class, but these notes might also be of interest to other (envi-) scientists wanting to learn how to query, analyse and visualise scientific dataset. 
 
 ## Usage
 
