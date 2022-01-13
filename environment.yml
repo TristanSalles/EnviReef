@@ -16,37 +16,37 @@ dependencies:
   - scipy         # Common math/stats/science functions
   - scikit-learn  # Machine learning library
   #- scikit-image  # Image processing routines
-  - geopandas     # Labeled array library for geosciences
-  - shapely       # Geometric library
-  - cftime        # Time units decoder
-  - cartopy       # Geographic plotting toolkit
-  - myst-nb       # Notebook syntax
-  - sympy         # Symbolic expression
-  - dask          # Parallel processing library
-  - hvplot        # Interactive plotting
-  - cmocean       # Colormaps for oceanography
+#   - geopandas     # Labeled array library for geosciences
+#   - shapely       # Geometric library
+#   - cftime        # Time units decoder
+#   - cartopy       # Geographic plotting toolkit
+#   - myst-nb       # Notebook syntax
+#   - sympy         # Symbolic expression
+#   - dask          # Parallel processing library
+#   - hvplot        # Interactive plotting
+#   - cmocean       # Colormaps for oceanography
   - jupyterlab    # Jupyter Lab environment
   - jupyter-book  # Jupyter book environment
-  - basemap       # Mapping package
-  - h5py          # Wrapper for HDF5
-  - pymannkendall # Mann-Kendall trend analysis
-  - seaborn       # Statistical visualizations
-  - pyresample    # Geographic resampling tools
-  - statsmodels   # Regression/modeling toolkit
+#   - basemap       # Mapping package
+#   - h5py          # Wrapper for HDF5
+#   - pymannkendall # Mann-Kendall trend analysis
+#   - seaborn       # Statistical visualizations
+#   - pyresample    # Geographic resampling tools
+#   - statsmodels   # Regression/modeling toolkit
   #- zarr          # Array storage library
-  - numcodecs     # Compression library used by zarr
-  #- siphon        # Remote geoscience data
-  - Pillow        # Python Imaging Library
-  #- dask          # Parallel computing in Python
-  - geoviews      # Geo-datasets
-  - parcels       # Particle tracking
-  - python-graphviz
-  - requests
-  # - aiohttp
-  #- intake
-  #- intake-xarray
-  - gcsfs
-  - wget
+#   - numcodecs     # Compression library used by zarr
+#   #- siphon        # Remote geoscience data
+#   - Pillow        # Python Imaging Library
+#   #- dask          # Parallel computing in Python
+#   - geoviews      # Geo-datasets
+#   - parcels       # Particle tracking
+#   - python-graphviz
+#   - requests
+#   # - aiohttp
+#   #- intake
+#   #- intake-xarray
+#   - gcsfs
+#   - wget
   - pip:
     - pyproj      # Geographic projections
 
