@@ -1,6 +1,6 @@
 # Environmental Simulation Modelling
 
-Lecture notes of the Environmental Science master unit [ENVI5809](https://www.sydney.edu.au/courses/units-of-study/2021/envi/envi5809.html), taught to 2nd semester students at the University of Sydney.
+Lecture notes of the Environmental Science master unit [ENVI5809](https://www.sydney.edu.au/courses/units-of-study/2022/envi/envi5809.html), taught to 2nd semester students at the University of Sydney.
 
 **The course is available from the following [Jupyter-Book](https://tristansalles.github.io/EnviReef/welcome.html).**
 
